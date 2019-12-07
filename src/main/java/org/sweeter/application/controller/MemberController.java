@@ -19,9 +19,9 @@ public class MemberController {
 
 	
 	@PostMapping("/login")
-	public String login(Member user) {
-		Member logInUser = memberService.login(user);
-		log.info(logInUser);
+	public String login(Member member) {
+		Member loginMember = memberService.login(member);
+		log.info(loginMember);
 		
 		
 		return "index";
