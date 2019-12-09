@@ -33,7 +33,8 @@ CREATE TABLE post(
 	writedate DATE default sysdate,
 	modifydate DATE default sysdate,
 	content VARCHAR2(1000) NOT NULL,
-	FOREIGN KEY (category) REFERENCES category(id)
+	FOREIGN KEY (category) REFERENCES category(id),
+	FOREIGN KEY (writer) REFERENCES member(id)
 );
 
 INSERT INTO post(title, category, writer, content) VALUES('title1',1,'user1','content1');

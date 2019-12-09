@@ -120,8 +120,7 @@
 		src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<script src="/resources/js/userAjax.js"></script>
 	<script>
-		/* $("#loginBtn").on("click", login); */
-		$("#registerBtn").on("click", register);
+		
 	</script>
 </body>
 </html>

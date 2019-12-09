@@ -31,4 +31,15 @@ public class MemberServiceImpl implements MemberService {
 		memberMapper.insertMember(member);
 	}
 	
+	@Override
+	public boolean registerCheck(String id) {
+		Member member = memberMapper.getMemberById(id);
+		boolean result = true;
+		
+		if(member == null) {
+			result = false;
+		}
+		
+		return result;
+	}
 }

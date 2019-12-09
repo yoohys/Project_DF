@@ -8,4 +8,5 @@ public interface MemberService {
 	List<Member> getAll();
 	Member login(Member user);
 	void register(Member member);
+	boolean registerCheck(String id);
 }
