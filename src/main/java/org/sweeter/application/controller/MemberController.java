@@ -24,24 +24,28 @@ public class MemberController {
 
 	
 	@PostMapping("/login")
-	public String login(Member member) {
+	public ModelAndView login(Member member) {
+		ModelAndView mav = new ModelAndView();
+		//아이디와 암호를 통해 유저 정보를 가져옴
 		Member loginMember = memberService.login(member);
 		log.info(loginMember);
 		
+		//가져온 정보가 null일 경우 로그인 실패 - 로그인 페이지로 리다이렉트
+		if(loginMember == null) {
+			mav.setViewName("/members/login");
+		}
 		
-		return "index";
+		return mav;
 	}
 	
 	@PostMapping("/register")
 	public ModelAndView register(Member member) {
 		ModelAndView mav = new ModelAndView();
-		//DB에 회훤가입한 유저 정보 저장
+		//DB에 회훤가입한 유저 정보 저장 후 메인페이지로 이동
 		log.info(member);
 		memberService.register(member);
-		//세션에 회원정보 저장 후 메인페이지 이동
-		
-		
 		mav.setViewName("index");
+		
 		return mav;
 	}
 	
