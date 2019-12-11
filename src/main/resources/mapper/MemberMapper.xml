@@ -4,12 +4,16 @@
 
 <mapper
 	namespace="org.sweeter.application.model.mapper.MemberMapper">
+	<!-- CREATE -->
 	<insert id="insertMember">
 		INSERT INTO member values(#{id}, #{pw}, #{name}, #{email}, #{tel})
 	</insert>
+	
+	<!-- READ -->
 	<select id="getAllMembers" resultType="org.sweeter.application.model.dto.Member">
 		SELECT * FROM member
 	</select>
+	
 	
 	<select id="getMemberById" resultType="org.sweeter.application.model.dto.Member">
 		SELECT * FROM member WHERE id = #{id}
@@ -18,4 +22,9 @@
 	<select id="getMemberByIdAndPw" resultType="org.sweeter.application.model.dto.Member">
 		SELECT * FROM member WHERE id = #{id} AND pw = #{pw}
 	</select>
+	
+	<!-- UPDATE -->
+	
+	
+	<!-- DELETE -->
 </mapper>
