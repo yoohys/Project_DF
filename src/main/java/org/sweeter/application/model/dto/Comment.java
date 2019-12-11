@@ -12,5 +12,5 @@ public class Comment {
 	private Date writeDate;
 	private Date modifyDate;
 	private String content;
-	private int post;
+	private Post post;
 }
