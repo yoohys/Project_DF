@@ -6,11 +6,19 @@ function checkEmpty(){
 	var name = $('input[name="name"]').val();
 	var email = $('input[name="email"]').val();
 	
-	var info = [id,pw,name,email];
+	var info = {
+			id : id,
+			pw : pw,
+			name: name,
+			email: email
+	};
 	
-	for(var i = 0 ; i<info.length; i++ ){
-		if(info[i]==''){
-			alert("필수항목을 입력 해주십시오");
+	var keys = Object.keys(info);
+	console.log(keys);
+	
+	for(var i = 0 ; i<keys.length; i++ ){
+		if(info[keys[i]]==''){
+			alert(keys[i] + "가 비어있습니다.");
 			return true;
 		}
 		
