@@ -8,9 +8,9 @@ import lombok.Data;
 public class Comment {
 	
 	private int id;
-	private String writer;
+	private Member writer;
 	private Date writeDate;
 	private Date modifyDate;
 	private String content;
-	private int post;
+	private Post post;
 }

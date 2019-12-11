@@ -6,7 +6,7 @@ import lombok.Data;
 
 @Data
 public class Post {
-	private int id;
+	private Member id;
 	private String title;
 	private Member writer;
 	private Date writeDate;
