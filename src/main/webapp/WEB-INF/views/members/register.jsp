@@ -9,7 +9,9 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<%@include file="../includes/navigation.jspf"%>
 	<div class="container">
+
 	<%
 		Member member = (Member)session.getAttribute("user");
 	%>
@@ -54,10 +56,10 @@
 		src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<script src="/resources/js/register.js"></script>
 	<script>
-		$('button[type="submit"]').on("click", function(e){
+		$('button[type="submit"]').on("click", function(e) {
 			e.preventDefault();
-			
-			if(!checkEmpty()){
+
+			if (!checkEmpty()) {
 				register();
 			}
 		});
