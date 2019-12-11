@@ -8,6 +8,7 @@
 <link href="/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
+	
 	<div class="jumbotron text-center" style="margin-bottom: 0">
 		<h1>DogFoot</h1>
 	</div>
@@ -69,7 +70,7 @@
 				<table class="table table-hover">
 					<tbody>
 						<tr>
-							<td>안녕하세요 :)</td>
+							<td>안녕하세요 :)456456456456456456654</td>
 <!-- 							512354646546123213123 -->
 						</tr>
 						<tr>
