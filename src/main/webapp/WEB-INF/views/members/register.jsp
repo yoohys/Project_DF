@@ -52,6 +52,7 @@
 	<script>
 		$('button[type="submit"]').on("click", function(e){
 			e.preventDefault();
+			
 			if(!checkEmpty()){
 				register();
 			}
