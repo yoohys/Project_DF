@@ -1,20 +1,13 @@
 package org.sweeter.application.controller;
 
-
+import java.security.Provider.Service;
 import java.util.HashMap;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
-
-import org.apache.catalina.startup.UserConfig;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.sweeter.application.model.dto.Member;
@@ -31,7 +24,7 @@ public class MemberController {
 
 	
 	@PostMapping("/login")
-	public ModelAndView login(Member member,HttpSession session) {
+	public ModelAndView login(Member member) {
 		ModelAndView mav = new ModelAndView();
 		//아이디와 암호를 통해 유저 정보를 가져옴
 		Member loginMember = memberService.login(member);
@@ -40,17 +33,10 @@ public class MemberController {
 		//가져온 정보가 null일 경우 로그인 실패 - 로그인 페이지로 리다이렉트
 		if(loginMember == null) {
 			mav.setViewName("/members/login");
-		}else {
-			//세션 설정
-			session.setAttribute("user", loginMember);
-			mav.setViewName("/");
 		}
 		
-
 		return mav;
 	}
-	
-	
 	
 	@PostMapping("/register")
 	public ModelAndView register(Member member) {
@@ -71,9 +57,4 @@ public class MemberController {
 		existResult.put("result", isExist);
 		return existResult;
 	}
-	
-	
-	
-
-	
 }
