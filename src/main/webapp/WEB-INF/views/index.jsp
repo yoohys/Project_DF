@@ -1,3 +1,4 @@
+<%@page import="org.sweeter.application.model.dto.Member"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -8,11 +9,13 @@
 <link href="/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-	
+	<%
+		Member member = (Member)session.getAttribute("member");
+	%>
 	<div class="jumbotron text-center" style="margin-bottom: 0">
-		<h1>DogFoot</h1>
+		<h1>DogFoot <%=member %></h1>
 	</div>
-
+	
 	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
 		<a class="navbar-brand" href="/">DF</a>
 		
@@ -25,7 +28,7 @@
 			</ul>
 			
 			<div class="float-right">
-				<a class="btn btn-primary" href="#">로그인</a>
+				<a class="btn btn-primary" href="/members/login">로그인</a>
 				<a class="btn btn-light" href="/members/register">회원가입</a>
 			</div>
 		</div>
@@ -107,8 +110,8 @@
 					</tbody>
 				</table>
 			</div>
-		</div>asds
-	</div>하하하
+		</div>
+	</div>
 
 	<div class="jumbotron text-center" style="margin-bottom: 0">
 		<p>Footer</p>
