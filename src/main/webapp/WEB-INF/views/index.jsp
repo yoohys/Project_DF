@@ -14,7 +14,7 @@
 			<table class="table table-hover">
 				<thead>
 					<tr>
-						<th>no</th>
+						<th>no</th>123123
 						<th>title</th>
 						<th>writer</th>
 						<th>date</th>
