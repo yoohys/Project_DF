@@ -4,5 +4,5 @@ import lombok.Data;
 
 @Data
 public class Reporter {
-	private String id;
+	private Member id;
 }
