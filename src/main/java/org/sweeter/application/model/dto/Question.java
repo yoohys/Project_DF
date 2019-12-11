@@ -8,7 +8,7 @@ import lombok.Data;
 public class Question {
 	private int id;
 	private String title;
-	private String writer;
+	private Member writer;
 	private Date writeDate;
 	private Date modifyDate;
 	private String content;

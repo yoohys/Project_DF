@@ -7,10 +7,10 @@ import lombok.Data;
 @Data
 public class Answer {
 	private int id;
-	private String writer;
+	private Member writer;
 	private Date writeDate;
 	private Date modifyDate;
 	private String content;
-	private int questionId;
+	private Question questionId;
 	
 }
