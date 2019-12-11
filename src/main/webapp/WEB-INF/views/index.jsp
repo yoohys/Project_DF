@@ -25,7 +25,7 @@
 			</ul>
 			
 			<div class="float-right">
-				<a class="btn btn-primary" href="#">로그인</a>
+				<a class="btn btn-primary" href="members/login">로그인</a>
 				<a class="btn btn-light" href="/members/register">회원가입</a>
 			</div>
 		</div>
