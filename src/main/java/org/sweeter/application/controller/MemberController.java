@@ -1,7 +1,10 @@
 package org.sweeter.application.controller;
 
-import java.security.Provider.Service;
+
 import java.util.HashMap;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,8 +26,8 @@ public class MemberController {
 	MemberService memberService;
 
 	
-	@PostMapping("/login")
-	public ModelAndView login(Member member) {
+	@PostMapping("/signin")
+	public ModelAndView login(Member member, HttpServletRequest req) {
 		ModelAndView mav = new ModelAndView();
 		//아이디와 암호를 통해 유저 정보를 가져옴
 		Member loginMember = memberService.login(member);
@@ -33,10 +36,17 @@ public class MemberController {
 		//가져온 정보가 null일 경우 로그인 실패 - 로그인 페이지로 리다이렉트
 		if(loginMember == null) {
 			mav.setViewName("/members/login");
+		}else {
+			//세션 설정 후 메인 페이지로 이동
+			HttpSession session = req.getSession();
+			session.setAttribute("user", loginMember);
+			mav.setViewName("index");
 		}
-		
+
 		return mav;
 	}
+	
+	
 	
 	@PostMapping("/register")
 	public ModelAndView register(Member member) {
@@ -57,4 +67,9 @@ public class MemberController {
 		existResult.put("result", isExist);
 		return existResult;
 	}
+	
+	
+	
+
+	
 }
