@@ -7,11 +7,13 @@ CREATE TABLE member(
 );
 
 CREATE TABLE reporter(
-    id VARCHAR2(40) PRIMARY KEY
+    member VARCHAR2(40) PRIMARY KEY,
+    FOREIGN KEY (member) REFERENCES member(id)
 );
 
 CREATE TABLE enterprise(
-    id VARCHAR2(40) PRIMARY KEY
+    member VARCHAR2(40) PRIMARY KEY,
+    FOREIGN KEY (member) REFERENCES member(id)
 );
 
 CREATE TABLE category(
