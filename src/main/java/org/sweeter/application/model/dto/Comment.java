@@ -6,7 +6,6 @@ import lombok.Data;
 
 @Data
 public class Comment {
-	
 	private int id;
 	private Member writer;
 	private Date writeDate;
