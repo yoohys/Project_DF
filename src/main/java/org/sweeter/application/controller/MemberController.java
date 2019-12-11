@@ -6,15 +6,11 @@ import java.util.HashMap;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.sweeter.application.model.dto.Member;
@@ -30,7 +26,6 @@ public class MemberController {
 	MemberService memberService;
 
 	
-
 	@PostMapping("/signin")
 	public ModelAndView login(Member member, HttpServletRequest req) {
 		ModelAndView mav = new ModelAndView();
@@ -42,15 +37,11 @@ public class MemberController {
 		if(loginMember == null) {
 			mav.setViewName("/members/login");
 		}else {
-			//세션 설정
-			session.setAttribute("user", loginMember);
-			mav.setViewName("/");
 			//세션 설정 후 메인 페이지로 이동
 			HttpSession session = req.getSession();
 			session.setAttribute("user", loginMember);
 			mav.setViewName("index");
 		}
-
 
 		return mav;
 	}
@@ -80,4 +71,5 @@ public class MemberController {
 	
 	
 
-
+	
+}
