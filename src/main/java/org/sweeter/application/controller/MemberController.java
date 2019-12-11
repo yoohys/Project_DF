@@ -6,7 +6,10 @@ import java.util.HashMap;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+<<<<<<< HEAD
 import org.apache.catalina.startup.UserConfig;
+=======
+>>>>>>> refs/remotes/upstream/master
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.stereotype.Controller;
@@ -30,8 +33,13 @@ public class MemberController {
 	MemberService memberService;
 
 	
+<<<<<<< HEAD
 	@PostMapping("/login")
 	public ModelAndView login(Member member,HttpSession session) {
+=======
+	@PostMapping("/signin")
+	public ModelAndView login(Member member, HttpServletRequest req) {
+>>>>>>> refs/remotes/upstream/master
 		ModelAndView mav = new ModelAndView();
 		//아이디와 암호를 통해 유저 정보를 가져옴
 		Member loginMember = memberService.login(member);
@@ -41,11 +49,21 @@ public class MemberController {
 		if(loginMember == null) {
 			mav.setViewName("/members/login");
 		}else {
+<<<<<<< HEAD
 			//세션 설정
 			session.setAttribute("user", loginMember);
 			mav.setViewName("/");
+=======
+			//세션 설정 후 메인 페이지로 이동
+			HttpSession session = req.getSession();
+			session.setAttribute("user", loginMember);
+			mav.setViewName("index");
+>>>>>>> refs/remotes/upstream/master
 		}
+<<<<<<< HEAD
 		
+=======
+>>>>>>> refs/remotes/upstream/master
 
 		return mav;
 	}
@@ -76,4 +94,8 @@ public class MemberController {
 	
 
 	
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> refs/remotes/upstream/master

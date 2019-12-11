@@ -1,3 +1,4 @@
+<%@page import="org.sweeter.application.model.dto.Member"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -9,11 +10,14 @@
 </head>
 <body>
 	<div class="container">
+	<%
+		Member member = (Member)session.getAttribute("user");
+	%>
 		<%@include file="../includes/navigation.jspf"%>
 		<div class="container-fluid" style="margin-top: 80px;">
 			<form action="#" method="post">
 				<div class="form-group">
-					<label for="uname"><font color="red">*</font>ID:</label> <input
+					<label for="uname"><font color="red">*</font>ID: <%=member %></label> <input
 						type="text" class="form-control" placeholder="Enter username"
 						name="id" required>
 				</div>
