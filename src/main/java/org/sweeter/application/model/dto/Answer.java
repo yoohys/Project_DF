@@ -7,10 +7,9 @@ import lombok.Data;
 @Data
 public class Answer {
 	private int id;
-	private Member writer;
+	private String writer;
 	private Date writeDate;
 	private Date modifyDate;
 	private String content;
-	private Question questionId;
-	
+	private int questionId;
 }

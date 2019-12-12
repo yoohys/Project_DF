@@ -14,11 +14,12 @@
 %>
 	<div class="jumbotron text-center" style="margin-bottom: 0">
 		<h1>DogFoot</h1>
+		<img alt="No DogFoot" src="/resources/img/dogfoot.jpg" width="50">
 	</div>
+
 	
 	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
 		<a class="navbar-brand" href="/">DF <%= member %></a>
-		
 		<div class="collapse navbar-collapse" id="collapsibleNavbar">
 			<ul class="navbar-nav mr-auto">
 				<li class="nav-item"><a class="nav-link" href="#">IT 뉴스</a></li>
@@ -26,13 +27,14 @@
 				<li class="nav-item"><a class="nav-link" href="#">Q&A</a></li>
 				<li class="nav-item"><a class="nav-link" href="#">구인구직</a></li>
 			</ul>
-			
+
 			<div class="float-right">
-				<a class="btn btn-primary" href="/members/login">로그인</a>
-				<a class="btn btn-light" href="/members/register">회원가입</a>
+				<a class="btn btn-primary" href="/members/login">로그인</a> 
+        <a class="btn btn-light" href="/members/register">회원가입</a>
 			</div>
 		</div>
 	</nav>
+
 
 	<div class="container" style="margin-top: 30px">
 		<div class="row">
@@ -111,6 +113,7 @@
 				</table>
 			</div>
 		</div>
+	</div>
 	</div>
 
 	<div class="jumbotron text-center" style="margin-bottom: 0">
