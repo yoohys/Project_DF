@@ -18,7 +18,7 @@
 		<div class="container-fluid" style="margin-top: 80px;">
 			<form action="#" method="post">
 				<div class="form-group">
-					<label for="uname"><font color="red">*</font>ID: <%=member %></label> <input
+					<label for="uname"><font color="red">*</font>ID:</label> <input
 						type="text" class="form-control" placeholder="Enter username"
 						name="id" required>
 				</div>
@@ -58,7 +58,7 @@
 		$('button[type="submit"]').on("click", function(e) {
 			e.preventDefault();
 
-			if (!checkEmpty()) {
+			if (!check()) {
 				register();
 			}
 		});
