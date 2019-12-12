@@ -19,7 +19,20 @@
 			<li class="nav-item"><a class="nav-link" href="#">구인구직</a></li>
 		</ul>
 
-	
-
+		<div class="float-right">
+			<%
+				if (session.getAttribute("user") == null) {
+			%>
+			<a class="btn btn-primary" href="/members/login">로그인</a> <a
+				class="btn btn-light" href="/members/register">회원가입</a>
+			<%
+				} else {
+			%>
+			<a class="btn btn-primary" href="/members/logout">로그아웃</a> <a
+				class="btn btn-light" href="/members/modify">회원 정보 페이지</a>
+			<%
+				}
+			%>
+		</div>
 	</div>
 </nav>
