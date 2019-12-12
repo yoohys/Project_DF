@@ -58,8 +58,7 @@
      
 %>
 	<div class="jumbotron text-center" style="margin-bottom: 0">
-		<h1>DogFoot <%= id %></h1>
-		<img alt="No DogFoot" src="/resources/img/dogfoot.jpg" width="50">
+		<h1>DogFoot <img alt="No DogFoot" src="/resources/img/dogfoot.jpg" width="50"></h1>
 	</div>
 
 	

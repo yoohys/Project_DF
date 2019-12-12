@@ -92,20 +92,20 @@ public class MemberController {
 	//유저 정보관리 로직 - 회원 정보 수정
 	@PostMapping("/modify")
 	public String modify(Member member) {
-		//memberService.modify(member);
+		memberService.modify(member);
 		
 		return "members/info";
 	}
 	
 	//유저 정보관리 로직 - 탈퇴
 	@PostMapping("/secession")
-	public String secession(Member member, HttpServletRequest req) {
+	public String secession(String id, HttpServletRequest req) {
 		//로그아웃 수행(세션 해제)
 		HttpSession session = req.getSession();
 		session.removeAttribute("user");
 		
 		//DB에 유저 정보 삭제
-		//memberService.delete(member);
+		memberService.delete(id);
 		
 		//메인페이지 이동
 		return "/index";
