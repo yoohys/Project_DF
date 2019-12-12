@@ -24,12 +24,12 @@ CREATE TABLE category(
 CREATE TABLE post(
 	id INTEGER AUTO_INCREMENT PRIMARY KEY,
 	title VARCHAR2(100) NOT NULL,
-	writer VARCHAR2(40) NOT NULL,
+	writer VARCHAR2(40),
 	writedate DATE default sysdate,
 	modifydate DATE default sysdate,
 	content VARCHAR2(1000) NOT NULL,
     category INT,
-	FOREIGN KEY (writer) REFERENCES member(id),
+	FOREIGN KEY (writer) REFERENCES member(id) ON DELETE SET NULL,
     FOREIGN KEY (category) REFERENCES category(id)
 );
 
@@ -40,7 +40,7 @@ CREATE TABLE comment(
     modifydate DATE DEFAULT sysdate,
     content VARCHAR2(1000),
     post INTEGER,
-    FOREIGN KEY (writer) REFERENCES member(id),
+    FOREIGN KEY (writer) REFERENCES member(id) ON DELETE SET NULL,
     FOREIGN KEY (post) REFERENCES post(id)
 );
 
@@ -53,7 +53,7 @@ CREATE TABLE jobs(
     salary VARCHAR2(40),
     career VARCHAR2(40),
     content VARCHAR2(1000),
-    FOREIGN KEY (writer) REFERENCES member(id)
+    FOREIGN KEY (writer) REFERENCES member(id) ON DELETE SET NULL
 );
 
 CREATE TABLE question(
@@ -63,7 +63,7 @@ CREATE TABLE question(
     writedate DATE DEFAULT sysdate,
     modifydate DATE DEFAULT sysdate,
     content VARCHAR2(1000),
-    FOREIGN KEY (writer) REFERENCES member(id)
+    FOREIGN KEY (writer) REFERENCES member(id) ON DELETE SET NULL
 );
 
 CREATE TABLE answer(
@@ -73,7 +73,7 @@ CREATE TABLE answer(
     modifydate DATE DEFAULT sysdate,
     content VARCHAR2(1000),
     questionid INTEGER,
-    FOREIGN KEY (writer) REFERENCES member(id),
+    FOREIGN KEY (writer) REFERENCES member(id) ON DELETE SET NULL,
     FOREIGN KEY (questionid) REFERENCES question(id)
 );
 

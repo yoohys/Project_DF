@@ -12,7 +12,7 @@ public interface MemberMapper {
 	public Member getMemberById(String id);
 	public Member getMemberByIdAndPw(String id, String pw);
 	
-	public Member updateMember(String id);
-	public Member deleteMember(String id);
+	public void updateMember(Member member);
+	public void deleteMember(String id);
 	
 }
