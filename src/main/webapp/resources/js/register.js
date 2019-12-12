@@ -1,29 +1,60 @@
 //필수사항 중 비어있는 항목이 있는지 체크
 
-function checkEmpty(){
+function check() {
 	var id = $('input[name="id"]').val();
 	var pw = $('input[name="pw"]').val();
 	var name = $('input[name="name"]').val();
 	var email = $('input[name="email"]').val();
-	
+
+	var getMail = RegExp(/^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-Za-z0-9\-]+/);
+	var getName = RegExp(/^[가-힣]+$/);
+	var getCheck = RegExp(/^[a-zA-Z0-9]{4,12}$/);
+
+	// 공백 확인 검사
 	var info = {
-			id : id,
-			pw : pw,
-			name: name,
-			email: email
+		id : id,
+		pw : pw,
+		name : name,
+		email : email
 	};
-	
 	var keys = Object.keys(info);
 	console.log(keys);
-	
-	for(var i = 0 ; i<keys.length; i++ ){
-		if(info[keys[i]]==''){
+	for (var i = 0; i < keys.length; i++) {
+		if (info[keys[i]] == '') {
 			alert(keys[i] + "가 비어있습니다.");
 			return true;
 		}
-		
+
 	}
-	return false;
+	// 이메일 유효성 검사
+	if (!getMail.test(email)) {
+		alert("이메일형식에 맞게 입력해주세요");
+		$("#email").val("");
+		$("#email").focus();
+		return true;
+	}
+	// 비밀번호 유효성검사
+	if (!getCheck.test(pw)) {
+		alert("비밀번호 형식에 맞게 입력해주세요");
+		$("#pw").val("");
+		$("#pw").focus();
+		return true;
+	}
+	// 아이디 비밀번호 같음 확인
+	if (id == pw) {
+		alert("아이디와 비밀번호가 같습니다");
+		$("#pw").val("");
+		$("#pw").focus();
+		return true;
+	}
+	// 이름 유효성 검사
+	if (!getCheck.test(name)) {
+		alert("이름형식에 맞게 입력해주세요")
+		$("#name").val("");
+		$("#name").focus();
+		return false;
+	}
+return false;
 }
 
 // 아이디 중복 체크
@@ -40,10 +71,9 @@ function register() {
 			if (response.result == true) {
 				alert("아이디 중복");
 			} else {
-				$('form')
-				.attr('action', '/members/register')
-				.attr('method','post')
-				.submit();
+				$('form').attr('action', '/members/register').attr('method',
+						'post').submit();
+				alert("가입이 완료 되었습니다. \n로그인 해주십시오.");
 			}
 		},
 		fail : function(error) {

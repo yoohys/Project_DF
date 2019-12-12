@@ -59,7 +59,7 @@
 
 	
 	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-		<a class="navbar-brand" href="/">DF <%= member %></a>
+		<a class="navbar-brand" href="/">DF</a>
 		<div class="collapse navbar-collapse" id="collapsibleNavbar">
 			<ul class="navbar-nav mr-auto">
 				<li class="nav-item"><a class="nav-link" href="#">IT 뉴스</a></li>

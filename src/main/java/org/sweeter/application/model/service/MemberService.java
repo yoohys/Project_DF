@@ -9,4 +9,8 @@ public interface MemberService {
 	Member login(Member user);
 	void register(Member member);
 	boolean registerCheck(String id);
+	
+	//수정,삭제 추가
+	void modify(Member member);
+	void delete(Member member);
 }

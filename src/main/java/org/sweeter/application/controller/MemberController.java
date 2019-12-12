@@ -8,6 +8,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,8 +25,19 @@ import lombok.extern.log4j.Log4j2;
 public class MemberController {
 	@Autowired
 	MemberService memberService;
-
+	//로그인 로직 - 아이디 및 비밀번호 검증
+	@GetMapping("/signin/{id}/{pw}")
+	@ResponseBody
+	public Member checkUserInfo(@PathVariable String id, @PathVariable String pw) {
+		Member member = new Member();
+		member.setId(id);
+		member.setPw(pw);
+		
+		Member loginInfo = memberService.login(member);
+		return loginInfo;
+	}
 	
+	//로그인 로직 - 세션에 유저 정보 저장
 	@PostMapping("/signin")
 	public ModelAndView login(Member member, HttpServletRequest req) {
 		ModelAndView mav = new ModelAndView();
@@ -46,8 +58,10 @@ public class MemberController {
 		return mav;
 	}
 	
+	//로그아웃 로직
 	
 	
+	//회원가입 로직 - DB에 유저 정보 저장
 	@PostMapping("/register")
 	public ModelAndView register(Member member) {
 		ModelAndView mav = new ModelAndView();
@@ -59,6 +73,7 @@ public class MemberController {
 		return mav;
 	}
 	
+	//회원가입 로직 - 아이디 중복 체크
 	@RequestMapping("/register/check/{id}")
 	@ResponseBody
 	public HashMap<String, Boolean> registerCheck(@PathVariable String id) {
@@ -68,8 +83,26 @@ public class MemberController {
 		return existResult;
 	}
 	
+	//유저 정보관리 로직 - 회원 정보 수정
+	@PostMapping("/modify")
+	public String modify(Member member) {
+		//memberService.modify(member);
+		
+		return "members/info";
+	}
 	
-	
-
+	//유저 정보관리 로직 - 탈퇴
+	@PostMapping("/secession")
+	public String secession(Member member, HttpServletRequest req) {
+		//로그아웃 수행(세션 해제)
+		HttpSession session = req.getSession();
+		session.removeAttribute("user");
+		
+		//DB에 유저 정보 삭제
+		//memberService.delete(member);
+		
+		//메인페이지 이동
+		return "/index";
+	}
 	
 }
