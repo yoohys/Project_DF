@@ -24,7 +24,15 @@
 	</select>
 	
 	<!-- UPDATE -->
-	
+	<update id="updateMember">
+		UPDATE member
+		SET pw = #{pw}, name = #{name} , email = #{email} , tel = #{tel}
+		WHERE id = #{id}
+	</update>
 	
 	<!-- DELETE -->
+	<delete id="deleteMember">
+		DELETE FROM member WHERE id= #{id}
+	</delete>
+	
 </mapper>

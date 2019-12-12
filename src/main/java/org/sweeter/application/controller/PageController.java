@@ -20,4 +20,9 @@ public class PageController {
 	public String register() {
 		return "members/register";
 	}
+	
+	@GetMapping("/members/info")
+	public String info() {
+		return "members/info";
+	}
 }

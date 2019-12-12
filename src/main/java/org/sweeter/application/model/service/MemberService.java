@@ -9,4 +9,6 @@ public interface MemberService {
 	Member login(Member user);
 	void register(Member member);
 	boolean registerCheck(String id);
+	void modify(Member member);
+	void delete(String id);
 }

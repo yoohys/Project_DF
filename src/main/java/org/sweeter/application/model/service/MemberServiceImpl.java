@@ -42,4 +42,15 @@ public class MemberServiceImpl implements MemberService {
 		
 		return result;
 	}
+	
+	@Override
+	public void modify(Member member) {
+		memberMapper.updateMember(member);
+		
+	}
+	
+	@Override
+	public void delete(String id) {
+		memberMapper.deleteMember(id);	
+	}
 }
