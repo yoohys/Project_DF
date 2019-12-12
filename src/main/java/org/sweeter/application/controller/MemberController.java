@@ -94,7 +94,7 @@ public class MemberController {
 	public String modify(Member member) {
 		memberService.modify(member);
 		
-		return "members/info";
+		return "members/modify";
 	}
 	
 	//유저 정보관리 로직 - 탈퇴
