@@ -22,8 +22,8 @@ public class PostServiceImpl implements PostService{
 	}
 
 	@Override
-	public void delete(Post post) {
-		postMapper.deletePost(post);
+	public void delete(String id) {
+		postMapper.deletePost(id);
 		
 	}
 	

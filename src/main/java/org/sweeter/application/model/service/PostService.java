@@ -8,5 +8,5 @@ public interface PostService {
 	List<Post> getPostList(int category, int page, int count);
 
 	void modify(Post post);
-	void delete(Post post);
+	void delete(String id);
 }
