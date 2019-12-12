@@ -34,6 +34,12 @@ public class MemberController {
 		member.setPw(pw);
 		
 		Member loginInfo = memberService.login(member);
+		if(loginInfo == null) {
+			Member failMember = new Member();
+			failMember.setId("");
+			failMember.setPw("");
+			return failMember;
+		}
 		return loginInfo;
 	}
 	

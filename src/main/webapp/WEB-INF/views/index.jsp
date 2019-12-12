@@ -51,9 +51,14 @@
 <body>
 <%
 	Member member = (Member)session.getAttribute("user");
+    String id = "";
+    if(member != null){
+    	id = member.getId();			
+    }
+     
 %>
 	<div class="jumbotron text-center" style="margin-bottom: 0">
-		<h1>DogFoot</h1>
+		<h1>DogFoot <%= id %></h1>
 		<img alt="No DogFoot" src="/resources/img/dogfoot.jpg" width="50">
 	</div>
 
