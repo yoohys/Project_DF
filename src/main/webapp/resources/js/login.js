@@ -2,17 +2,6 @@ $(function() {
 	// 로그인 처리
 	$('#login-submit').click(function(e) {
 		e.preventDefault();
-		if ($("#userid").val() == '') {
-			alert('아이디를 입력하세요');
-			$("#userid").focus();
-			return false;
-		}
-
-		if ($("#password").val() == '') {
-			alert('비밀번호를 입력하세요');
-			$("#password").focus();
-			return false;
-		}
 
 		$.ajax({
 			url : 'loginChk.php',
