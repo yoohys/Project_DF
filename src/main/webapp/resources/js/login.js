@@ -1,6 +1,7 @@
 // 로그인 처리
 $('#login-submit').click(function(e) {
 		e.preventDefault();
+
 		userId = $("input[name='id']").val();
 		password = $("input[name='pw']").val();
 		

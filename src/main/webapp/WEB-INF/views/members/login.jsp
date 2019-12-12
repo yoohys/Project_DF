@@ -10,7 +10,7 @@
 <body>
 	<%@include file="../includes/navigation.jspf"%>
 	<div class="container">
-		
+
 		<div class="container-fluid" style="margin-top: 80px;">
 			<form id="loginform" action="/members/signin" method="post" class="was-validated">
 				<div class="form-group">
@@ -31,6 +31,7 @@
 
 				<p><button id="login-submit" type="submit" class="btn btn-primary">Login</button></p>
 				<p>need Account? <a href="/members/register">click here to Register</a></p>
+
 			</form>
 		</div>
 	</div>
