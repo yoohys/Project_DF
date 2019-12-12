@@ -12,7 +12,7 @@
 	<div class="container">
 		
 		<div class="container-fluid" style="margin-top: 80px;">
-			<form action="/members/signin" method="post" class="was-validated">
+			<form id="loginform" action="/members/signin" method="post" class="was-validated">
 				<div class="form-group">
 					<label for="uname">ID:</label> <input type="text"
 						class="form-control" placeholder="Enter username" name="id"
@@ -29,7 +29,7 @@
 					<div class="invalid-feedback">Please fill out this field.</div>
 				</div>
 
-				<p><button type="submit" class="btn btn-primary">Login</button></p>
+				<p><button id="login-submit" type="submit" class="btn btn-primary">Login</button></p>
 				<p>need Account? <a href="/members/register">click here to Register</a></p>
 			</form>
 		</div>
@@ -37,14 +37,5 @@
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<script src="/resources/js/login.js"></script>
-		<script>
-		$('button[type="submit"]').on("click", function(e){
-			e.preventDefault();
-			
-			if(!checkEmpty()){
-				login();
-		
-		});
-	</script>
 </body>
 </html>

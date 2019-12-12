@@ -51,9 +51,15 @@
 <body>
 <%
 	Member member = (Member)session.getAttribute("user");
+    String id = "";
+    if(member != null){
+    	id = member.getId();			
+    }
+ 
+     
 %>
 	<div class="jumbotron text-center" style="margin-bottom: 0">
-		<h1>DogFoot</h1>
+		<h1>DogFoot <%= id %></h1>
 		<img alt="No DogFoot" src="/resources/img/dogfoot.jpg" width="50">
 	</div>
 
@@ -69,8 +75,14 @@
 			</ul>
 
 			<div class="float-right">
-				<a class="btn btn-primary" href="/members/login">로그인</a> 
+		
+        <% if(member !=null){ %>
+        <div class=blind style="color:white; font-size:2.4em; " ><%=id %></div>
+     	<a class="btn btn-danger" href="/logout">로그아웃</a>
+     <% } else { %>
+     		<a class="btn btn-primary" href="/members/login">로그인</a> 
         <a class="btn btn-light" href="/members/register">회원가입</a>
+        <%} %>
 			</div>
 		</div>
 	</nav>
