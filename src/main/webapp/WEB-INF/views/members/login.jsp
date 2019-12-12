@@ -12,7 +12,7 @@
 	<div class="container">
 		
 		<div class="container-fluid" style="margin-top: 80px;">
-			<form action="/members/login" method="post" class="was-validated">
+			<form action="/members/signin" method="post" class="was-validated">
 				<div class="form-group">
 					<label for="uname">ID:</label> <input type="text"
 						class="form-control" placeholder="Enter username" name="id"
