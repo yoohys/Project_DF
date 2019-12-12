@@ -15,7 +15,6 @@
 	<%
 		Member member = (Member)session.getAttribute("user");
 	%>
-		<%@include file="../includes/navigation.jspf"%>
 		<div class="container-fluid" style="margin-top: 80px;">
 			<form action="#" method="post">
 				<div class="form-group">
