@@ -43,7 +43,7 @@
 			
 			if(!checkEmpty()){
 				login();
-			}
+		
 		});
 	</script>
 </body>
