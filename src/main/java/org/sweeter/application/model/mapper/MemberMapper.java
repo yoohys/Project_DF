@@ -2,6 +2,7 @@ package org.sweeter.application.model.mapper;
 
 import java.util.List;
 
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.sweeter.application.model.dto.Member;
 
 public interface MemberMapper {
@@ -10,4 +11,8 @@ public interface MemberMapper {
 	public List<Member> getAllMembers();
 	public Member getMemberById(String id);
 	public Member getMemberByIdAndPw(String id, String pw);
+	
+	public Member updateMember(String id);
+	public Member deleteMember(String id);
+	
 }
