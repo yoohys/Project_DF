@@ -29,8 +29,8 @@
 					<div class="invalid-feedback">Please fill out this field.</div>
 				</div>
 
-				<button type="submit" class="btn btn-primary">Login</button>
-				need Account? <a href="/members/register">click here to Register</a>
+				<p><button type="submit" class="btn btn-primary">Login</button></p>
+				<p>need Account? <a href="/members/register">click here to Register</a></p>
 			</form>
 		</div>
 	</div>
