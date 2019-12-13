@@ -25,7 +25,17 @@ import lombok.extern.log4j.Log4j2;
 public class MemberController {
 	@Autowired
 	MemberService memberService;
-	//로그인 로직 - 아이디 및 비밀번호 검증
+
+	/**
+	 * checkUserInfo(String id, String pw) <br>
+	 * 인수로 받은 아이디와 비밀번호를 가지고 있는 유저가 있는지 검색합니다.
+	 * 
+	 * @param id : 유저 아이디
+	 * @param pw : 유저 비밀번호
+	 * 
+	 * @return 조건에 맞는 유저가 있다면 해당 유저의 정보가 담긴 Member 객체를 리턴 <br>
+	 * 없다면 이름과 비밀번호가 빈 문자열인 Member 객체를 리턴
+	 */
 	@GetMapping("/signin/{id}/{pw}")
 	@ResponseBody
 	public Member checkUserInfo(@PathVariable String id, @PathVariable String pw) {
@@ -43,7 +53,16 @@ public class MemberController {
 		return loginInfo;
 	}
 	
-	//로그인 로직 - 세션에 유저 정보 저장
+	/**
+	 * login(Member member, HttpServletRequest req) <br>
+	 * 입력받은 아이디와 비밀번호를 통해 로그인을 수행합니다.
+	 * 
+	 * @param member : 입력받은 아이디와 비밀번호가 담겨있는 Member 객체
+	 * @param req : 로그인 요청시 자동으로 인수로 넘어가는 request 객체
+	 * 
+	 * @return 로그인 성공 시 세션에 유저 정보를 담은 후 메인 페이지로 리다이렉트 하는 ModelAndView 객체 <br>
+	 * 로그인 실패 시 로그인 페이지를 유지하는 ModelAndView 객체
+	 */
 	@PostMapping("/signin")
 	public ModelAndView login(Member member, HttpServletRequest req) {
 		ModelAndView mav = new ModelAndView();
@@ -58,13 +77,20 @@ public class MemberController {
 			//세션 설정 후 메인 페이지로 이동
 			HttpSession session = req.getSession();
 			session.setAttribute("user", loginMember);
-			mav.setViewName("index");
+			mav.setViewName("redirect:/");
 		}
 
 		return mav;
 	}
 	
-	//로그아웃 로직
+	/**
+	 * logout(HttpSession session)<br>
+	 * 세션을 해제해 로그아웃합니다.
+	 * 
+	 * @param session : 로그아웃 요청 시 자동으로 인수로 넘겨지는 세션
+	 * 
+	 * @return 메인페이지로 리다이렉트 하는 ModelAndView 객체
+	 */
 	@RequestMapping("/logout")
     public ModelAndView logout(HttpSession session) {
         session.invalidate();
@@ -75,19 +101,36 @@ public class MemberController {
 
 
 	
-	//회원가입 로직 - DB에 유저 정보 저장
+	/**
+	 * register(Member member)<br>
+	 * 회원가입할 유저의 정보를 입력받아 DB에 저장합니다.
+	 * 
+	 * @param member : 회원가입할 유저의 정보가 담긴 Member 객체
+	 * 
+	 * @return 메인 페이지로 이동하는 ModelAndView 객체
+	 */
 	@PostMapping("/register")
 	public ModelAndView register(Member member) {
 		ModelAndView mav = new ModelAndView();
 		//DB에 회훤가입한 유저 정보 저장 후 메인페이지로 이동
 		log.info(member);
 		memberService.register(member);
-		mav.setViewName("index");
+		mav.setViewName("redirect:/");
 		
 		return mav;
 	}
 	
-	//회원가입 로직 - 아이디 중복 체크
+	/**
+	 * register(String id)<br>
+	 * 입력받은 아이디가 DB에 존재하는지 확인합니다.
+	 * 
+	 * @param id : 존재하는지 확인할 아이디값
+	 * @return 아이디 존재 여부를 HashMap 형식으로 리턴<br>
+	 * 웹브라우저상에서는 json 형식으로 보여지며 형식은 다음과 같습니다.<br>
+	 * { <br>
+	 * result : true 또는 false <br>
+	 * }
+	 */
 	@RequestMapping("/register/check/{id}")
 	@ResponseBody
 	public HashMap<String, Boolean> registerCheck(@PathVariable String id) {
