@@ -53,4 +53,12 @@ public class MemberServiceImpl implements MemberService {
 	public void delete(String id) {
 		memberMapper.deleteMember(id);	
 	}
+
+	@Override
+	public Member checkId(String id) {
+		Member member = memberMapper.getMemberById(id);
+		return member;
+	}
+	
+	
 }

@@ -26,4 +26,9 @@ public class PageController {
 		return "members/modify";
 	}
 	
+	@GetMapping("/posts")
+	public String post(int category) {
+		System.out.println(category);
+		return "index";
+	}
 }
