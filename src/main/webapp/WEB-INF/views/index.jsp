@@ -94,7 +94,7 @@
 				<%
 					} else {
 				%>
-				<a class="btn btn-primary" href="/members/logout">로그아웃</a> <a
+				<a class="btn btn-primary" href="/members/logout">로그아웃 - 작업중 코드ㅜ</a> <a
 					class="btn btn-light" href="/members/modify">회원 정보 페이지</a>
 				<%
 					}
