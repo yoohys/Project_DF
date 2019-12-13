@@ -11,4 +11,5 @@ public interface MemberService {
 	boolean registerCheck(String id);
 	void modify(Member member);
 	void delete(String id);
+	Member checkId(String id);
 }

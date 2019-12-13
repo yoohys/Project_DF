@@ -144,9 +144,8 @@ public class MemberController {
 	@PostMapping("/modify")
 	public String modify(Member member, HttpServletRequest req) {
 		memberService.modify(member);
-		
 		//세션 갱신
-		Member updatedMember = memberService.login(member);
+		Member updatedMember = memberService.checkId(member.getId());
 		HttpSession session = req.getSession();
 		session.setAttribute("user", updatedMember);
 		
