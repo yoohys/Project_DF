@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper
+	namespace="org.sweeter.application.model.mapper.PostMapper">
+	<!-- CREATE -->
+
+	<!-- READ -->
+	<select id="getPostList"
+		resultType="org.sweeter.application.model.dto.Post">
+		SELECT * FROM post WHERE category = #{category} LIMIT
+		#{count} OFFSET (#{page}-1) * #{count}
+	</select>
+
+	<select id="getAllPost"
+		resultType="org.sweeter.application.model.dto.Post">
+		SELECT * FROM post
+	</select>
+
+	<select id="getPostById"
+		resultType="org.sweeter.application.model.dto.Post">
+		SELECT * FROM post WHERE id = #{id}
+	</select>
+
+	<!-- UPDATE -->
+	<update id="updatePost" parameterType="org.sweeter.application.model.dto.Post">
+		UPDATE Post set title=#{title} ,writer = #{writer}, modifyDate=#{modifyDate}, content=#{content}, category = #{category} where id=#{id}
+		 
+	</update>
+
+	<!-- DELETE -->
+	<delete id="deletePost" parameterType="org.sweeter.application.model.dto.Post">
+		DELETE from member where id= ${id}
+	</delete>
+</mapper>

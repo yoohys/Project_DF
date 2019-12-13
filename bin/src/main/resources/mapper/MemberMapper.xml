@@ -1,48 +1,3 @@
-<<<<<<< HEAD
-<?xml version="1.0" encoding="UTF-8"?>
-
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-
-<mapper
-	namespace="org.sweeter.application.model.mapper.MemberMapper">
-	<insert id="insertMember">
-		INSERT INTO member values(#{id}, #{pw}, #{name}, #{email}, #{tel})
-	</insert>
-	<select id="getAllMembers" resultType="org.sweeter.application.model.dto.Member">
-		SELECT * FROM member
-	</select>
-	
-	<select id="getMemberById" resultType="org.sweeter.application.model.dto.Member">
-		SELECT * FROM member WHERE id = #{id}
-	</select>
-	
-	<select id="getMemberByIdAndPw" resultType="org.sweeter.application.model.dto.Member">
-		SELECT * FROM member WHERE id = #{id} AND pw = #{pw}
-	</select>
-=======
-<<<<<<< HEAD
-<?xml version="1.0" encoding="UTF-8"?>
-
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-
-<mapper
-	namespace="org.sweeter.application.model.mapper.MemberMapper">
-	<insert id="insertMember">
-		INSERT INTO member values(#{id}, #{pw}, #{name}, #{email}, #{tel})
-	</insert>
-	<select id="getAllMembers" resultType="org.sweeter.application.model.dto.Member">
-		SELECT * FROM member
-	</select>
-	
-	<select id="getMemberById" resultType="org.sweeter.application.model.dto.Member">
-		SELECT * FROM member WHERE id = #{id}
-	</select>
-	
-	<select id="getMemberByIdAndPw" resultType="org.sweeter.application.model.dto.Member">
-		SELECT * FROM member WHERE id = #{id} AND pw = #{pw}
-	</select>
-=======
-<<<<<<< HEAD
 <?xml version="1.0" encoding="UTF-8"?>
 
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
@@ -69,31 +24,15 @@
 	</select>
 	
 	<!-- UPDATE -->
-	
+	<update id="updateMember">
+		UPDATE member
+		SET pw = #{pw}, name = #{name} , email = #{email} , tel = #{tel}
+		WHERE id = #{id}
+	</update>
 	
 	<!-- DELETE -->
-=======
-<?xml version="1.0" encoding="UTF-8"?>
-
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-
-<mapper
-	namespace="org.sweeter.application.model.mapper.MemberMapper">
-	<insert id="insertMember">
-		INSERT INTO member values(#{id}, #{pw}, #{name}, #{email}, #{tel})
-	</insert>
-	<select id="getAllMembers" resultType="org.sweeter.application.model.dto.Member">
-		SELECT * FROM member
-	</select>
+	<delete id="deleteMember">
+		DELETE FROM member WHERE id= #{id}
+	</delete>
 	
-	<select id="getMemberById" resultType="org.sweeter.application.model.dto.Member">
-		SELECT * FROM member WHERE id = #{id}
-	</select>
-	
-	<select id="getMemberByIdAndPw" resultType="org.sweeter.application.model.dto.Member">
-		SELECT * FROM member WHERE id = #{id} AND pw = #{pw}
-	</select>
->>>>>>> refs/remotes/upstream/master
->>>>>>> refs/remotes/upstream/master
->>>>>>> refs/remotes/upstream/master
 </mapper>

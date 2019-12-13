@@ -1,43 +1,38 @@
-<<<<<<< HEAD
-<div class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
-	<a class="navbar-brand" href="/">Sweeter</a>
-	
-	<ul class="navbar-nav">
-		<li class="nav-item"><a class="nav-link" href="#">Link</a></li>
-		<li class="nav-item"><a class="nav-link" href="#">Link</a></li>
-	</ul>
-	
-	<div class="float-right">
-		<a class="btn btn-primary" href="/members/login">Login</a>
-		<a class="btn btn-secondary" href="/members/register">Register</a>
-	</div>
-=======
-<<<<<<< HEAD
-<div class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
-	<a class="navbar-brand" href="/">Sweeter</a>
-	
-	<ul class="navbar-nav">
-		<li class="nav-item"><a class="nav-link" href="#">Link</a></li>
-		<li class="nav-item"><a class="nav-link" href="#">Link</a></li>
-	</ul>
-	
-	<div class="float-right">
-		<a class="btn btn-primary" href="/members/login">Login</a>
-		<a class="btn btn-secondary" href="/members/register">Register</a>
-	</div>
-=======
-<div class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
-	<a class="navbar-brand" href="/">Sweeter</a>
-	
-	<ul class="navbar-nav">
-		<li class="nav-item"><a class="nav-link" href="#">Link</a></li>
-		<li class="nav-item"><a class="nav-link" href="#">Link</a></li>
-	</ul>
-	
-	<div class="float-right">
-		<a class="btn btn-primary" href="/members/login">Login</a>
-		<a class="btn btn-secondary" href="/members/register">Register</a>
-	</div>
->>>>>>> refs/remotes/upstream/master
->>>>>>> refs/remotes/upstream/master
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+
+<div class="jumbotron text-center" style="margin-bottom: 0">
+	<h1>
+		DogFoot <img alt="No DogFoot" src="/resources/img/dogfoot.jpg"
+			width="50">
+	</h1>
+
 </div>
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+	<a class="navbar-brand" href="/">DF</a>
+
+	<div class="collapse navbar-collapse" id="collapsibleNavbar">
+		<ul class="navbar-nav mr-auto">
+			<li class="nav-item"><a class="nav-link" href="#">IT 뉴스</a></li>
+			<li class="nav-item"><a class="nav-link" href="#">자유게시판</a></li>
+			<li class="nav-item"><a class="nav-link" href="#">Q&A</a></li>
+			<li class="nav-item"><a class="nav-link" href="#">구인구직</a></li>
+		</ul>
+
+		<div class="float-right">
+			<%
+				if (session.getAttribute("user") == null) {
+			%>
+			<a class="btn btn-primary" href="/members/login">로그인</a> <a
+				class="btn btn-light" href="/members/register">회원가입</a>
+			<%
+				} else {
+			%>
+			<a class="btn btn-primary" href="/members/logout">로그아웃</a> <a
+				class="btn btn-light" href="/members/modify">회원 정보/수정 페이지</a>
+			<%
+				}
+			%>
+		</div>
+	</div>
+</nav>
