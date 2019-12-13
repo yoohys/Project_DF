@@ -142,8 +142,13 @@ public class MemberController {
 	
 	//유저 정보관리 로직 - 회원 정보 수정
 	@PostMapping("/modify")
-	public String modify(Member member) {
+	public String modify(Member member, HttpServletRequest req) {
 		memberService.modify(member);
+		
+		//세션 갱신
+		Member updatedMember = memberService.login(member);
+		HttpSession session = req.getSession();
+		session.setAttribute("user", updatedMember);
 		
 		return "members/modify";
 	}
