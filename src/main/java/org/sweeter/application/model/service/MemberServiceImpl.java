@@ -42,16 +42,15 @@ public class MemberServiceImpl implements MemberService {
 		
 		return result;
 	}
-	//수정 
+	
 	@Override
 	public void modify(Member member) {
 		memberMapper.updateMember(member);
 		
 	}
-	//삭제
+	
 	@Override
-	public void delete(Member member) {
-		memberMapper.deleteMember(member);
-		
+	public void delete(String id) {
+		memberMapper.deleteMember(id);	
 	}
 }

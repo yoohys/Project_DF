@@ -24,7 +24,13 @@
 	</select>
 
 	<!-- UPDATE -->
-	
+	<update id="updatePost" parameterType="org.sweeter.application.model.dto.Post">
+		UPDATE Post set title=#{title} ,writer = #{writer}, modifyDate=#{modifyDate}, content=#{content}, category = #{category} where id=#{id}
+		 
+	</update>
 
 	<!-- DELETE -->
+	<delete id="deletePost" parameterType="org.sweeter.application.model.dto.Post">
+		DELETE from member where id= ${id}
+	</delete>
 </mapper>

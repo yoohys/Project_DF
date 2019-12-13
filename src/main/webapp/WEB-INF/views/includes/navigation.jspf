@@ -1,10 +1,12 @@
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
 <div class="jumbotron text-center" style="margin-bottom: 0">
-	<h1>DogFoot</h1>
-	<img alt="No DogFoot" src="/resources/img/dogfoot.jpg" width="50">
+	<h1>
+		DogFoot <img alt="No DogFoot" src="/resources/img/dogfoot.jpg"
+			width="50">
+	</h1>
+
 </div>
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
 	<a class="navbar-brand" href="/">DF</a>
@@ -18,10 +20,19 @@
 		</ul>
 
 		<div class="float-right">
-			<a class="btn btn-primary" href="/members/login">로그인</a> 
-			<a class="btn btn-light" href="/members/register">회원가입</a>
+			<%
+				if (session.getAttribute("user") == null) {
+			%>
+			<a class="btn btn-primary" href="/members/login">로그인</a> <a
+				class="btn btn-light" href="/members/register">회원가입</a>
+			<%
+				} else {
+			%>
+			<a class="btn btn-primary" href="/members/logout">로그아웃</a> <a
+				class="btn btn-light" href="/members/modify">회원 정보/수정 페이지</a>
+			<%
+				}
+			%>
 		</div>
-	</div>
-
 	</div>
 </nav>

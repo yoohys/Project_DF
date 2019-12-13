@@ -14,5 +14,17 @@ public class PostServiceImpl implements PostService{
 	public List<Post> getPostList(int category, int page, int count) {
 		return postMapper.getPostList(category, page, count);
 	}
+
+	@Override
+	public void modify(Post post) {
+		postMapper.updatePost(post);
+		
+	}
+
+	@Override
+	public void delete(String id) {
+		postMapper.deletePost(id);
+		
+	}
 	
 }

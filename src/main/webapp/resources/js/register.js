@@ -3,17 +3,21 @@
 function check() {
 	var id = $('input[name="id"]').val();
 	var pw = $('input[name="pw"]').val();
+	var pw2 = $('input[name="pw2"]').val();
 	var name = $('input[name="name"]').val();
 	var email = $('input[name="email"]').val();
+	var tel = $('input[name="tel"]').val();
 
 	var getMail = RegExp(/^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-Za-z0-9\-]+/);
 	var getName = RegExp(/^[가-힣]+$/);
 	var getCheck = RegExp(/^[a-zA-Z0-9]{4,12}$/);
+	var getNum = RegExp(/^[0-9\-]{11,13}$/);
 
 	// 공백 확인 검사
 	var info = {
 		id : id,
 		pw : pw,
+		pw2 : pw2,
 		name : name,
 		email : email
 	};
@@ -47,14 +51,28 @@ function check() {
 		$("#pw").focus();
 		return true;
 	}
+	// 비밀번호 똑같은지
+	if (pw != pw2) {
+		alert("비밀번호 확인이 맞지 않습니다.");
+		$("#pw2").val("");
+		$("#pw2").focus();
+		return true;
+	}
 	// 이름 유효성 검사
 	if (!getCheck.test(name)) {
 		alert("이름형식에 맞게 입력해주세요")
 		$("#name").val("");
 		$("#name").focus();
-		return false;
+		return true;
 	}
-return false;
+	// 전화번호 유효성 검사
+	if (!getNum.test(tel)) {
+		alert("전화번호 형식에 맞게 입력해주세요")
+		$("#tel").val("");
+		$("#tel").focus();
+		return true;
+	}
+	return false;
 }
 
 // 아이디 중복 체크
