@@ -154,7 +154,7 @@ public class MemberController {
 	}
 	
 	//유저 정보관리 로직 - 탈퇴
-	@PostMapping("/secession")
+	@GetMapping("/secession")
 	public String secession(String id, HttpServletRequest req) {
 		//로그아웃 수행(세션 해제)
 		HttpSession session = req.getSession();
