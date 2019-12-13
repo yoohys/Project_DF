@@ -1,7 +1,6 @@
 // 로그인 처리
 $('#login-submit').click(function(e) {
 		e.preventDefault();
-
 		userId = $("input[name='id']").val();
 		password = $("input[name='pw']").val();
 		
@@ -14,6 +13,7 @@ $('#login-submit').click(function(e) {
 			alert('비밀번호를 입력하세요');
 			$("#password").focus();
 		}
+		
 
 		$.ajax({
 			url : '/members/signin/' + userId+ '/' +password ,
@@ -35,5 +35,7 @@ $('#login-submit').click(function(e) {
 				console.log("call always()");
 			}
 		});
+	
+	
 	});
 
