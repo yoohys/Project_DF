@@ -21,8 +21,9 @@ public class PageController {
 		return "members/register";
 	}
 	
-	@GetMapping("/members/info")
+	@GetMapping("/members/modify")
 	public String info() {
-		return "members/info";
+		return "members/modify";
 	}
+	
 }
