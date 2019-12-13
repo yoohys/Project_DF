@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -18,7 +19,7 @@ public class PostController {
 	
 	@RequestMapping("/posts/{category}/{page}/{count}")
 	@ResponseBody
-	public List<Post> post(int category, int page, int count){
+	public List<Post> post(@PathVariable int category, @PathVariable int page,@PathVariable int count){
 		return postService.getPostList(category, page, count);
 	}
 	
@@ -27,7 +28,7 @@ public class PostController {
 		postService.create(post);
 		int category = post.getCategory();
 		
-		return "/posts"+category+"/1/10";
+		return "/posts/"+category+"/1/10";
 
 	}
 }
