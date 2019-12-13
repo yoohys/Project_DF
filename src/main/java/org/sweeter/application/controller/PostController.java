@@ -28,5 +28,6 @@ public class PostController {
 		int category = post.getCategory();
 		
 		return "/posts"+category+"/1/10";
+
 	}
 }
