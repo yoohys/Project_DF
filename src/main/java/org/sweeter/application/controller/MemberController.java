@@ -26,7 +26,6 @@ import lombok.extern.log4j.Log4j2;
 public class MemberController {
 	@Autowired
 	MemberService memberService;
-	
 
 	/**
 	 * checkUserInfo(String id, String pw) <br>
@@ -150,7 +149,6 @@ public class MemberController {
 
 		return "members/modify";
 	}
-	
 
 	// 유저 정보관리 로직 - 탈퇴
 	@GetMapping("/secession")
@@ -165,3 +163,4 @@ public class MemberController {
 		// 메인페이지 이동
 		return "/index";
 	}
+}

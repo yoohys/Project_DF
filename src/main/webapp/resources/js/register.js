@@ -65,12 +65,16 @@ function check() {
 		$("#name").focus();
 		return true;
 	}
-	// 전화번호 유효성 검사
-	if (!getNum.test(tel)) {
-		alert("전화번호 형식에 맞게 입력해주세요")
-		$("#tel").val("");
-		$("#tel").focus();
-		return true;
+	// 전화번호가 있을 시에 유효성 검사
+	if (tel == '') {
+	} else {
+
+		if (!getNum.test(tel)) {
+			alert("전화번호 형식에 맞게 입력해주세요")
+			$("#tel").val("");
+			$("#tel").focus();
+			return true;
+		}
 	}
 	return false;
 }

@@ -63,7 +63,7 @@
 						class="form-control" placeholder="Enter password" name="tel">
 				</div>
 
-				<button type="submit" class="btn btn-primary">Create
+				<button type="submit" class="btn btn-success">Create
 					Account</button>
 			</form>
 		</div>

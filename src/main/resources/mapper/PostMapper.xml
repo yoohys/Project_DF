@@ -5,9 +5,9 @@
 <mapper
 	namespace="org.sweeter.application.model.mapper.PostMapper">
 	<!-- CREATE -->
-	<select id="writePost" resultType="org.sweeter.application.model.dto.Post">
-		Insert INTO Post(TITLE,WRITER,CONTENT)  values(#{title}, #{writer}, #{content})
-	</select>
+	<insert id="writePost">
+		Insert INTO Post(TITLE,WRITER,CONTENT) values(#{title}, #{writer}, #{content})
+	</insert>
 	
 	<!-- READ -->
 	<select id="getPostList"

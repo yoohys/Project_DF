@@ -27,10 +27,15 @@ public class PostController {
 	
 	@RequestMapping("/posts/{category}/{page}/{count}")
 	@ResponseBody
-	public List<Post> post(@PathVariable int category, @PathVariable int page,@PathVariable int count){
+	public List<Post> postList(@PathVariable int category, @PathVariable int page,@PathVariable int count){
 		return postService.getPostList(category, page, count);
 	}
-
+	
+	@RequestMapping("/posts/{id}")
+	@ResponseBody
+	public Post post(@PathVariable int id) {
+		return postService.getPost(id);
+	}
 	//게시물 작성
 	// 수정 필요
 	@PostMapping("/post/write")

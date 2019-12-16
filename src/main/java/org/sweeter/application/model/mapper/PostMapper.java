@@ -11,6 +11,6 @@ public interface PostMapper {
 	public Post updatePost(Post post);
 	public Post deletePost(String id);
 
-	public Post writePost(Post post);
+	public void writePost(Post post);
 
 }

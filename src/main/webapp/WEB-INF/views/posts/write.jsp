@@ -1,5 +1,10 @@
+<%@page import="org.sweeter.application.model.dto.Member"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	
+<%
+	Member member = (Member) session.getAttribute("user");
+%>	
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,7 +25,7 @@
 					<tr>
 						<th>제목</th>
 						<td><input type="text" placeholder="제목을 입력하세요. "
-							class="form-control" name="subject" /></td>
+							class="form-control" name="title" /></td>
 					</tr>
 					<tr>
 						<th>내용</th>
@@ -40,6 +45,7 @@
 							class="btn btn-danger" href="list">List</a>
 						</td>
 					</tr>
+					<input type="hidden" value="<%= member.getId() %>" name="writer"/>
 				</form>
 			</tbody>
 		</table>
