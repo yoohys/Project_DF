@@ -29,13 +29,13 @@ public class PostController {
 
 	//게시물 작성
 	@PostMapping("/post/write")
-	public ModelAndView create(Post post) {
-		ModelAndView mav = new ModelAndView();
-		postService.create(post);
-		int category = post.getCategory();
-		mav.setViewName("/posts/"+category+"/1/10");
-		return mav;
+	public String write(Post post) {
+		postService.write(post);
+		
+		return "/post/write";
+
 	}
+	
 	
 	//게시물 수정
 	@PostMapping("/post/modify")

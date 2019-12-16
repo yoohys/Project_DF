@@ -30,10 +30,4 @@ function write() {
 						'post').submit();
 				alert("글이 등록되었습니다.");
 			
-		},
-		fail : function(error) {
-		},
-		always : function(response) {
-		}
-	});
 }

@@ -46,6 +46,7 @@
 	</div>
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<script src="/resources/js/write.js"></script>
 	<script>
 		$('button[type="submit"]').on("click", function(e) {
 			e.preventDefault();
