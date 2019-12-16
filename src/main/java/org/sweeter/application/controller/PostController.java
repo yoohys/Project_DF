@@ -29,10 +29,31 @@ public class PostController {
 	@PostMapping("/post/create")
 	public String create(Post post) {
 		postService.create(post);
-		int category = post.getCategory();
 		
+		int category = post.getCategory();
 		return "/posts/"+category+"/1/10";
 
 	}
+<<<<<<< HEAD
 
+=======
+	//게시물 수정
+	@PostMapping("/post/modify")
+	public String modify(Post post) {
+		postService.modify(post);
+		
+		return "/post/list";
+		
+	}
+	//게시물 삭제
+	@PostMapping("/post/delete")
+	public String delete(String id) {
+		
+		//DB에 게시물 정보 삭제
+		postService.delete(id);
+		//게시물목록 이동
+		return "/post/list";
+		
+	}
+>>>>>>> refs/remotes/upstream/master
 }

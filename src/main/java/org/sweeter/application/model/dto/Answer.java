@@ -1,5 +1,6 @@
 package org.sweeter.application.model.dto;
 
+import java.sql.Timestamp;
 import java.util.Date;
 
 import lombok.Data;
@@ -8,8 +9,8 @@ import lombok.Data;
 public class Answer {
 	private int id;
 	private String writer;
-	private Date writeDate;
-	private Date modifyDate;
+	private Timestamp writeDate;
+	private Timestamp modifyDate;
 	private String content;
 	private int questionId;
 

@@ -6,7 +6,7 @@
 	namespace="org.sweeter.application.model.mapper.PostMapper">
 	<!-- CREATE -->
 	<select id="createPost" resultType="org.sweeter.application.model.dto.Post">
-		Insert INTO Post  values(#{title}, #{writer}, #{content}, #{category})
+		Insert INTO Post(title,writer,content,category)  values(#{title}, #{writer}, #{content}, #{category})
 	</select>
 	
 	<!-- READ -->
