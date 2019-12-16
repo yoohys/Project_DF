@@ -142,14 +142,18 @@ public class MemberController {
 	
 	//유저 정보관리 로직 - 회원 정보 수정
 	@PostMapping("/modify")
-	public String modify(Member member) {
+	public String modify(Member member, HttpServletRequest req) {
 		memberService.modify(member);
+		//세션 갱신
+		Member updatedMember = memberService.checkId(member.getId());
+		HttpSession session = req.getSession();
+		session.setAttribute("user", updatedMember);
 		
 		return "members/modify";
 	}
 	
 	//유저 정보관리 로직 - 탈퇴
-	@PostMapping("/secession")
+	@GetMapping("/secession")
 	public String secession(String id, HttpServletRequest req) {
 		//로그아웃 수행(세션 해제)
 		HttpSession session = req.getSession();

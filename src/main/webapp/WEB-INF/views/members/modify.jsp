@@ -55,7 +55,7 @@
 
 				<button type="submit" class="btn btn-primary">Modify
 					Account</button>
-				<a class="btn btn-danger" href="/members/secession">ㄴㄴ탈퇴</a>
+				<a class="btn btn-danger" href="/members/secession?id=<%=member.getId()%>">Delete Account</a>
 			</form>
 		</div>
 	</div>
