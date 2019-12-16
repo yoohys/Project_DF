@@ -14,7 +14,7 @@
 		<div class="container-fluid" style="margin-top: 80px;">
 			<form id="loginform" action="/members/signin" method="post" class="was-validated">
 				<div class="form-group">
-					<label for="uname">ID:</label> <input type="text"
+					<label for="uname">ID:asdf</label> <input type="text"
 						class="form-control" placeholder="Enter username" name="id"
 						required>
 					<div class="valid-feedback">Valid.</div>
