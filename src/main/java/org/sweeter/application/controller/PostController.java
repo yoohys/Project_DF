@@ -41,7 +41,7 @@ public class PostController {
 	}
 	//게시물 삭제
 	@PostMapping("/post/delete")
-	public String delete(String id) {
+	public String delete(@PathVariable String id) {
 		
 		//DB에 게시물 정보 삭제
 		postService.delete(id);
