@@ -26,6 +26,7 @@ public class PostController {
 	public List<Post> post(@PathVariable int category, @PathVariable int page,@PathVariable int count){
 		return postService.getPostList(category, page, count);
 	}
+
 	//게시물 작성
 	@PostMapping("/post/write")
 	public ModelAndView create(Post post) {
@@ -34,7 +35,6 @@ public class PostController {
 		int category = post.getCategory();
 		mav.setViewName("/posts/"+category+"/1/10");
 		return mav;
-
 	}
 	
 	//게시물 수정

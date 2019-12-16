@@ -24,10 +24,21 @@
 
 		<div id="list">
 			<b>게시판 (전체 글: ${totalCount})</b>
-		</div>
+		
 
-		<div id="write">
-			<a href="write">글쓰기</a>
+		
+		<%
+				if (session.getAttribute("user") == null) {
+			%>
+		
+			<%
+				} else {
+			%>
+			<a href="write" class="btn btn-success" style="float: right; margin-right: 20px;" >글쓰기</a>
+			<%
+				}
+			%>
+			
 		</div>
 
 		<div>
