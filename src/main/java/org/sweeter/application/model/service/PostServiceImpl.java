@@ -37,4 +37,11 @@ public class PostServiceImpl implements PostService{
 		
 	}
 
+
+	@Override
+	public void getPost(int id) {
+		postMapper.getPostById(id);
+		
+	}
+
 }

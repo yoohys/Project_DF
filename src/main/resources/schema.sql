@@ -31,7 +31,9 @@ CREATE TABLE post(
     category INT,
 	FOREIGN KEY (writer) REFERENCES member(id) ON DELETE SET NULL,
     FOREIGN KEY (category) REFERENCES category(id)
+    
 );
+
 
 CREATE TABLE comment(
     id INTEGER AUTO_INCREMENT PRIMARY KEY,
