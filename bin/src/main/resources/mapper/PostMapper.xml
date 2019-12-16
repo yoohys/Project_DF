@@ -6,7 +6,7 @@
 	namespace="org.sweeter.application.model.mapper.PostMapper">
 	<!-- CREATE -->
 	<select id="createPost" resultType="org.sweeter.application.model.dto.Post">
-		Insert INTO Post  values(#{title}, #{writer}, #{content}, #{category})
+		Insert INTO Post(title,writer,content,category)  values(#{title}, #{writer}, #{content}, #{category})
 	</select>
 	
 	<!-- READ -->
@@ -35,5 +35,10 @@
 	<delete id="deletePost" parameterType="org.sweeter.application.model.dto.Post">
 		DELETE from member where id= ${id}
 	</delete>
+	
+<!-- 	조회수 -->
+	<update id="countPost" parameterType="org.sweeter.application.model.dto.Post">
+		UPDATE Post set count=count+1 where count=#{count}
+	</update>
 	
 </mapper>

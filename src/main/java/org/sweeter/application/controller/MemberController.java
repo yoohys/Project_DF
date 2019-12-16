@@ -174,5 +174,4 @@ public class MemberController {
 		// 메인페이지 이동
 		return "/index";
 	}
-
 }

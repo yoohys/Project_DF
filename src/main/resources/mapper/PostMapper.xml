@@ -36,4 +36,5 @@
 		DELETE from member where id= ${id}
 	</delete>
 	
+	
 </mapper>

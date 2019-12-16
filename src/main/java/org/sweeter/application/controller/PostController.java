@@ -4,14 +4,18 @@ import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
-import org.sweeter.application.model.dto.Member;
+
 import org.sweeter.application.model.dto.Post;
 import org.sweeter.application.model.service.PostService;
 
@@ -35,8 +39,7 @@ public class PostController {
 		return "/post/write";
 
 	}
-	
-	
+
 	//게시물 수정
 	@PostMapping("/post/modify")
 	public String modify(Post post) {
@@ -55,4 +58,17 @@ public class PostController {
 		return "/post/list";
 		
 	}
+	//게시글 내용 조회
+	@GetMapping("/post/getPost")
+	public ModelAndView read(int id) {
+		ModelAndView mav = new ModelAndView();
+		
+		
+		postService.getPost(id);
+		mav.setViewName("/post/read");
+		
+		return mav;
+		
+	}
+
 }

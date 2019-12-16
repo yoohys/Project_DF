@@ -15,4 +15,5 @@ public class Post {
 	private Timestamp modifyDate;
 	private String content;
 	private int category;
+	
 }
