@@ -26,7 +26,7 @@ import lombok.extern.log4j.Log4j2;
 public class MemberController {
 	@Autowired
 	MemberService memberService;
-	PostService postService;
+	
 
 	/**
 	 * checkUserInfo(String id, String pw) <br>
@@ -165,5 +165,3 @@ public class MemberController {
 		// 메인페이지 이동
 		return "/index";
 	}
-
-}

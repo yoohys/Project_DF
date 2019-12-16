@@ -75,12 +75,14 @@
 			console.log(response);
 
 			for (var i = 0; i < response.length; i++) {
+
 				$("table").append(
 						'<tr>' + '<td>' + response[i].id + '</td>'
 								+ '<td id="title">' + '<a href="#">'+response[i].title +'</a>'
 								+ '</td>' + '<td>' + response[i].writer
 								+ '</td>' + '<td>' + response[i].writeDate
 								+ '</td>' + '</tr>');
+
 			}
 		},
 		fail : function(error) {
