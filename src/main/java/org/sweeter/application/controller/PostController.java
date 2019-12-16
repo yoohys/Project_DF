@@ -1,5 +1,7 @@
 package org.sweeter.application.controller;
 
+import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.log;
+
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+
 import org.sweeter.application.model.dto.Post;
 import org.sweeter.application.model.service.PostService;
 
@@ -27,13 +30,13 @@ public class PostController {
 	public List<Post> post(@PathVariable int category, @PathVariable int page,@PathVariable int count){
 		return postService.getPostList(category, page, count);
 	}
-	
-	@PostMapping("/post/create")
-	public String create(Post post) {
-		postService.create(post);
+
+	//게시물 작성
+	@PostMapping("/post/write")
+	public String write(Post post) {
+		postService.write(post);
 		
-		int category = post.getCategory();
-		return "/posts/"+category+"/1/10";
+		return "/post/write";
 
 	}
 
@@ -43,12 +46,12 @@ public class PostController {
 		postService.modify(post);
 		
 		return "/post/list";
-		
+
 	}
+	
 	//게시물 삭제
 	@PostMapping("/post/delete")
-	public String delete(String id) {
-		
+	public String delete(@PathVariable String id) {
 		//DB에 게시물 정보 삭제
 		postService.delete(id);
 		//게시물목록 이동

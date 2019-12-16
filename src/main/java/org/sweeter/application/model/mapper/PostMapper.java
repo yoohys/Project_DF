@@ -10,6 +10,7 @@ public interface PostMapper {
 	public Post getPostById(int id);
 	public Post updatePost(Post post);
 	public Post deletePost(String id);
-	public Post createPost(Post post);
-	
+
+	public Post writePost(Post post);
+
 }

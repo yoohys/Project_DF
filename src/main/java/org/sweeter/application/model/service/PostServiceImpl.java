@@ -21,8 +21,8 @@ public class PostServiceImpl implements PostService{
 	
 	
 	@Override
-	public void create(Post post) {
-		postMapper.createPost(post);
+	public void write(Post post) {
+		postMapper.writePost(post);
 	}
 	
 	@Override

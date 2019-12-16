@@ -24,10 +24,21 @@
 
 		<div id="list">
 			<b>게시판 (전체 글: ${totalCount})</b>
-		</div>
+		
 
-		<div id="write">
-			<a href="write">글쓰기</a>
+		
+		<%
+				if (session.getAttribute("user") == null) {
+			%>
+		
+			<%
+				} else {
+			%>
+			<a href="write" class="btn btn-success" style="float: right; margin-right: 20px;" >글쓰기</a>
+			<%
+				}
+			%>
+			
 		</div>
 
 		<div>
@@ -64,14 +75,14 @@
 			console.log(response);
 
 			for (var i = 0; i < response.length; i++) {
-				$("table")
-						.append('<tr>'+
-									'<td>' + response[i].id + '</td>'+
-									'<td id="title">' + response[i].title + '</td>'+
-									'<td>' + response[i].writer + '</td>'+
-									'<td>' + response[i].writeDate + '</td>'+
-									'<td>'+ '</td>'+
-								'</tr>');
+
+				$("table").append(
+						'<tr>' + '<td>' + response[i].id + '</td>'
+								+ '<td id="title">' + '<a href="#">'+response[i].title +'</a>'
+								+ '</td>' + '<td>' + response[i].writer
+								+ '</td>' + '<td>' + response[i].writeDate
+								+ '</td>' + '</tr>');
+
 			}
 		},
 		fail : function(error) {

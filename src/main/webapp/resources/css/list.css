@@ -7,6 +7,8 @@
 
 #list {
 	text-align: center;
+	margin-bottom: 20px;
+	margin-top : 20px;
 }
 
 #write {
@@ -18,7 +20,7 @@
 	background-color: #b3c6ff;
 }
 
-.table>thead>tr>th {
+.table>tbody>tr>th {
 	text-align: center;
 }
 
@@ -70,4 +72,6 @@ to {
       30% {color: yellow;}
       100% {color:red; font-weight: bold;} */
 }
+
+
 </style>
