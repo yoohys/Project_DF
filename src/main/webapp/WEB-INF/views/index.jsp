@@ -46,11 +46,14 @@
 	-ms-user-select: none;
 	user-select: none;
 }
+
 @media ( min-width : 768px) {
 	.bd-placeholder-img-lg {
 		font-size: 3.5rem;
 	}
 }
+
+a {text-decoration: none}
 </style>
 <!-- Custom styles for this template -->
 <link
@@ -139,7 +142,9 @@
 
 			</div>
 			<div class="col-sm-8">
-				<h2>자유게시판</h2>
+
+				<a href="/post/list"><h2>자유게시판</h2></a>
+
 				<table class="table table-hover">
 					<tbody>
 						<tr>
