@@ -13,8 +13,7 @@
 <meta name="generator" content="Jekyll v3.8.6">
 <title>ORY</title>
 
-<link rel="canonical"
-	href="https://getbootstrap.com/docs/4.4/examples/blog/">
+<link rel="canonical" href="/resources/css/blog.css" rel="stylesheet">
 
 <!-- Bootstrap core CSS -->
 <link href="/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -53,7 +52,9 @@
 	}
 }
 
-a {text-decoration: none}
+a {
+	text-decoration: none
+}
 </style>
 <!-- Custom styles for this template -->
 <link
