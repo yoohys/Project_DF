@@ -80,7 +80,7 @@
 		<div class="collapse navbar-collapse" id="collapsibleNavbar">
 			<ul class="navbar-nav mr-auto">
 				<li class="nav-item"><a class="nav-link" href="#">IT 뉴스</a></li>
-				<li class="nav-item"><a class="nav-link" href="#">자유게시판</a></li>
+				<li class="nav-item"><a class="nav-link" href="/post/list">자유게시판</a></li>
 				<li class="nav-item"><a class="nav-link" href="#">Q&A</a></li>
 				<li class="nav-item"><a class="nav-link" href="#">구인구직</a></li>
 			</ul>
@@ -95,7 +95,7 @@
 					} else {
 				%>
 				<a class="btn btn-primary" href="/members/logout">로그아웃</a> <a
-					class="btn btn-light" href="/members/modify">회원 정보 페이지</a>
+					class="btn btn-light" href="/members/modify">회원 정보/수정 페이지</a>
 				<%
 					}
 				%>
