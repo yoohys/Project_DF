@@ -70,6 +70,7 @@
 									'<td id="title">' + response[i].title + '</td>'+
 									'<td>' + response[i].writer + '</td>'+
 									'<td>' + response[i].writeDate + '</td>'+
+									'<td>'+ '</td>'+
 								'</tr>');
 			}
 		},

@@ -292,3 +292,5 @@ INSERT INTO answer(writer, content, questionid) VALUES('user15','뜨끈하고 �
 INSERT INTO answer(writer, content, questionid) VALUES('user19','웹 개발 공부라면 W3Schools 추천합니다.',7);
 INSERT INTO answer(writer, content, questionid) VALUES('user7','스택, 큐, 리스트등이 대표적인 선형 자료구조입니다.',8);
 INSERT INTO answer(writer, content, questionid) VALUES('user13','Bootstrap이 다루기 편할겁니다.',4);
+
+

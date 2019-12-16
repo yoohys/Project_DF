@@ -36,4 +36,9 @@
 		DELETE from member where id= ${id}
 	</delete>
 	
+<!-- 	조회수 -->
+	<update id="countPost" parameterType="org.sweeter.application.model.dto.Post">
+		UPDATE Post set count=count+1 where count=#{count}
+	</update>
+	
 </mapper>

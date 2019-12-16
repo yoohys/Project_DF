@@ -36,5 +36,5 @@ public class PostServiceImpl implements PostService{
 		postMapper.deletePost(id);
 		
 	}
-	
+
 }

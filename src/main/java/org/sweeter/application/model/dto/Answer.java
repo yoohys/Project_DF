@@ -12,4 +12,5 @@ public class Answer {
 	private Date modifyDate;
 	private String content;
 	private int questionId;
+
 }

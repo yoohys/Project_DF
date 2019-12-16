@@ -166,4 +166,7 @@ public class MemberController {
 		return "/index";
 	}
 	
+	//조회수 증가 
+	
+	
 }
