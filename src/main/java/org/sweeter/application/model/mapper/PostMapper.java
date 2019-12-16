@@ -11,5 +11,5 @@ public interface PostMapper {
 	public Post updatePost(Post post);
 	public Post deletePost(String id);
 	public Post createPost(Post post);
-	public Post countPost(int count);
+	
 }

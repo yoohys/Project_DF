@@ -14,5 +14,5 @@ public class Post {
 	private Date modifyDate;
 	private String content;
 	private int category;
-	private int count;
+	
 }
