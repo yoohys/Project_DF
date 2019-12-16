@@ -151,15 +151,6 @@ public class MemberController {
 		return "members/modify";
 	}
 	
-	// 수정 필요
-	@PostMapping("/post/write")
-	public String write(Post post, HttpServletRequest req) {
-		
-		log.info("write : "+post);
-		postService.write(post);
-		
-		return "redirect:/board/list";
-	}
 
 	// 유저 정보관리 로직 - 탈퇴
 	@GetMapping("/secession")

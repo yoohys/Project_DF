@@ -4,6 +4,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -28,13 +30,16 @@ public class PostController {
 	}
 
 	//게시물 작성
+	// 수정 필요
 	@PostMapping("/post/write")
-	public String write(Post post) {
+	public String write(Post post, HttpServletRequest req) {
+		
+		
 		postService.write(post);
 		
-		return "/post/write";
-
+		return "redirect:/post/list";
 	}
+
 	
 	
 	//게시물 수정
