@@ -18,7 +18,7 @@
 	background-color: #b3c6ff;
 }
 
-.table>thead>tr>th {
+.table>tbody>tr>th {
 	text-align: center;
 }
 
@@ -70,4 +70,6 @@ to {
       30% {color: yellow;}
       100% {color:red; font-weight: bold;} */
 }
+
+
 </style>

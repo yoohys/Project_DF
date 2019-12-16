@@ -26,8 +26,8 @@
 			<b>게시판 (전체 글: ${totalCount})</b>
 		</div>
 
-		<div id="write">
-			<a href="write">글쓰기</a>
+		<div id="write" class="float-right">
+			<a href="write" class="btn btn-success">글쓰기</a>
 		</div>
 
 		<div>

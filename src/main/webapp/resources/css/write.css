@@ -7,6 +7,8 @@
 
 #list {
 	text-align: center;
+	padding-top: 20px;
+	padding-bottom: 20px;
 }
 
 #write {
@@ -14,12 +16,14 @@
 }
 
 /* Bootstrap 수정 */
-.table>thead {
+.table>tbody>thead {
 	background-color: #b3c6ff;
 }
 
-.table>thead>tr>th {
+.table>tbody>tr>th {
 	text-align: center;
+	background-color: #b3c6ff;
+	vertical-align: middle;
 }
 
 .table-hover>tbody>tr:hover {
@@ -28,6 +32,7 @@
 
 .table>tbody>tr>td {
 	text-align: center;
+
 }
 
 .table>tbody>tr>#title {
@@ -38,18 +43,7 @@ div>#paging {
 	text-align: center;
 }
 
-.hit {
-	animation-name: blink;
-	animation-duration: 1.5s;
-	animation-timing-function: ease;
-	animation-iteration-count: infinite;
-	/* 위 속성들을 한 줄로 표기하기 */
-	/* -webkit-animation: blink 1.5s ease infinite; */
-}
 
-/* 애니메이션 지점 설정하기 */
-/* 익스플로러 10 이상, 최신 모던 브라우저에서 지원 */
-@
 keyframes blink {
 	from {color: white;
 }
