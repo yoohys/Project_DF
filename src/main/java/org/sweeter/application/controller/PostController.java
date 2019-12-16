@@ -23,7 +23,7 @@ public class PostController {
 		return postService.getPostList(category, page, count);
 	}
 	
-	@PostMapping("/post/create")
+	@PostMapping("/post/write")
 	public String create(Post post) {
 		postService.create(post);
 		
