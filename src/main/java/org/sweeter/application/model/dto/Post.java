@@ -1,5 +1,6 @@
 package org.sweeter.application.model.dto;
 
+import java.sql.Timestamp;
 import java.util.Date;
 
 import lombok.AllArgsConstructor;
@@ -10,8 +11,8 @@ public class Post {
 	private int id;
 	private String title;
 	private String writer;
-	private Date writeDate;
-	private Date modifyDate;
+	private Timestamp writeDate;
+	private Timestamp modifyDate;
 	private String content;
 	private int category;
 }

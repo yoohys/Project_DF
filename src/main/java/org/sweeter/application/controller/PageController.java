@@ -32,4 +32,10 @@ public class PageController {
 		return "posts/list";
 
 	}
+	
+	@GetMapping("/post/write")
+	public String postWrite() {
+		return "posts/write";
+
+	}
 }

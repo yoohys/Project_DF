@@ -27,7 +27,7 @@
 		</div>
 
 		<div id="write">
-			<a href="/bbs/writeForm.bbs?pageNum=${pageNum}">글쓰기</a>
+			<a href="write">글쓰기</a>
 		</div>
 
 		<div>
