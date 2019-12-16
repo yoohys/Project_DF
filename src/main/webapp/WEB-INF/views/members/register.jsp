@@ -18,7 +18,7 @@
 		<div class="container-fluid" style="margin-top: 80px;">
 			<form action="#" method="post" class="was-validated">
 				<div class="form-group">
-					<label for="uname"><font color="red">*</font>ID:</label> <input
+					<label for="uname"><font color="red">*</font>sssssID:</label> <input
 						type="text" class="form-control" placeholder="Enter username"
 						name="id" required>
 					<div class="valid-feedback">Valid.</div>
