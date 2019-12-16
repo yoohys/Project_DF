@@ -13,7 +13,7 @@
 <meta name="generator" content="Jekyll v3.8.6">
 <title>ORY</title>
 
-<link rel="canonical" href="/resources/css/blog.css" rel="stylesheet">
+
 
 <!-- Bootstrap core CSS -->
 <link href="/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -26,7 +26,6 @@
 	sizes="32x32" type="image/png">
 <link rel="icon" href="/docs/4.4/assets/img/favicons/favicon-16x16.png"
 	sizes="16x16" type="image/png">
-<link rel="manifest" href="/docs/4.4/assets/img/favicons/manifest.json">
 <link rel="mask-icon"
 	href="/docs/4.4/assets/img/favicons/safari-pinned-tab.svg"
 	color="#563d7c">
@@ -52,16 +51,14 @@
 	}
 }
 
-a {
-	text-decoration: none
-}
+a {text-decoration: none}
 </style>
 <!-- Custom styles for this template -->
 <link
 	href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900"
 	rel="stylesheet">
 <!-- Custom styles for this template -->
-<link href="blog.css" rel="stylesheet">
+
 </head>
 <body>
 	<%
@@ -71,41 +68,7 @@ a {
 			id = member.getId();
 		}
 	%>
-	<div class="jumbotron text-center" style="margin-bottom: 0">
-		<h1>
-			DogFoot <img alt="No DogFoot" src="/resources/img/dogfoot.jpg"
-				width="50">
-		</h1>
-	</div>
-
-
-	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-		<a class="navbar-brand" href="/">DF</a>
-		<div class="collapse navbar-collapse" id="collapsibleNavbar">
-			<ul class="navbar-nav mr-auto">
-				<li class="nav-item"><a class="nav-link" href="#">IT 뉴스</a></li>
-				<li class="nav-item"><a class="nav-link" href="/post/list">자유게시판</a></li>
-				<li class="nav-item"><a class="nav-link" href="#">Q&A</a></li>
-				<li class="nav-item"><a class="nav-link" href="#">구인구직</a></li>
-			</ul>
-
-			<div class="float-right">
-				<%
-					if (session.getAttribute("user") == null) {
-				%>
-				<a class="btn btn-primary" href="/members/login">로그인</a> <a
-					class="btn btn-light" href="/members/register">회원가입</a>
-				<%
-					} else {
-				%>
-				<a class="btn btn-primary" href="/members/logout">로그아웃</a> <a
-					class="btn btn-light" href="/members/modify">회원 정보/수정 페이지</a>
-				<%
-					}
-				%>
-			</div>
-		</div>
-	</nav>
+	<%@include file="includes/navigation.jspf"%>
 
 
 	<div class="container" style="margin-top: 30px">

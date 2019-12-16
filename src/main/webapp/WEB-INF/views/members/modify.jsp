@@ -14,7 +14,6 @@
 
 		<%
 			Member member = (Member) session.getAttribute("user");
-			
 		%>
 		<div class="container-fluid" style="margin-top: 80px;">
 			<form action="#" method="post" class="was-validated">
@@ -55,7 +54,8 @@
 
 				<button type="submit" class="btn btn-primary">Modify
 					Account</button>
-				<a class="btn btn-danger" href="/members/secession?id=<%=member.getId()%>">Delete Account</a>
+				<a class="btn btn-danger"
+					href="/members/secession?id=<%=member.getId()%>">Delete Account</a>
 			</form>
 		</div>
 	</div>

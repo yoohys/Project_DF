@@ -6,14 +6,14 @@ function check() {
 
 	// 공백 확인 검사
 	var info = {
-		sub : sub,
-		con : con
+		제목 : sub,
+		내용 : con
 	};
 	var keys = Object.keys(info);
 	console.log(keys);
 	for (var i = 0; i < keys.length; i++) {
 		if (info[keys[i]] == '') {
-			alert(keys[i] + "가 비어있습니다.");
+			alert(keys[i] + "이 비어있습니다.");
 			return true;
 		}
 	}
