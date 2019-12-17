@@ -24,25 +24,28 @@
 
 		<div id="list">
 			<b>게시판 (전체 글: ${totalCount})</b>
-		
 
-		
-		<%
+
+
+			<%
 				if (session.getAttribute("user") == null) {
 			%>
-		
+
 			<%
 				} else {
 			%>
-			<a href="write" class="btn btn-success" style="float: right; margin-right: 20px;" >글쓰기</a>
+			<a href="write" class="btn btn-success"
+				style="float: right; margin-right: 20px;">글쓰기</a>
 			<%
 				}
 			%>
-			
+
 		</div>
 
 		<div>
-			<table class="table table-striped table-bordered table-hover">
+			<table
+				class="table table-striped table-bordered table-hover tbl paginated"
+				id="tbl">
 				<thead>
 					<tr>
 						<th width="10%">번호</th>
@@ -54,45 +57,28 @@
 				</thead>
 				<tbody>
 					<c:forEach var="article" items="${articles}" varStatus="status">
-					
+
 					</c:forEach>
 				</tbody>
 			</table>
 
 			<!-- Paging 처리 -->
-			<div id="paging">${pageCode}</div>
+			<div class="col" id="paging">${pageCode}
+				<ul class="pagination">
+					<li class="page-item"><a class="page-link" href="#">Previous</a></li>
+					<li class="page-item"><a class="page-link" href="#">1</a></li>
+					<li class="page-item"><a class="page-link" href="#">2</a></li>
+					<li class="page-item"><a class="page-link" href="#">3</a></li>
+					<li class="page-item"><a class="page-link" href="#">4</a></li>
+					<li class="page-item"><a class="page-link" href="#">5</a></li>
+					<li class="page-item"><a class="page-link" href="#">Next</a></li>
+				</ul>
+			</div>
 		</div>
 	</div>
 </body>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script>
-	$.ajax({
-		url : '/posts/2/1/10',
-		type : 'get',
-		dataType : "json",
-		success : function(response) {
-			console.log(response);
-
-			for (var i = 0; i < response.length; i++) {
-
-				$("table").append(
-						'<tr>' + '<td>' + response[i].id + '</td>'
-								+ '<td id="title">' + '<a href=/post/read/' + response[i].id + '>'+response[i].title +'</a>'
-								+ '</td>' + '<td>' + response[i].writer
-								+ '</td>' + '<td>' + response[i].writeDate
-								+ '</td>' + '<td>'+ ${}
-								'</td>'+'</tr>');
-
-			}
-		},
-		fail : function(error) {
-			alert('???');
-		},
-		always : function(response) {
-			console.log("call always()");
-		}
-	});
-</script>
+<script src="/resources/js/list.js"></script>
 </body>
 </html>

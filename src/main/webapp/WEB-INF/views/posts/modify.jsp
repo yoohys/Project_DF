@@ -46,9 +46,8 @@
 						<td colspan="2">
 							<button type="submit" class="btn btn-primary">Modify</button> <a
 							class="btn btn-warning" href="history.back();">Later</a> <a
-							class="btn btn-danger"
-							href="/posts/delete?id=<%=post.getId()%>">Delete
-								</a>
+							class="btn btn-danger" href="/posts/delete?id=<%=post.getId()%>">Delete
+						</a>
 						</td>
 					</tr>
 					<input type="hidden" value="<%=member.getId()%>" name="writer" />

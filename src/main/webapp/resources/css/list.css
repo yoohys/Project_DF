@@ -72,6 +72,12 @@ to {
       30% {color: yellow;}
       100% {color:red; font-weight: bold;} */
 }
-
+#paging{
+	align-content: 
+	align-items: center;
+	text-align: center;
+	
+	
+}
 
 </style>
