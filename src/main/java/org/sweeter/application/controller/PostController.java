@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -65,14 +66,19 @@ public class PostController {
 	}
 	//게시글 내용 조회
 	@GetMapping("/post/getPost")
-	public String read(int id) {
+	public String read(int id,String title, Model model) {
 //		ModelAndView mav = new ModelAndView();
 //		mav.addObject("id",id);
 		postService.getPost(id);
 //		mav.setViewName("/post/read");
+		model.addAttribute("id", id);
 		
 		return "post/read";
 		
+		
 	}
+	
+
+	
 
 }
