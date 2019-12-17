@@ -33,7 +33,7 @@ CREATE TABLE post(
     FOREIGN KEY (category) REFERENCES category(id)
     
 );
-
+alter table post add count NUMBER(5,0);
 
 CREATE TABLE comment(
     id INTEGER AUTO_INCREMENT PRIMARY KEY,

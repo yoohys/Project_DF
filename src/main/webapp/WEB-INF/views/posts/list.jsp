@@ -81,7 +81,7 @@
 								+ '<td id="title">' + '<a href=/post/read/\"' + response[i].id + '\">'+response[i].title +'</a>'
 								+ '</td>' + '<td>' + response[i].writer
 								+ '</td>' + '<td>' + response[i].writeDate
-								+ '</td>' + '<td>'+
+								+ '</td>' + '<td>'+ ${}
 								'</td>'+'</tr>');
 
 			}
