@@ -10,4 +10,5 @@ public interface PostService {
 	void modify(Post post);
 	void delete(String id);
 	Post getPost(int id);
+	
 }
