@@ -26,7 +26,6 @@ import lombok.extern.log4j.Log4j2;
 public class MemberController {
 	@Autowired
 	MemberService memberService;
-	PostService postService;
 
 	/**
 	 * checkUserInfo(String id, String pw) <br>
@@ -149,16 +148,6 @@ public class MemberController {
 		session.setAttribute("user", updatedMember);
 
 		return "members/modify";
-	}
-	
-	// 수정 필요
-	@PostMapping("/post/write")
-	public String write(Post post, HttpServletRequest req) {
-		
-		log.info("write : "+post);
-		postService.write(post);
-		
-		return "redirect:/board/list";
 	}
 
 	// 유저 정보관리 로직 - 탈퇴

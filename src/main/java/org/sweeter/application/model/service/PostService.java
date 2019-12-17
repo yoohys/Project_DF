@@ -9,5 +9,6 @@ public interface PostService {
 	void write(Post post);
 	void modify(Post post);
 	void delete(String id);
-	void getPost(int id);
+	Post getPost(int id);
+	
 }

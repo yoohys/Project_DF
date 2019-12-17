@@ -24,7 +24,7 @@ CREATE TABLE category(
 CREATE TABLE post(
 	id INTEGER AUTO_INCREMENT PRIMARY KEY,
 	title VARCHAR2(100) NOT NULL,
-	writer VARCHAR2(40),
+	writer VARCHAR2(40) NOT NULL,
 	writedate DATE default sysdate,
 	modifydate DATE default sysdate,
 	content VARCHAR2(1000) NOT NULL,
