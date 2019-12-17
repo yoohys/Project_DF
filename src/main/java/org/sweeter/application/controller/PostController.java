@@ -51,7 +51,6 @@ public class PostController {
 		postService.modify(post);
 		
 		return "/post/list";
-
 	}
 	
 	//게시물 삭제
@@ -63,6 +62,7 @@ public class PostController {
 		return "/post/list";
 		
 	}
+	
 	//게시글 내용 조회
 	@GetMapping("/post/getPost")
 	public String read(int id) {
