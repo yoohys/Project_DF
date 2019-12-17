@@ -21,6 +21,7 @@
 		SELECT * FROM post
 	</select>
 
+	<!-- READ -->
 	<select id="getPostById"
 		resultType="org.sweeter.application.model.dto.Post">
 		SELECT * FROM post WHERE id = #{id}

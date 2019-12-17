@@ -43,5 +43,9 @@ public class PageController {
 
 	}
 
+	@GetMapping("/post/read")
+	public String postRead() {
+		return "posts/read";
+	}
 
 }

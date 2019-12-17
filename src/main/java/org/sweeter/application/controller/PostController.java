@@ -31,19 +31,17 @@ public class PostController {
 		return postService.getPostList(category, page, count);
 	}
 	
-	@RequestMapping("/posts/{id}")
+	@RequestMapping("/post"+"/read/{id}")
 	@ResponseBody
 	public Post post(@PathVariable int id) {
 		return postService.getPost(id);
+		
 	}
+	
 	//게시물 작성
-	// 수정 필요
 	@PostMapping("/post/write")
 	public String write(Post post, HttpServletRequest req) {
-		
-		
 		postService.write(post);
-		
 		return "redirect:/post/list";
 	}
 
@@ -67,14 +65,13 @@ public class PostController {
 	}
 	//게시글 내용 조회
 	@GetMapping("/post/getPost")
-	public ModelAndView read(int id) {
-		ModelAndView mav = new ModelAndView();
-		
-		
+	public String read(int id) {
+//		ModelAndView mav = new ModelAndView();
+//		mav.addObject("id",id);
 		postService.getPost(id);
-		mav.setViewName("/post/read");
+//		mav.setViewName("/post/read");
 		
-		return mav;
+		return "post/read";
 		
 	}
 

@@ -59,7 +59,7 @@
 			</form>
 		</div>
 	</div>
-	<script src="/resources/js/modify.js"></script>
+	<script src="/resources/js/member-modify.js"></script>
 	<script>
 		$('button[type="submit"]').on("click", function(e) {
 			e.preventDefault();
