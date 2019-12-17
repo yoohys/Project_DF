@@ -81,7 +81,8 @@
 								+ '<td id="title">' + '<a href="#">'+response[i].title +'</a>'
 								+ '</td>' + '<td>' + response[i].writer
 								+ '</td>' + '<td>' + response[i].writeDate
-								+ '</td>' + '</tr>');
+								+ '</td>' + '<td>'+
+								'</td>'+'</tr>');
 
 			}
 		},
