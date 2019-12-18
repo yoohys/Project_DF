@@ -1,5 +1,5 @@
 $.ajax({
-	url : '/posts/2/3/10',
+	url : '/posts/2/1/10',
 	type : 'get',
 	dataType : "json",
 	success : function(response) {

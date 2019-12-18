@@ -11,8 +11,8 @@ public class Post {
 	private int id;
 	private String title;
 	private String writer;
-	private Timestamp writeDate;
-	private Timestamp modifyDate;
+	private String writeDate;
+	private String modifyDate;
 	private String content;
 	private int category;
 	

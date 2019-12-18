@@ -71,7 +71,6 @@ public class PostController {
 		mav.setViewName("/post/read");
 		mav.addObject("id", id);
 		postService.getPost(id);
-
 		return mav;
 
 	}
