@@ -33,7 +33,7 @@
 					<tr>
 						<th>내용</th>
 						<td><textarea cols="10" placeholder="내용을 입력하세요. "
-								class="form-control" rows="10" name="content"></textarea></td>
+								class="form-control" rows="15" name="content"></textarea></td>
 					</tr>
 					<tr>
 						<th>첨부파일</th>

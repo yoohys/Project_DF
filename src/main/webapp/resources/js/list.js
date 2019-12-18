@@ -9,12 +9,11 @@ $.ajax({
 
 			$("table").append(
 					'<tr>' + '<td>' + response[i].id + '</td>'
-							+ '<td id="title">' + '<a href=/post/read/'
-							+ response[i].id + '>' + response[i].title + '</a>'
-							+ '</td>' + '<td>' + response[i].writer + '</td>'
-							+ '<td>' + response[i].writeDate + '</td>' + '<td>'
+							+ '<td id="title">' + '<a href="/post/read/">'
+							+ response[i].title + '</a>' + '</td>' + '<td>'
+							+ response[i].writer + '</td>' + '<td>'
+							+ response[i].writeDate + '</td>' + '<td>'
 							+ '</td>' + '</tr>');
-
 		}
 
 	},
@@ -25,5 +24,3 @@ $.ajax({
 		console.log("call always()");
 	}
 });
-
-
