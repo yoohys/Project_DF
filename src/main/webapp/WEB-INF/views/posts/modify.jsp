@@ -3,7 +3,7 @@
 	pageEncoding="UTF-8"%>
 
 <%
-	Member member = (Member) session.getAttribute("user");
+	Model
 %>
 <!DOCTYPE html>
 <html>
