@@ -1,35 +1,24 @@
-<script type="text/javascript">
-		$('button[type="submit"]').on(
-				"click",
-				function(e) {
-					e.preventDefault();
-					modify();
+var url = window.location.pathname;
+url = url.split('/');
+console.log(url);
+var id = url[url.length - 1];
 
-					$.ajax({
-						url : '/posts/' + response.id,
-						type : 'get',
-						dataType : "json",
-						success : function(response) {
-							console.log(response);
-
-							$("table").append(
-									'<tr>' + '<th>' + '제목' + '</th>' + '<td>'
-											+ response.title + '</td>' + '<td>'
-											+ response.writer + '</td>'
-											+ '<td>' + '작성일' + '</td>' + '<td>'
-											+ response.writeDate + '</td>'
-											+ '<th>' + '내용' + '</th>' + '<td>'
-											+ response.content + '</td>'
-											+ '</tr>');
-
-						},
-						fail : function(error) {
-							alert('???');
-						},
-						always : function(response) {
-							console.log("call always()");
-						}
-					});
-				});
-		//암호 확인
-	</script>
+$.ajax({
+	url : '/post/read/' + id,
+	type : 'get',
+	dataType : "json",
+	success : function(response) {
+		console.log(response);
+		$("#title").val(response.title);
+		$("#id").val(response.id);
+		$("#writer").val(response.writer);
+		$("#content").append(response.content);
+	},
+	fail : function(error) {
+		alert('???');
+	},
+	always : function(response) {
+		console.log("call always()");
+	}
+});
+// 암호 확인

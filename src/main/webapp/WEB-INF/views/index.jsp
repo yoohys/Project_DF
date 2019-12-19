@@ -107,7 +107,7 @@ a {text-decoration: none}
 			</div>
 			<div class="col-sm-8">
 
-				<a href="/post/list"><h2>자유게시판</h2></a>
+				<a href="/post/list/2/1/10"><h2>자유게시판</h2></a>
 
 				<table class="table table-hover">
 					<tbody>

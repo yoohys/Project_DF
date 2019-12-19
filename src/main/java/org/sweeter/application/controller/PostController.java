@@ -1,6 +1,8 @@
 package org.sweeter.application.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +20,16 @@ import org.sweeter.application.model.service.PostService;
 public class PostController {
 	@Autowired
 	PostService postService;
+
+	@RequestMapping("/posts/all")
+	@ResponseBody
+	public Map<String, List<Post>> testPostList() {
+		Map<String, List<Post>> map = new HashMap<String, List<Post>>();
+		List<Post> ls = postService.getAllPosts();
+		map.put("data", ls);
+
+		return map;
+	}
 
 	@RequestMapping("/posts/{category}/{page}/{count}")
 	@ResponseBody
@@ -41,11 +53,10 @@ public class PostController {
 	}
 
 	// 게시물 수정
-	@PostMapping("/post/modify")
+	@PostMapping("/posts/modify")
 	public String modify(Post post) {
 		postService.modify(post);
-
-		return "/post/list";
+		return "redirect:/post/modify";
 	}
 
 	// 게시물 삭제
@@ -59,13 +70,9 @@ public class PostController {
 	}
 
 	// 게시글 내용 조회
-	@GetMapping("/post/getPost")
-	public ModelAndView read(int id) {
-		ModelAndView mav = new ModelAndView();
-		mav.setViewName("/post/read");
-		mav.addObject("id", id);
-		postService.getPost(id);
-		return mav;
+	@GetMapping("/post/{id}")
+	public String read(@PathVariable int id) {
+		return "posts/read";
 
 	}
 

@@ -20,24 +20,25 @@
 				<div id="list">
 					<b>글읽기</b>
 				</div>
-				<form action="#" method="post" class="was-validated">
+				<form action="/post/modify" method="post" class="was-validated">
+				<input type="hidden" id="id">
 					<tr>
 						<th>제목</th>
-						<td colspan="3"><input type="text" placeholder="${title }"
+						<td colspan="3"><input id="title" type="text" 
 							class="form-control" name="title" readonly="readonly" /></td>
 					</tr>
 					<tr>
 
 						<th>작성자</th>
-						<td><input type="text" placeholder="${writer }"
+						<td><input type="text" id="writer"
 							class="form-control" name="writer" readonly="readonly" /></td>
 						<th>수정 시간</th>
-						<td><input type="text" placeholder="${modifyDate }"
+						<td><input type="text""
 							class="form-control" name="modifyDate" readonly="readonly" /></td>
 					</tr>
 				<tr>
 					<th>내용</th>
-					<td colspan="3"><textarea cols="10" placeholder="${content }"
+					<td colspan="3"><textarea id="content" cols="10"
 							class="form-control" rows="20" name="content" readonly="readonly"></textarea></td>
 <!-- 				나중에 글의 크기에따라 Rows 조정 -->
 				</tr>

@@ -2,7 +2,10 @@ package org.sweeter.application.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
+import org.sweeter.application.model.dto.Post;
 
 @Controller
 public class PageController {
@@ -26,7 +29,7 @@ public class PageController {
 		return "members/modify";
 	}
 
-	@GetMapping("/post/list")
+	@GetMapping("/post/list/{category}/{page}/{count}")
 	public String postList() {
 		return "posts/list";
 	}
@@ -37,9 +40,12 @@ public class PageController {
 
 	}
 
-	@GetMapping("/post/modify")
-	public String postModify() {
-		return "posts/modify";
+	@PostMapping("/post/modify")
+	public ModelAndView postModify(Post post) {
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("post", post);
+		mav.setViewName("posts/modify");
+		return mav;
 
 	}
 
