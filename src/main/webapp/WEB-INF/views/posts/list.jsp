@@ -65,7 +65,7 @@
 			<!-- Paging 처리 -->
 			<div class="col" id="paging">${pageCode}
 				<ul class="pagination">
-					<li class="page-item"><a class="page-link" href="#">Previous</a></li>
+					<li class="page-item"><a class="page-link" href="history.back()">Previous</a></li>
 					<li class="page-item"><a class="page-link" href="#">1</a></li>
 					<li class="page-item"><a class="page-link" href="#">2</a></li>
 					<li class="page-item"><a class="page-link" href="#">3</a></li>

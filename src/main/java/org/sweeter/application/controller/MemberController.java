@@ -14,9 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.sweeter.application.model.dto.Member;
-import org.sweeter.application.model.dto.Post;
 import org.sweeter.application.model.service.MemberService;
-import org.sweeter.application.model.service.PostService;
 
 import lombok.extern.log4j.Log4j2;
 

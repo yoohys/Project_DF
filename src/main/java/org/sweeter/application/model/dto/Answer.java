@@ -1,7 +1,6 @@
 package org.sweeter.application.model.dto;
 
 import java.sql.Timestamp;
-import java.util.Date;
 
 import lombok.Data;
 

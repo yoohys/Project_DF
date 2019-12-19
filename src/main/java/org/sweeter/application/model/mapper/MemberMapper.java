@@ -2,7 +2,6 @@ package org.sweeter.application.model.mapper;
 
 import java.util.List;
 
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.sweeter.application.model.dto.Member;
 
 public interface MemberMapper {
