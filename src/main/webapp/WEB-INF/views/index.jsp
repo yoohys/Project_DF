@@ -7,6 +7,7 @@
 <meta charset="utf-8">
 <title>ORY</title>
 <link href="/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
 </head>
 <body>
 	<%
@@ -60,19 +61,19 @@
 				<table class="table table-hover">
 					<tbody>
 						<tr>
-							<td>안녕하세요 :)</td>
+							<td><a href="/post/1">게시물 바로가기</a></td>
 						</tr>
 						<tr>
-							<td>새 서버용 PC 장만</td>
+							<td><a href="/post/2">게시물 바로가기</a></td>
 						</tr>
 						<tr>
-							<td>오늘 저녁밥</td>
+							<td><a href="/post/3">게시물 바로가기</a></td>
 						</tr>
 						<tr>
-							<td>ㅁㄴㅇㄹ</td>
+							<td><a href="/post/4">게시물 바로가기</a></td>
 						</tr>
 						<tr>
-							<td>자유게시판입니다.</td>
+							<td><a href="/post/5">게시물 바로가기</a></td>
 						</tr>
 					</tbody>
 				</table>

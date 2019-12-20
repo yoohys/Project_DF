@@ -57,7 +57,7 @@ public class PostController {
 	public String modify(Post post, HttpServletRequest req) {
 		postService.modify(post);
 
-		return "redirect:/post/read";
+		return "redirect:/posts/{id}";
 	}
 
 	// 게시물 삭제

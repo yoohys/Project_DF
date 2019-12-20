@@ -127,6 +127,7 @@ public class MemberController {
 	 *         result : true 또는 false <br>
 	 *         }
 	 */
+	
 	@RequestMapping("/register/check/{id}")
 	@ResponseBody
 	public HashMap<String, Boolean> registerCheck(@PathVariable String id) {
@@ -154,10 +155,8 @@ public class MemberController {
 		// 로그아웃 수행(세션 해제)
 		HttpSession session = req.getSession();
 		session.removeAttribute("user");
-
 		// DB에 유저 정보 삭제
 		memberService.delete(id);
-
 		// 메인페이지 이동
 		return "/index";
 	}

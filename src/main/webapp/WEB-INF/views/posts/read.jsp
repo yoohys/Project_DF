@@ -20,34 +20,38 @@
 				<div id="list">
 					<b>글읽기</b>
 				</div>
+
 				<form action="/post/modify" method="post" class="was-validated">
-				<input type="hidden" id="id">
+					<input type="hidden" id="id">
 					<tr>
 						<th>제목</th>
-						<td colspan="3"><input id="title" type="text" 
+						<td colspan="3"><input id="title" type="text"
 							class="form-control" name="title" readonly="readonly" /></td>
 					</tr>
 					<tr>
 
 						<th>작성자</th>
-						<td><input type="text" id="writer"
-							class="form-control" name="writer" readonly="readonly" /></td>
+						<td><input type="text" id="writer" class="form-control"
+							name="writer" readonly="readonly" /></td>
 						<th>수정 시간</th>
-						<td><input type="text"" id="modifyDate"
-							class="form-control" name="modifyDate" readonly="readonly" /></td>
+						<td><input type="text"  id="modifyDate" class="form-control"
+							name="modifyDate" readonly="readonly" /></td>
 					</tr>
-				<tr>
-					<th>내용</th>
-					<td colspan="3"><textarea id="content" cols="10"
-							class="form-control" rows="20" name="content" readonly="readonly"></textarea></td>
-<!-- 				나중에 글의 크기에따라 Rows 조정 -->
-				</tr>
-				<tr>
-					<td colspan="4">
-						<button type="submit" class="btn btn-primary">Modify</button> <a
-						class="btn btn-danger" href="/post/list/2/1/10">List</a>
-					</td>
-				</tr>
+					<tr>
+						<th>내용</th>
+						<td colspan="3"><textarea id="content" cols="10"
+								class="form-control" rows="20" name="content"
+								readonly="readonly"></textarea></td>
+						<!-- 				나중에 글의 크기에따라 Rows 조정 -->
+					</tr>
+
+					<tr>
+						<td colspan="4">
+
+							<button type="submit" class="btn btn-primary">Modify</button> <a
+							class="btn btn-danger" href="/post/list/2/1/10">List</a>
+						</td>
+					</tr>
 				</form>
 			</tbody>
 		</table>
@@ -55,6 +59,5 @@
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<script src="/resources/js/read.js"></script>
-	
 </body>
 </html>
