@@ -13,6 +13,8 @@ $.ajax({
 		$("#id").val(response.id);
 		$("#writer").val(response.writer);
 		$("#content").append(response.content);
+		$("#modifyDate").val(response.modifyDate);
+		
 	},
 	fail : function(error) {
 		alert('???');
