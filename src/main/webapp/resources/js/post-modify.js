@@ -17,7 +17,7 @@ function check() {
 			return true;
 		}
 	}
-
+	
 	return false;
 }
 
@@ -25,16 +25,9 @@ function check() {
 // 아이디 중복 : 중복 경고창 띄우고 회원가입창 유지
 // 중복 안됨 : DB에 회원 정보 저장 후 메인 페이지로
 
-function write() {
-	$('form').attr('action', '/post/write').attr('method', 'post').submit();
-	alert("글이 등록되었습니다.");
-
+function modify() {
+				$('form').attr('action', '/post/modify').attr('method',
+						'post').submit();
+				alert("글이 수정되었습니다.");
+			
 }
-
-$('button[type="submit"]').on("click", function(e) {
-	e.preventDefault();
-
-	if (!check()) {
-		write();
-	}
-});

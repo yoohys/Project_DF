@@ -10,8 +10,6 @@
 
 <head>
 <meta charset="UTF-8">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Insert title here</title>
 <link href="/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 <link href="/resources/css/write.css" rel="stylesheet">
@@ -33,7 +31,7 @@
 					<tr>
 						<th>내용</th>
 						<td><textarea cols="10" placeholder="내용을 입력하세요. "
-								class="form-control" rows="10" name="content"></textarea></td>
+								class="form-control" rows="15" name="content"></textarea></td>
 					</tr>
 					<tr>
 						<th>첨부파일</th>
@@ -56,16 +54,6 @@
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<script src="/resources/js/write.js"></script>
-	<script>
-		$('button[type="submit"]').on("click", function(e) {
-			e.preventDefault();
-
-			if (!check()) {
-				write();
-			}
-		});
-	</script>
-
 </body>
 
 </html>

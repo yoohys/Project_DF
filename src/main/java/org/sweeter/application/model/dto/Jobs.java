@@ -1,8 +1,9 @@
 package org.sweeter.application.model.dto;
 
-import java.util.Date;
+import java.sql.Timestamp;
 
 import lombok.Data;
+
 
 @Data
 public class Jobs {
@@ -10,8 +11,8 @@ public class Jobs {
 	private int id;
 	private String title;
 	private String writer;
-	private Date writeDate;
-	private Date modifyDate;
+	private Timestamp writeDate;
+	private Timestamp modifyDate;
 	private String salary;
 	private String career;
 	private String content;

@@ -25,21 +25,21 @@ CREATE TABLE post(
 	id INTEGER AUTO_INCREMENT PRIMARY KEY,
 	title VARCHAR2(100) NOT NULL,
 	writer VARCHAR2(40) NOT NULL,
-	writedate DATE default sysdate,
-	modifydate DATE default sysdate,
+	writedate DATETIME default sysdate,
+	modifydate DATETIME default sysdate,
 	content VARCHAR2(1000) NOT NULL,
     category INT,
+    count NUMBER(5,0),
 	FOREIGN KEY (writer) REFERENCES member(id) ON DELETE SET NULL,
     FOREIGN KEY (category) REFERENCES category(id)
     
 );
 
-
 CREATE TABLE comment(
     id INTEGER AUTO_INCREMENT PRIMARY KEY,
     writer VARCHAR2(40),
-    writedate DATE DEFAULT sysdate,
-    modifydate DATE DEFAULT sysdate,
+    writedate DATETIME DEFAULT sysdate,
+    modifydate DATETIME DEFAULT sysdate,
     content VARCHAR2(1000),
     post INTEGER,
     FOREIGN KEY (writer) REFERENCES member(id) ON DELETE SET NULL,
@@ -62,8 +62,8 @@ CREATE TABLE question(
     id INTEGER AUTO_INCREMENT PRIMARY KEY,
     title VARCHAR2(40),
     writer VARCHAR2(40) DEFAULT sysdate,
-    writedate DATE DEFAULT sysdate,
-    modifydate DATE DEFAULT sysdate,
+    writedate DATETIME DEFAULT sysdate,
+    modifydate DATETIME DEFAULT sysdate,
     content VARCHAR2(1000),
     FOREIGN KEY (writer) REFERENCES member(id) ON DELETE SET NULL
 );
@@ -71,8 +71,8 @@ CREATE TABLE question(
 CREATE TABLE answer(
     id INTEGER AUTO_INCREMENT PRIMARY KEY,
     writer VARCHAR2(40),
-    writedate DATE DEFAULT sysdate,
-    modifydate DATE DEFAULT sysdate,
+    writedate DATETIME DEFAULT sysdate,
+    modifydate DATETIME DEFAULT sysdate,
     content VARCHAR2(1000),
     questionid INTEGER,
     FOREIGN KEY (writer) REFERENCES member(id) ON DELETE SET NULL,

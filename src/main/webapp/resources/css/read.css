@@ -1,4 +1,3 @@
-
 #container {
 	width: 70%;
 	margin: 0 auto; /* 가로로 중앙에 배치 */
@@ -20,5 +19,10 @@
 
 .table>tbody>tr>td {
 	text-align: center;
-
 }
+
+
+
+.table>tbody>tr>td>input:read-only, .table>tbody>tr>td>textarea:read-only{ 
+    background-color: white; 
+} 
