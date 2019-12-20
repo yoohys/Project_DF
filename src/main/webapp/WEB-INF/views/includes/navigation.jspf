@@ -28,8 +28,8 @@
 			<%
 				} else {
 			%>
-			<a class="btn btn-warning" href="/members/logout">로그아웃</a> <a
-				class="btn btn-primary" href="/members/modify">회원 정보/수정 페이지</a>
+			<a class="btn btn-primary" href="/members/logout">로그아웃</a> <a
+				class="btn btn-secondary" href="/members/modify">회원 정보/수정 페이지</a>
 			<%
 				}
 			%>
