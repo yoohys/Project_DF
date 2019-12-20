@@ -1,4 +1,4 @@
-<style>
+
 #container {
 	width: 70%;
 	margin: 0 auto; /* 가로로 중앙에 배치 */
@@ -11,57 +11,14 @@
 	padding-bottom: 20px;
 }
 
-#write {
-	text-align: right;
-}
-
-/* Bootstrap 수정 */
-.table>tbody>thead {
-	background-color: #b3c6ff;
-}
-
 .table>tbody>tr>th {
 	text-align: center;
 	background-color: #b3c6ff;
 	vertical-align: middle;
-}
-
-.table-hover>tbody>tr:hover {
-	background-color: #e6ecff;
+	width: 130px;
 }
 
 .table>tbody>tr>td {
 	text-align: center;
 
 }
-
-.table>tbody>tr>#title {
-	text-align: left;
-}
-
-div>#paging {
-	text-align: center;
-}
-
-
-keyframes blink {
-	from {color: white;
-}
-
-30%
-{
-color
-:
- 
-yellow
-;
-}
-to {
-	color: red;
-	font-weight: bold;
-}
-/* 0% {color:white;}
-      30% {color: yellow;}
-      100% {color:red; font-weight: bold;} */
-}
-</style>

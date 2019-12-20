@@ -48,7 +48,7 @@ public class PostController {
 	@PostMapping("/post/write")
 	public String write(Post post, HttpServletRequest req) {
 		postService.write(post);
-		return "redirect:/post/list";
+		return "redirect:/post/list/2/1/10";
 
 	}
 
@@ -65,7 +65,7 @@ public class PostController {
 		// DB에 게시물 정보 삭제
 		postService.delete(id);
 		// 게시물목록 이동
-		return "/post/list";
+		return "/post/list/2/1/10";
 
 	}
 
