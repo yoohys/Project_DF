@@ -22,7 +22,7 @@
 				</div>
 
 				<form action="/post/modify" method="post" class="was-validated">
-					<input type="hidden" id="id">
+					<input id="id" type="hidden" name="id">
 					<tr>
 						<th>제목</th>
 						<td colspan="3"><input id="title" type="text"

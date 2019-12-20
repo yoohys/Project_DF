@@ -54,19 +54,20 @@ public class PostController {
 
 	// 게시물 수정
 	@PostMapping("/posts/modify")
-	public String modify(Post post, HttpServletRequest req) {
+	public String modify(Post post) {
+		System.out.println(post.getId());
 		postService.modify(post);
 
-		return "redirect:/posts/{id}";
+		return "redirect:/post/" + post.getId();
 	}
 
 	// 게시물 삭제
-	@PostMapping("/post/delete")
+	@GetMapping("/post/delete/{id}")
 	public String delete(@PathVariable int id) {
 		// DB에 게시물 정보 삭제
 		postService.delete(id);
 		// 게시물목록 이동
-		return "/post/list/2/1/10";
+		return "redirect:/post/list/2/1/10";
 
 	}
 

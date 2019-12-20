@@ -7,8 +7,8 @@ import org.sweeter.application.model.dto.Post;
 public interface PostMapper {
 	
 	public void writePost(Post post);
-	public Post updatePost(Post post);
-	public Post deletePost(int id);
+	public void updatePost(Post post);
+	public void deletePost(int id);
 	
 	public List<Post> getPostList(int category, int page, int count);
 	public List<Post> getAllPost();	

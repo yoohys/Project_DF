@@ -58,23 +58,9 @@
 
 				<a href="/post/list/2/1/10"><h2>자유게시판</h2></a>
 
-				<table class="table table-hover">
+				<table id="freeBoard" class="table table-hover">
 					<tbody>
-						<tr>
-							<td><a href="/post/1">게시물 바로가기</a></td>
-						</tr>
-						<tr>
-							<td><a href="/post/2">게시물 바로가기</a></td>
-						</tr>
-						<tr>
-							<td><a href="/post/3">게시물 바로가기</a></td>
-						</tr>
-						<tr>
-							<td><a href="/post/4">게시물 바로가기</a></td>
-						</tr>
-						<tr>
-							<td><a href="/post/5">게시물 바로가기</a></td>
-						</tr>
+						
 					</tbody>
 				</table>
 				<h2>Q&A</h2>
@@ -107,5 +93,26 @@
 	</div>
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<script type="text/javascript">
+		$(document).ready(function() {
+			$.ajax({
+				url : '/posts/2/1/5',
+				type : 'get',
+				dataType : "json",
+				success : function(response) {
+					console.log(response);
+					for(var i = 0; i < response.length; i++){
+						$('#freeBoard tbody').append('<tr><td><a href="/post/' + response[i].id + '">' + response[i].title +'</a></td></tr>');
+					}
+				},
+				fail : function(error) {
+					alert('???');
+				},
+				always : function(response) {
+					console.log("call always()");
+				}
+			});
+		});
+		</script>
 </body>
 </html>

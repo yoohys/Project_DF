@@ -22,9 +22,10 @@
 					<b>글읽기</b>
 				</div>
 				<form action="#" method="post" class="was-validated">
+					<input type="hidden" name="id" value="${post.id}">
 					<tr>
 						<th>제목</th>
-						<td colspan="3"><input id="id" type="text"
+						<td colspan="3"><input id="title" type="text"
 							class="form-control" name="title" value="${post.title}" /></td>
 					</tr>
 					<tr>
@@ -48,7 +49,7 @@
 						<td colspan="4">
 							<button type="submit" class="btn btn-primary">Modify</button> <a
 							class="btn btn-primary" href="/post/list/2/1/10">List</a> <a
-							class="btn btn-danger" href="/post/delete">Delete</a>
+							class="btn btn-danger" href="/post/delete/${post.id}">Delete</a>
 						</td>
 					</tr>
 				</form>

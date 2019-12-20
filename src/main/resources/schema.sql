@@ -24,7 +24,7 @@ CREATE TABLE category(
 CREATE TABLE post(
 	id INTEGER AUTO_INCREMENT PRIMARY KEY,
 	title VARCHAR2(100) NOT NULL,
-	writer VARCHAR2(40) NOT NULL,
+	writer VARCHAR2(40),
 	writedate DATETIME default sysdate,
 	modifydate DATETIME default sysdate,
 	content VARCHAR2(1000) NOT NULL,
@@ -43,7 +43,7 @@ CREATE TABLE comment(
     content VARCHAR2(1000),
     post INTEGER,
     FOREIGN KEY (writer) REFERENCES member(id) ON DELETE SET NULL,
-    FOREIGN KEY (post) REFERENCES post(id)
+    FOREIGN KEY (post) REFERENCES post(id) ON DELETE SET NULL
 );
 
 CREATE TABLE jobs(

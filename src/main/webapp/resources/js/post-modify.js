@@ -22,9 +22,7 @@ function modify() {
 			return false;
 		}
 	}
-
-	$('form').attr('action', '/post/modify').attr('method', 'post').submit();
-	
 	alert("글이 수정되었습니다.");
+	$('form').attr('action', '/posts/modify').attr('method', 'post').submit();
 
 }

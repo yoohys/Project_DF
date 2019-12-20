@@ -14,7 +14,6 @@ $.ajax({
 		$("#writer").val(response.writer);
 		$("#content").append(response.content);
 		$("#modifyDate").val(response.modifyDate);
-		
 	},
 	fail : function(error) {
 		alert('???');
