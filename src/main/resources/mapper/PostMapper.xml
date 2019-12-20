@@ -34,7 +34,7 @@
 
 	<!-- DELETE -->
 	<delete id="deletePost" parameterType="org.sweeter.application.model.dto.Post">
-		DELETE from member where id= ${id}
+		DELETE from Post where id= ${id}
 	</delete>
 	
 	

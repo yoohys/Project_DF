@@ -1,8 +1,5 @@
 package org.sweeter.application.model.dto;
 
-
-
-
 import lombok.Data;
 
 @Data
@@ -14,5 +11,5 @@ public class Post {
 	private String modifyDate;
 	private String content;
 	private int category;
-	
+
 }

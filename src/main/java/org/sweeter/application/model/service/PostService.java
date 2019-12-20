@@ -9,7 +9,7 @@ public interface PostService {
 	List<Post> getAllPosts();
 	void write(Post post);
 	void modify(Post post);
-	void delete(String id);
+	void delete(int id);
 	Post getPost(int id);
 	
 }

@@ -32,7 +32,7 @@ public class PostServiceImpl implements PostService{
 	}
 
 	@Override
-	public void delete(String id) {
+	public void delete(int id) {
 		postMapper.deletePost(id);
 		
 	}

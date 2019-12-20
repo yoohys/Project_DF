@@ -1,4 +1,11 @@
 //필수사항 중 비어있는 항목이 있는지 체크
+$('button[type="submit"]').on("click", function(e) {
+	e.preventDefault();
+
+	if (!check()) {
+		write();
+	}
+});
 
 function check() {
 	var sub = $('input[name="subject"]').val();
@@ -9,6 +16,7 @@ function check() {
 		제목 : sub,
 		내용 : con
 	};
+	
 	var keys = Object.keys(info);
 	console.log(keys);
 	for (var i = 0; i < keys.length; i++) {
@@ -30,11 +38,3 @@ function write() {
 	alert("글이 등록되었습니다.");
 
 }
-
-$('button[type="submit"]').on("click", function(e) {
-	e.preventDefault();
-
-	if (!check()) {
-		write();
-	}
-});

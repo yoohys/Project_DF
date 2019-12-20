@@ -59,13 +59,11 @@
 			</form>
 		</div>
 	</div>
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<script src="/resources/js/member-modify.js"></script>
 	<script>
-		$('button[type="submit"]').on("click", function(e) {
-			e.preventDefault();
-			modify();
-
-		});
+		
 	</script>
 </body>
 </html>
