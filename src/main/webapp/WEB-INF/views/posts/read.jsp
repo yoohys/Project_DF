@@ -45,7 +45,7 @@
 				<tr>
 					<td colspan="4">
 						<button type="submit" class="btn btn-primary">Modify</button> <a
-						class="btn btn-danger" href="list">List</a>
+						class="btn btn-danger" href="/post/list/2/1/10">List</a>
 					</td>
 				</tr>
 				</form>
