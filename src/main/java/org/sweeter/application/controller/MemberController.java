@@ -76,6 +76,7 @@ public class MemberController {
 			// 세션 설정 후 메인 페이지로 이동
 			HttpSession session = req.getSession();
 			session.setAttribute("user", loginMember);
+			session.setAttribute("userId", loginMember.getId());
 			mav.setViewName("redirect:/");
 		}
 

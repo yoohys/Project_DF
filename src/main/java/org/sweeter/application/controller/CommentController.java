@@ -27,7 +27,7 @@ public class CommentController {
 		return commentService.getCommentList(post);	
 	}
 
-	@RequestMapping("/comment/read/{id}")
+	@RequestMapping("/comment/id/{id}")
 	@ResponseBody
 	public Comment comment(@PathVariable int id) {
 		return commentService.getComment(id);

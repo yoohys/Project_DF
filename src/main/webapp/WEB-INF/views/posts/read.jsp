@@ -43,11 +43,11 @@
 								class="form-control" rows="20" name="content"
 								readonly="readonly"></textarea></td>
 						<!-- 				나중에 글의 크기에따라 Rows 조정 -->
+
 					</tr>
 
 					<tr>
 						<td colspan="4">
-
 							<button type="submit" class="btn btn-primary">Modify</button> <a
 							class="btn btn-danger" href="/post/list/2/1/10">List</a>
 						</td>

@@ -1,5 +1,8 @@
 package org.sweeter.application.controller;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -41,12 +44,18 @@ public class PageController {
 	}
 
 	@PostMapping("/post/modify")
-	public ModelAndView postModify(Post post) {
+	public ModelAndView postModify(Post post, HttpServletRequest req) {
+		HttpSession session = req.getSession();
 		ModelAndView mav = new ModelAndView();
-		mav.addObject("post", post);
-		mav.setViewName("posts/modify");
-		return mav;
-
+		
+		if (post.getWriter() != session.getAttribute("userId")) {
+			mav.setViewName("post/list/2/1/10");
+			return mav;
+		} else {
+			mav.addObject("post", post);
+			mav.setViewName("posts/modify");
+			return mav;
+		}
 	}
 
 	@GetMapping("/post/read")
