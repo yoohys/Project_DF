@@ -1,6 +1,10 @@
 package org.sweeter.application.controller;
 
+import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
@@ -44,16 +48,24 @@ public class PageController {
 	}
 
 	@PostMapping("/post/modify")
-	public ModelAndView postModify(Post post, HttpServletRequest req) {
+	public ModelAndView postModify(Post post, HttpServletRequest req, HttpServletResponse res) throws IOException {
 		HttpSession session = req.getSession();
 		ModelAndView mav = new ModelAndView();
+//		System.out.println(post.getWriter());
+//		System.out.println(session.getAttribute("userId"));
 		
-		if (post.getWriter() != session.getAttribute("userId")) {
-			mav.setViewName("post/list/2/1/10");
-			return mav;
-		} else {
+		if (post.getWriter().equals(session.getAttribute("userId"))) {
 			mav.addObject("post", post);
-			mav.setViewName("posts/modify");
+			mav.setViewName("/posts/modify");
+			return mav;
+		
+		} else {
+			
+			res.setContentType("text/html; charset=UTF-8");
+			PrintWriter out = res.getWriter();
+			out.println("<script>alert('글을 쓴 유저만 수정이 가능합니다.'); history.go(-1);</script>");
+			out.flush();
+			mav.setViewName("redirect:/post/"+post.getId());
 			return mav;
 		}
 	}
