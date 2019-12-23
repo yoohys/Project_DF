@@ -21,10 +21,10 @@ public class CommentController {
 	@Autowired
 	CommentService commentService;
 
-	@RequestMapping("/comment/{category}/{page}/{count}")
+	@RequestMapping("/comment/{post}")
 	@ResponseBody
-	public List<Comment> commentList(@PathVariable int category, @PathVariable int page, @PathVariable int count) {
-		return commentService.getCommentList(category, page, count);
+	public List<Comment> commentList(@PathVariable int post) {
+		return commentService.getCommentList(post);	
 	}
 
 	@RequestMapping("/comment/read/{id}")
@@ -51,7 +51,7 @@ public class CommentController {
 	}
 
 	// 게시물 삭제
-	@PostMapping("/comment/delete")
+	@PostMapping("/comment/delete/{id}")
 	public String delete(@PathVariable String id) {
 		// DB에 게시물 정보 삭제
 		commentService.delete(id);
