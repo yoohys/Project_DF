@@ -24,23 +24,20 @@ $.ajax({
 	}
 });
 
-//$.ajax({
-//	url : '/post/read/id',
-//	type : 'get',
-//	dataType : "json",
-//	success : function(response) {
-//		console.log(response);
-//
-//		for (var i = 0; i < response.length; i++) {
-//	$("table").append(
-//			'<tr>' + '<td>' + response[i].id + '</td>'
-//					+ '<td id="title">' + '<a href=/post/read/'
-//					+ response[i].id + '>' + response[i].title + '</a>'
-//					+ '</td>' + '<td>' + response[i].writer + '</td>'
-//					+ '<td>' + response[i].writeDate + '</td>' + '<td>'
-//					+ '<td id="title">' + '<a href="/post/read/">'
-//					+ response[i].title + '</a>' + '</td>' + '<td>'
-//					+ response[i].writer + '</td>' + '<td>'
-//					+ response[i].writeDate + '</td>' + '<td>'
-//					+ '</td>' + '</tr>');
-//	});
+$.ajax({
+	url : '/comment/' + id,
+	type : 'get',
+	dataType : "json",
+	success : function(response) {
+		console.log(response);
+
+		for (var i = 0; i < response.length; i++) {
+			$("table").append(
+					'<tr>' + '<td>' + response[i].id + '</td>' + '<td>'
+							+ response[i].writer + '</td>' + '<td>'
+							+ response[i].writeDate + '</td>' + '<td>'
+							+ response[i].content + '</td>' + '</tr>');
+		}
+	}
+
+});

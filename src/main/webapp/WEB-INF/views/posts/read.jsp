@@ -34,7 +34,7 @@
 						<td><input type="text" id="writer" class="form-control"
 							name="writer" readonly="readonly" /></td>
 						<th>수정 시간</th>
-						<td><input type="text"  id="modifyDate" class="form-control"
+						<td><input type="text" id="modifyDate" class="form-control"
 							name="modifyDate" readonly="readonly" /></td>
 					</tr>
 					<tr>
