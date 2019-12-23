@@ -33,7 +33,7 @@
 							<td>인텔, 모뎀시장 철수</td>
 						</tr>
 						<tr>
-							<td>AMD 스레드리퍼 3세대 발표</td>
+							<td>AMD 스레드 sadfas리퍼 3세대 발표</td>
 						</tr>
 					</tbody>
 				</table>
