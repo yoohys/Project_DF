@@ -37,12 +37,11 @@ $.ajax({
 							+ response[i].writer + '</td>' + '<td>'
 							+ response[i].writeDate + '</td>' + '<td>'
 							+ response[i].content + '</td>' + '<td>'
-							+ '<a href="/comment/delete/' + response[i].id
-							+ '">' + '[삭제]' + '</a>' + '</td>' + '</tr>');
+							+ '<a href="/comment/delete/' + response[i].id 
+							+ '" class="btn btn-danger">' + '삭제' + '</a>' + '</td>' + '</tr>');
 
 
 		}
-		$('#contentPage').html(data).trigger("create");
 	}
 
 });

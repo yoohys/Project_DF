@@ -28,7 +28,7 @@ public class CommentController {
 	@RequestMapping("/comment/{post}")
 	@ResponseBody
 	public List<Comment> commentList(@PathVariable int post) {
-		return commentService.getCommentList(post);	
+		return commentService.getCommentList(post);
 	}
 
 	@RequestMapping("/comment/id/{id}")
@@ -56,42 +56,31 @@ public class CommentController {
 
 	// 게시물 삭제
 	@GetMapping("/comment/delete/{id}")
-	public ModelAndView cmdelete(@PathVariable int id) {
+	public ModelAndView cmdelete(@PathVariable int id, HttpServletRequest req, HttpServletResponse res)
+			throws IOException {
 		// DB에 게시물 정보 삭제
-		commentService.delete(id);
-		ModelAndView mav = new ModelAndView();
-		mav.setViewName("index");
-		// 게시물목록 이동
-		return mav;
-
-	}
-	
-	@PostMapping("/comment/delete/{id}")
-	public ModelAndView delete(@PathVariable int id, HttpServletRequest req, HttpServletResponse res) throws IOException {
 		HttpSession session = req.getSession();
 		ModelAndView mav = new ModelAndView();
-
-
-		if (commentService.getComment(id).equals(session.getAttribute("userId"))) {
+		PrintWriter out = res.getWriter();
+		res.setContentType("text/html; charset=UTF-8");
+		
+		if (commentService.getComment(id).getWriter().equals(session.getAttribute("userId"))) {
 			commentService.delete(id);
-			mav.setViewName("/posts/read");
-			
-			return mav;
-
-		}
-			
-		 else {
-
-			res.setContentType("text/html; charset=UTF-8");
-			PrintWriter out = res.getWriter();
-			out.println("<script>alert('글을 쓴 유저만 수정이 가능합니다.'); history.go(-1);</script>");
+			out.println("<script>alert('댓글이 삭제 되었습니다.'); history.go(-1);</script>");
 			out.flush();
 			mav.setViewName("/post/read");
 			return mav;
 		}
-	
-	
+
+		else {
+			out.println("<script>alert('댓글을 쓴 유저만 수정이 가능합니다.'); history.go(-1);</script>");
+			out.flush();
+			mav.setViewName("/index");
+			return mav;
+		}
+
 	}
+
 	// 게시글 내용 조회
 	@GetMapping("/comment/getComment")
 	public ModelAndView read(int id) {
