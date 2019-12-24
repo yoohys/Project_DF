@@ -21,8 +21,17 @@
 	text-align: center;
 }
 
+.table>tbody>tr>td>input:read-only, .table>tbody>tr>td>textarea:read-only
+	{
+	background-color: white;
+}
+#list2 {
+	text-align: center;
+}
+#comment {
+	background-color: aliceblue;
+}
+#cb{
+	vertical-align: center;
+}
 
-
-.table>tbody>tr>td>input:read-only, .table>tbody>tr>td>textarea:read-only{ 
-    background-color: white; 
-} 
