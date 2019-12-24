@@ -19,4 +19,6 @@ public interface PostService {
 	List<Post> getPostList(int category, int page, int count);
 	
 	List<Post> getAllItNews();
+	
+	List<Post> getItNewsList(int category, int page, int count);
 }

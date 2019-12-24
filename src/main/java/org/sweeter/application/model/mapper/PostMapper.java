@@ -11,7 +11,8 @@ public interface PostMapper {
 	public void deletePost(int id);
 	
 	public List<Post> getPostList(int category, int page, int count);
-	public List<Post> getAllPost();	
+	public List<Post> getAllPost();
+	public List<Post> getItNewsList(int category, int page, int count);
 	public List<Post> getAllItNews();	
 	public Post getPostById(int id);
 	
