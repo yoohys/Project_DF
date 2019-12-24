@@ -15,13 +15,19 @@
 	<%@include file="../includes/navigation.jspf"%>
 	<div class="container">
 		<table class="table table-bordered">
-
+		<form action="/post/modify" method="post" class="was-validated">
 			<tbody>
 				<div id="list">
 					<b>글읽기</b>
 				</div>
-
-				<form action="/post/modify" method="post" class="was-validated">
+				
+						<div colspan="4" style="float: right; margin-right: 20px;">
+							<button type="submit"  
+							class="btn btn-primary">Modify</button> 
+							<a class="btn btn-danger" href="/post/list/2/1/10">List</a>
+						</div>
+					
+				
 					<input id="id" type="hidden" name="id">
 					<tr>
 						<th>제목</th>
@@ -46,12 +52,7 @@
 
 					</tr>
 
-					<tr>
-						<td colspan="4">
-							<button type="submit" class="btn btn-primary">Modify</button> <a
-							class="btn btn-danger" href="/post/list/2/1/10">List</a>
-						</td>
-					</tr>
+					
 				</form>
 			</tbody>
 		</table>

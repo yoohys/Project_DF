@@ -51,7 +51,7 @@ public class CommentController {
 	}
 
 	// 게시물 삭제
-	@PostMapping("/comment/delete/{id}")
+	@GetMapping("/comment/delete/{id}")
 	public String delete(@PathVariable String id) {
 		// DB에 게시물 정보 삭제
 		commentService.delete(id);
@@ -59,6 +59,9 @@ public class CommentController {
 		return "/comment/list";
 
 	}
+	
+	
+	
 
 	// 게시글 내용 조회
 	@GetMapping("/comment/getComment")
