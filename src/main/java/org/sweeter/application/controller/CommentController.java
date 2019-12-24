@@ -56,24 +56,26 @@ public class CommentController {
 
 	// 게시물 삭제
 	@GetMapping("/comment/delete/{id}")
-	public ModelAndView cmdelete(@PathVariable int id, HttpServletRequest req, HttpServletResponse res)
+	public ModelAndView cmdelete(@PathVariable int id, HttpServletRequest request, HttpServletResponse response)
 			throws IOException {
 		// DB에 게시물 정보 삭제
-		HttpSession session = req.getSession();
+		HttpSession session = request.getSession();
 		ModelAndView mav = new ModelAndView();
-		PrintWriter out = res.getWriter();
-		res.setContentType("text/html; charset=UTF-8");
-		
+		PrintWriter out = response.getWriter();
+		request.setCharacterEncoding("utf-8");
+		response.setContentType("text/html; charset=UTF-8");
+
 		if (commentService.getComment(id).getWriter().equals(session.getAttribute("userId"))) {
 			commentService.delete(id);
-			out.println("<script>alert('댓글이 삭제 되었습니다.'); history.go(-1);</script>");
+
+			out.println("<script charset='utf-8'>alert('댓글이 삭제 되었습니다.'); history.go(-1);</script>");
 			out.flush();
 			mav.setViewName("/post/read");
 			return mav;
 		}
 
 		else {
-			out.println("<script>alert('댓글을 쓴 유저만 수정이 가능합니다.'); history.go(-1);</script>");
+			out.println("<script charset='utf-8'>alert('댓글을 쓴 유저만 수정이 가능합니다.'); history.go(-1);</script>");
 			out.flush();
 			mav.setViewName("/index");
 			return mav;
