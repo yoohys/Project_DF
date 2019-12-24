@@ -36,7 +36,7 @@
 				</tr>
 			</thead>
 		</table>
-		<div id="list">
+		<div >
 			<%
 				if (session.getAttribute("user") == null) {
 			%>

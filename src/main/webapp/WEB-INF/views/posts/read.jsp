@@ -12,6 +12,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+
 	<%@include file="../includes/navigation.jspf"%>
 	<div class="container">
 		<table class="table table-bordered">
@@ -19,13 +20,8 @@
 				<tbody>
 					<div id="list">
 						<b>글읽기</b>
+						<button type="submit" class="btn btn-primary" style="float: right; margin-right: 20px;">Modify</button>
 					</div>
-
-					<div colspan="4" style="float: right; margin-right: 20px;">
-						<button type="submit" class="btn btn-primary">Modify</button>
-
-					</div>
-
 
 					<input id="id" type="hidden" name="id">
 					<tr>
@@ -51,21 +47,26 @@
 
 					</tr>
 			</form>
-
-
-
-
 			</tbody>
 		</table>
 		<div id="list">
 			<b>댓글</b>
 		</div>
 		<table id="comment" class="table">
+		<tr><th>댓글 번호</th><th>작성 ID</th><th>작성 시간</th><th>내용</th><th>삭제</th>
 		</table>
-		<div id="list2">
-			<a class="btn btn-danger" href="/post/list/2/1/10">List</a>
+		<table class="table table-bordered">
+			<tr><th>댓글 작성 칸</th>
+				<td ><textarea name="comment_content" rows="4"
+						cols="70"></textarea>
+				<th width="200"><a href="#" class="btn btn-primary" >댓글등록</a></th>
+			</tr>
+		</table>
+	</div>
 
-		</div>
+	<div id="list2">
+		<a class="btn btn-danger" href="/post/list/2/1/10">List</a>
+
 	</div>
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>

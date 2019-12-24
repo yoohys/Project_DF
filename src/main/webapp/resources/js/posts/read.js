@@ -36,13 +36,12 @@ $.ajax({
 					'<tr>' + '<td>' + response[i].id + '</td>' + '<td>'
 							+ response[i].writer + '</td>' + '<td>'
 							+ response[i].writeDate + '</td>' + '<td>'
-							+ response[i].content + '</td>' 
-							+ '<td>' + '<a href="/comment/delete/'+response[i].id 
-							+'"class="btn btn-red">'+'삭제'+'</a>' +'</td>'
-							+ '</tr>');
-			
+							+ response[i].content + '</td>' + '<td>'
+							+ '<a href="/comment/delete/' + response[i].id
+							+ '">' + '[삭제]' + '</a>' + '</td>' + '</tr>');
+
 		}
-		 $('#contentPage').html(data).trigger("create");
+		$('#contentPage').html(data).trigger("create");
 	}
 
 });
