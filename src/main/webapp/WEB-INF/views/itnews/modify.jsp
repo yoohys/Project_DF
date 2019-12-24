@@ -48,8 +48,8 @@
 					<tr>
 						<td colspan="4">
 							<button type="submit" class="btn btn-primary">Modify</button> <a
-							class="btn btn-primary" href="/post/list/2/1/10">List</a> <a
-							class="btn btn-danger" href="/post/delete/${post.id}">Delete</a>
+							class="btn btn-primary" href="/Itnews/list/1/1/10">List</a> <a
+							class="btn btn-danger" href="/Itnews/delete/${post.id}">Delete</a>
 						</td>
 					</tr>
 				</form>

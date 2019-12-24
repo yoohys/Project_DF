@@ -23,7 +23,7 @@
 	<div class="container" style="margin-top: 30px">
 		<div class="row">
 			<div class="col-sm-4">
-				<a href="/post/list/1/1/10"><h2>IT news</h2></a>
+				<a href="/itnews/list/1/1/10"><h2>IT news</h2></a>
 				<table id=newsBoard class="table table-hover">
 					<tbody>
 

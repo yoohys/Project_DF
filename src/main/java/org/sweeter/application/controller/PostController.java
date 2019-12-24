@@ -47,7 +47,7 @@ public class PostController {
 		return postService.getPostList(category, page, count);
 	}
 	
-	@RequestMapping("/Itnews/{category}/{page}/{count}")
+	@RequestMapping("/itnews/{category}/{page}/{count}")
 	@ResponseBody
 	public List<Post> ItNewsList(@PathVariable int category, @PathVariable int page, @PathVariable int count){
 		return postService.getItNewsList(category,page,count);
@@ -59,7 +59,7 @@ public class PostController {
 		return postService.getPost(id);
 
 	}
-	@RequestMapping("/Itnews/read/{id}")
+	@RequestMapping("/itnews/read/{id}")
 	@ResponseBody
 	public Post ItNews(@PathVariable int id) {
 		return postService.getPost(id);
@@ -71,7 +71,7 @@ public class PostController {
 		postService.write(post);
 		return "redirect:/post/list/2/1/10";
 	}
-	@PostMapping("/Itnews/write")
+	@PostMapping("/itnews/write")
 	public String Itwrite(Post post, HttpServletRequest req) {
 		postService.write(post);
 		return "redirect:/Itnews/list/1/1/10";
@@ -85,7 +85,7 @@ public class PostController {
 
 		return "redirect:/post/" + post.getId();
 	}
-	@PostMapping("/Itnews/modify")
+	@PostMapping("/itnews/modify")
 	public String ItModify(Post post) {
 		System.out.println(post.getId());
 		postService.modify(post);
@@ -102,7 +102,7 @@ public class PostController {
 		return "redirect:/post/list/2/1/10";
 
 	}
-	@GetMapping("/Itnews/delete/{id}")
+	@GetMapping("/itnews/delete/{id}")
 	public String ItDelete(@PathVariable int id) {
 		//DB에서 게시물 정보 삭제
 		postService.delete(id);
@@ -116,7 +116,7 @@ public class PostController {
 		return "posts/read";
 
 	}
-	@GetMapping("Itnews/{id}")
+	@GetMapping("itnews/{id}")
 	public String ItRead(@PathVariable int id) {
 		return "Itnews/read";
 	}
