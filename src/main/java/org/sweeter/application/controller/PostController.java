@@ -67,12 +67,12 @@ public class PostController {
 	
 	// 게시물 작성
 	@PostMapping("/post/write")
-	public String write(Post post, HttpServletRequest req) {
+	public String write(Post post) {
 		postService.write(post);
 		return "redirect:/post/list/2/1/10";
 	}
 	@PostMapping("/itnews/write")
-	public String Itwrite(Post post, HttpServletRequest req) {
+	public String Itwrite(Post post) {
 		postService.write(post);
 		return "redirect:/Itnews/list/1/1/10";
 	}
