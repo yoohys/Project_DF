@@ -55,5 +55,13 @@
 		HH:mm') as writeDate,FORMATDATETIME(modifydate,'yyyy-MM-dd HH:MM') as
 		modifyDate,content,category,count FROM post WHERE id = #{id}
 	</select>
-
+	
+	<select id="getItNewsList"
+		resultType="org.sweeter.application.model.dto.Post">
+		SELECT id,title,writer,FORMATDATETIME(writedate,'yyyy-MM-dd
+		HH:mm') as writeDate,FORMATDATETIME(modifydate,'yyyy-MM-dd HH:MM') as
+		modifyDate,content,category,count FROM post WHERE category =
+		#{category} LIMIT
+		#{count} OFFSET (#{page}-1) * #{count}
+	</select>
 </mapper>

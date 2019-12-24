@@ -40,18 +40,22 @@ public class PageController {
 	public String postList() {
 		return "posts/list";
 	}
-
-	@GetMapping("/news/list/{category}/{page}/{count}")
-	public String newsList() {
-		return "news/list";
+	
+	@GetMapping("/itnews/list/{category}/{page}/{count}")
+	public String itnewsList() {
+		return "itnews/list";
 	}
-
+	
 	@GetMapping("/post/write")
 	public String postWrite() {
 		return "posts/write";
 
 	}
-
+	@GetMapping("itnews/write")
+	public String itnewsWrite() {
+		return "itnews/write";
+	}
+	
 	@PostMapping("/post/modify")
 	public ModelAndView postModify(Post post, HttpServletRequest req, HttpServletResponse res) throws IOException {
 		HttpSession session = req.getSession();
@@ -74,10 +78,34 @@ public class PageController {
 			return mav;
 		}
 	}
-
+//	@PostMapping("/itnews/modify")
+//	public ModelAndView itnewsModify(Post post, HttpServletRequest req, HttpServletResponse res) throws IOException {
+//		HttpSession session = req.getSession();
+//		ModelAndView mav = new ModelAndView();
+//		
+//		if (post.getWriter().equals(session.getAttribute("userId"))) {
+//			mav.addObject("itnews", post);
+//			mav.setViewName("/itnews/modify");
+//			return mav;
+//
+//		} else {
+//
+//			res.setContentType("text/html; charset=UTF-8");
+//			PrintWriter out = res.getWriter();
+//			out.println("<script>alert('글을 쓴 유저만 수정이 가능합니다.'); history.go(-1);</script>");
+//			out.flush();
+//			mav.setViewName("/itnews/" + post.getId());
+//			return mav;
+//		}
+//	}
+	
 	@GetMapping("/post/read")
 	public String postRead() {
 		return "posts/read";
 	}
-
+	
+	@GetMapping("/itnews/read")
+	public String itnewsRead() {
+		return "itnews/read";
+	}
 }

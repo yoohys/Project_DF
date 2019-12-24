@@ -44,7 +44,7 @@
 			<%
 				} else {
 			%>
-			<a href="/post/write" class="btn btn-success"
+			<a href="/itnews/write" class="btn btn-success"
 				style="float: right; margin-right: 20px;">글쓰기</a>
 			<%
 				}

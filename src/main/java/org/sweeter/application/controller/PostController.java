@@ -46,21 +46,35 @@ public class PostController {
 	public List<Post> postList(@PathVariable int category, @PathVariable int page, @PathVariable int count) {
 		return postService.getPostList(category, page, count);
 	}
-
-
+	
+	@RequestMapping("/itnews/{category}/{page}/{count}")
+	@ResponseBody
+	public List<Post> ItNewsList(@PathVariable int category, @PathVariable int page, @PathVariable int count){
+		return postService.getItNewsList(category,page,count);
+	}
+	// 게시물 상세 보기
 	@RequestMapping("/post/read/{id}")
 	@ResponseBody
 	public Post post(@PathVariable int id) {
 		return postService.getPost(id);
 
 	}
-
+	@RequestMapping("/itnews/read/{id}")
+	@ResponseBody
+	public Post ItNews(@PathVariable int id) {
+		return postService.getPost(id);
+	}
+	
 	// 게시물 작성
 	@PostMapping("/post/write")
 	public String write(Post post, HttpServletRequest req) {
 		postService.write(post);
 		return "redirect:/post/list/2/1/10";
-
+	}
+	@PostMapping("/itnews/write")
+	public String Itwrite(Post post, HttpServletRequest req) {
+		postService.write(post);
+		return "redirect:/Itnews/list/1/1/10";
 	}
 
 	// 게시물 수정
@@ -70,6 +84,13 @@ public class PostController {
 		postService.modify(post);
 
 		return "redirect:/post/" + post.getId();
+	}
+	@PostMapping("/itnews/modify")
+	public String ItModify(Post post) {
+		System.out.println(post.getId());
+		postService.modify(post);
+		
+		return "redirect:/Itnews/" + post.getId();
 	}
 
 	// 게시물 삭제
@@ -81,6 +102,13 @@ public class PostController {
 		return "redirect:/post/list/2/1/10";
 
 	}
+	@GetMapping("/itnews/delete/{id}")
+	public String ItDelete(@PathVariable int id) {
+		//DB에서 게시물 정보 삭제
+		postService.delete(id);
+		//게시물 목록 이동
+		return "redirect:/Itnews/list/1/1/10";
+	}
 
 	// 게시글 내용 조회
 	@GetMapping("/post/{id}")
@@ -88,5 +116,9 @@ public class PostController {
 		return "posts/read";
 
 	}
-
+	@GetMapping("itnews/{id}")
+	public String ItRead(@PathVariable int id) {
+		return "Itnews/read";
+	}
+	
 }
