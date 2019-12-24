@@ -23,18 +23,10 @@
 	<div class="container" style="margin-top: 30px">
 		<div class="row">
 			<div class="col-sm-4">
-				<h2>IT news</h2>
-				<table class="table table-hover">
+				<a href="/post/list/1/1/10"><h2>IT news</h2></a>
+				<table id=newsBoard class="table table-hover">
 					<tbody>
-						<tr>
-							<td>새 CPU</td>
-						</tr>
-						<tr>
-							<td>인텔, 모뎀시장 철수</td>
-						</tr>
-						<tr>
-							<td>AMD 스레드 sadfas리퍼 3세대 발표</td>
-						</tr>
+
 					</tbody>
 				</table>
 

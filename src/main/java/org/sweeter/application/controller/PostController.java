@@ -23,9 +23,19 @@ public class PostController {
 
 	@RequestMapping("/posts/all")
 	@ResponseBody
-	public Map<String, List<Post>> testPostList() {
+	public Map<String, List<Post>> PostList() {
 		Map<String, List<Post>> map = new HashMap<String, List<Post>>();
 		List<Post> ls = postService.getAllPosts();
+		map.put("data", ls);
+
+		return map;
+	}
+
+	@RequestMapping("/itnews/all")
+	@ResponseBody
+	public Map<String, List<Post>> ItnewsList() {
+		Map<String, List<Post>> map = new HashMap<String, List<Post>>();
+		List<Post> ls = postService.getAllItNews();
 		map.put("data", ls);
 
 		return map;
@@ -36,6 +46,7 @@ public class PostController {
 	public List<Post> postList(@PathVariable int category, @PathVariable int page, @PathVariable int count) {
 		return postService.getPostList(category, page, count);
 	}
+
 
 	@RequestMapping("/post/read/{id}")
 	@ResponseBody

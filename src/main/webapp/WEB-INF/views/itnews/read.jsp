@@ -8,7 +8,7 @@
 <head>
 <meta charset="UTF-8">
 <link href="/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-<link href="/resources/css/posts/read.css" rel="stylesheet">
+<link href="/resources/css/itnews/read.css" rel="stylesheet">
 <title>Insert title here</title>
 </head>
 <body>
@@ -58,6 +58,6 @@
 	</div>
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-	<script src="/resources/js/posts/read.js"></script>
+	<script src="/resources/js/itnews/read.js"></script>
 </body>
 </html>

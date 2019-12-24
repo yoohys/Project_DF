@@ -44,4 +44,9 @@ public class PostServiceImpl implements PostService {
 		return postMapper.getPostList(category, page, count);
 	}
 
+	@Override
+	public List<Post> getAllItNews() {
+		return postMapper.getAllItNews();
+	}
+
 }

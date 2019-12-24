@@ -12,7 +12,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link href="/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-<link href="/resources/css/write.css" rel="stylesheet">
+<link href="/resources/css/posts/write.css" rel="stylesheet">
 <body>
 	<%@include file="../includes/navigation.jspf"%>
 	<div class="container">
@@ -53,7 +53,7 @@
 	</div>
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-	<script src="/resources/js/write.js"></script>
+	<script src="/resources/js/posts/write.js"></script>
 </body>
 
 </html>

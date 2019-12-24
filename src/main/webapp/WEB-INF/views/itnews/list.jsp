@@ -6,11 +6,11 @@
 <head>
 <meta charset="UTF-8">
 <link href="/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-<link href="/resources/css/posts/list.css" rel="stylesheet">
+<link href="/resources/css/list.css" rel="stylesheet">
 <title>Insert title here</title>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="/resources/js/posts/list.js"></script>
+<script src="/resources/js/itnews/list.js"></script>
 <link rel="stylesheet" type="text/css"
 	href="https://cdn.datatables.net/v/dt/dt-1.10.20/datatables.min.css" />
 <script type="text/javascript"

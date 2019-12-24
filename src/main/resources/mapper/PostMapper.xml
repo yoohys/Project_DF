@@ -4,11 +4,25 @@
 
 <mapper
 	namespace="org.sweeter.application.model.mapper.PostMapper">
+
 	<!-- CREATE -->
 	<insert id="writePost">
 		Insert INTO Post(TITLE,WRITER,CONTENT,CATEGORY)
 		values(#{title}, #{writer}, #{content}, 2)
 	</insert>
+
+	<!-- UPDATE -->
+	<update id="updatePost">
+		UPDATE Post
+		set title=#{title}, writer = #{writer}, modifyDate=sysdate,
+		content=#{content} where id=#{id}
+	</update>
+
+	<!-- DELETE -->
+	<delete id="deletePost">
+		DELETE from Post where id= ${id}
+	</delete>
+
 
 	<!-- READ -->
 	<select id="getPostList"
@@ -27,6 +41,13 @@
 		modifyDate,content,category,count FROM post where category = 2
 	</select>
 
+	<select id="getAllItNews"
+		resultType="org.sweeter.application.model.dto.Post">
+		SELECT id,title,writer,FORMATDATETIME(writedate,'yyyy-MM-dd
+		HH:mm') as writeDate,FORMATDATETIME(modifydate,'yyyy-MM-dd HH:MM') as
+		modifyDate,content,category,count FROM post where category = 1
+	</select>
+
 	<!-- READ -->
 	<select id="getPostById"
 		resultType="org.sweeter.application.model.dto.Post">
@@ -34,22 +55,5 @@
 		HH:mm') as writeDate,FORMATDATETIME(modifydate,'yyyy-MM-dd HH:MM') as
 		modifyDate,content,category,count FROM post WHERE id = #{id}
 	</select>
-
-	<!-- UPDATE -->
-	<update id="updatePost">
-		UPDATE Post 
-		set 
-			title=#{title},
-			writer = #{writer},
-			modifyDate=sysdate,
-			content=#{content}
-		where id=#{id}
-	</update>
-
-	<!-- DELETE -->
-	<delete id="deletePost">
-		DELETE from Post where id= ${id}
-	</delete>
-
 
 </mapper>

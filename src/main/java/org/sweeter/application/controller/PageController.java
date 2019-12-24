@@ -41,6 +41,11 @@ public class PageController {
 		return "posts/list";
 	}
 
+	@GetMapping("/news/list/{category}/{page}/{count}")
+	public String newsList() {
+		return "news/list";
+	}
+
 	@GetMapping("/post/write")
 	public String postWrite() {
 		return "posts/write";
@@ -53,19 +58,19 @@ public class PageController {
 		ModelAndView mav = new ModelAndView();
 //		System.out.println(post.getWriter());
 //		System.out.println(session.getAttribute("userId"));
-		
+
 		if (post.getWriter().equals(session.getAttribute("userId"))) {
 			mav.addObject("post", post);
 			mav.setViewName("/posts/modify");
 			return mav;
-		
+
 		} else {
-			
+
 			res.setContentType("text/html; charset=UTF-8");
 			PrintWriter out = res.getWriter();
 			out.println("<script>alert('글을 쓴 유저만 수정이 가능합니다.'); history.go(-1);</script>");
 			out.flush();
-			mav.setViewName("redirect:/post/"+post.getId());
+			mav.setViewName("/post/" + post.getId());
 			return mav;
 		}
 	}
