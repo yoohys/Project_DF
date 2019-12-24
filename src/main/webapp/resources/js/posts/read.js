@@ -32,15 +32,17 @@ $.ajax({
 		console.log(response);
 
 		for (var i = 0; i < response.length; i++) {
-			$("table").append(
-					'<tr>' + '<td width="10%">' + response[i].id + '</td>' + '<td width="10%">'
-							+ response[i].writer + '</td>' + '<td width="10%">'
-							+ response[i].writeDate + '</td>' + '<td width="50%">'
+			$("#comment").append(
+					'<tr>' + '<td>' + response[i].id + '</td>' + '<td>'
+							+ response[i].writer + '</td>' + '<td>'
+							+ response[i].writeDate + '</td>' + '<td>'
 							+ response[i].content + '</td>' 
-							+ '<td width="15%">' + '<a href="/comment/delete/'+response.id 
+							+ '<td>' + '<a href="/comment/delete/'+response[i].id 
 							+'"class="btn btn-red">'+'삭제'+'</a>' +'</td>'
 							+ '</tr>');
+			
 		}
+		 $('#contentPage').html(data).trigger("create");
 	}
 
 });

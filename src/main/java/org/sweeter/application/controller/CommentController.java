@@ -52,7 +52,7 @@ public class CommentController {
 
 	// 게시물 삭제
 	@GetMapping("/comment/delete/{id}")
-	public String delete(@PathVariable String id) {
+	public String delete(@PathVariable int id) {
 		// DB에 게시물 정보 삭제
 		commentService.delete(id);
 		// 게시물목록 이동

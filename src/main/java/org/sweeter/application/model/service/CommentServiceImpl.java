@@ -24,7 +24,7 @@ public class CommentServiceImpl implements CommentService {
 	}
 
 	@Override
-	public void delete(String id) {
+	public void delete(int id) {
 		commentMapper.deleteComment(id);
 
 	}

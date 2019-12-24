@@ -11,7 +11,7 @@ public interface CommentService {
 
 	void modify(Comment comment);
 
-	void delete(String id);
+	void delete(int id);
 
 	List<Comment> getCommentList(int post);
 
