@@ -40,6 +40,7 @@ $.ajax({
 							+ '<a href="/comment/delete/' + response[i].id
 							+ '">' + '[삭제]' + '</a>' + '</td>' + '</tr>');
 
+
 		}
 		$('#contentPage').html(data).trigger("create");
 	}

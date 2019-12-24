@@ -1,9 +1,12 @@
 package org.sweeter.application.controller;
 
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
-
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.sweeter.application.model.dto.Comment;
+import org.sweeter.application.model.dto.Post;
 import org.sweeter.application.model.service.CommentService;
 
 @Controller
@@ -52,17 +56,42 @@ public class CommentController {
 
 	// 게시물 삭제
 	@GetMapping("/comment/delete/{id}")
-	public String delete(@PathVariable int id) {
+	public ModelAndView cmdelete(@PathVariable int id) {
 		// DB에 게시물 정보 삭제
 		commentService.delete(id);
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("index");
 		// 게시물목록 이동
-		return "/comment/list";
+		return mav;
 
 	}
 	
-	
-	
+	@PostMapping("/comment/delete/{id}")
+	public ModelAndView delete(@PathVariable int id, HttpServletRequest req, HttpServletResponse res) throws IOException {
+		HttpSession session = req.getSession();
+		ModelAndView mav = new ModelAndView();
 
+
+		if (commentService.getComment(id).equals(session.getAttribute("userId"))) {
+			commentService.delete(id);
+			mav.setViewName("/posts/read");
+			
+			return mav;
+
+		}
+			
+		 else {
+
+			res.setContentType("text/html; charset=UTF-8");
+			PrintWriter out = res.getWriter();
+			out.println("<script>alert('글을 쓴 유저만 수정이 가능합니다.'); history.go(-1);</script>");
+			out.flush();
+			mav.setViewName("/post/read");
+			return mav;
+		}
+	
+	
+	}
 	// 게시글 내용 조회
 	@GetMapping("/comment/getComment")
 	public ModelAndView read(int id) {
