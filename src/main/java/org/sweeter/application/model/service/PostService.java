@@ -7,6 +7,8 @@ import org.sweeter.application.model.dto.Post;
 public interface PostService {
 
 	void write(Post post);
+	
+	void itWrite(Post post);
 
 	void modify(Post post);
 

@@ -43,7 +43,7 @@
 
 						<td colspan="2">
 							<button type="submit" class="btn btn-success">Post</button> <a
-							class="btn btn-danger" href="Itnews/list/1/1/10">List</a>
+							class="btn btn-danger" href="itnews/list/1/1/10">List</a>
 						</td>
 					</tr>
 					<input type="hidden" value="<%=member.getId()%>" name="writer" />

@@ -34,7 +34,7 @@ function check() {
 // 중복 안됨 : DB에 회원 정보 저장 후 메인 페이지로
 
 function write() {
-	$('form').attr('action', '/post/write').attr('method', 'post').submit();
+	$('form').attr('action', '/itnews/write').attr('method', 'post').submit();
 	alert("글이 등록되었습니다.");
 
 }

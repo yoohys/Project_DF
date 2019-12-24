@@ -10,7 +10,11 @@
 		Insert INTO Post(TITLE,WRITER,CONTENT,CATEGORY)
 		values(#{title}, #{writer}, #{content}, 2)
 	</insert>
-
+	
+	<insert id="writeitNews">
+		Insert INTO Post(TITLE,WRITER,CONTENT,CATEGORY)
+		values(#{title}, #{writer}, #{content}, 1)
+	</insert>
 	<!-- UPDATE -->
 	<update id="updatePost">
 		UPDATE Post

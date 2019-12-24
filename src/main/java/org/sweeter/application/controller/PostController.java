@@ -73,8 +73,8 @@ public class PostController {
 	}
 	@PostMapping("/itnews/write")
 	public String Itwrite(Post post, HttpServletRequest req) {
-		postService.write(post);
-		return "redirect:/Itnews/list/1/1/10";
+		postService.itWrite(post);
+		return "redirect:/itnews/list/1/1/10";
 	}
 
 	// 게시물 수정
@@ -90,7 +90,7 @@ public class PostController {
 		System.out.println(post.getId());
 		postService.modify(post);
 		
-		return "redirect:/Itnews/" + post.getId();
+		return "redirect:/itnews/" + post.getId();
 	}
 
 	// 게시물 삭제
@@ -107,7 +107,7 @@ public class PostController {
 		//DB에서 게시물 정보 삭제
 		postService.delete(id);
 		//게시물 목록 이동
-		return "redirect:/Itnews/list/1/1/10";
+		return "redirect:/itnews/list/1/1/10";
 	}
 
 	// 게시글 내용 조회
@@ -118,7 +118,7 @@ public class PostController {
 	}
 	@GetMapping("itnews/{id}")
 	public String ItRead(@PathVariable int id) {
-		return "Itnews/read";
+		return "itnews/read";
 	}
 	
 }
