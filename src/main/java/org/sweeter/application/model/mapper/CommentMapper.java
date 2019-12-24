@@ -9,7 +9,8 @@ public interface CommentMapper {
 	
 	public void writeComment(Comment comment);
 	public void updateComment(Comment comment);
-	public void deleteComment(String id);
+	
+	public void deleteComment(int id);
 	
 	public List<Comment> getAllCommentByPost(int post);
 	public List<Comment> getAllComment();	

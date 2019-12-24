@@ -56,48 +56,8 @@ public class PageController {
 		return "itnews/write";
 	}
 	
-	@PostMapping("/post/modify")
-	public ModelAndView postModify(Post post, HttpServletRequest req, HttpServletResponse res) throws IOException {
-		HttpSession session = req.getSession();
-		ModelAndView mav = new ModelAndView();
-//		System.out.println(post.getWriter());
-//		System.out.println(session.getAttribute("userId"));
 
-		if (post.getWriter().equals(session.getAttribute("userId"))) {
-			mav.addObject("post", post);
-			mav.setViewName("/posts/modify");
-			return mav;
 
-		} else {
-
-			res.setContentType("text/html; charset=UTF-8");
-			PrintWriter out = res.getWriter();
-			out.println("<script>alert('글을 쓴 유저만 수정이 가능합니다.'); history.go(-1);</script>");
-			out.flush();
-			mav.setViewName("/post/" + post.getId());
-			return mav;
-		}
-	}
-//	@PostMapping("/itnews/modify")
-//	public ModelAndView itnewsModify(Post post, HttpServletRequest req, HttpServletResponse res) throws IOException {
-//		HttpSession session = req.getSession();
-//		ModelAndView mav = new ModelAndView();
-//		
-//		if (post.getWriter().equals(session.getAttribute("userId"))) {
-//			mav.addObject("itnews", post);
-//			mav.setViewName("/itnews/modify");
-//			return mav;
-//
-//		} else {
-//
-//			res.setContentType("text/html; charset=UTF-8");
-//			PrintWriter out = res.getWriter();
-//			out.println("<script>alert('글을 쓴 유저만 수정이 가능합니다.'); history.go(-1);</script>");
-//			out.flush();
-//			mav.setViewName("/itnews/" + post.getId());
-//			return mav;
-//		}
-//	}
 	
 	@GetMapping("/post/read")
 	public String postRead() {

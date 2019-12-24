@@ -1,10 +1,14 @@
 package org.sweeter.application.controller;
 
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,6 +17,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 import org.sweeter.application.model.dto.Post;
 import org.sweeter.application.model.service.PostService;
 
@@ -78,13 +83,38 @@ public class PostController {
 	}
 
 	// 게시물 수정
+	@PostMapping("/post/modify")
+	public ModelAndView postModify(Post post, HttpServletRequest req, HttpServletResponse res) throws IOException {
+		HttpSession session = req.getSession();
+		ModelAndView mav = new ModelAndView();
+//		System.out.println(post.getWriter());
+//		System.out.println(session.getAttribute("userId"));
+
+		if (post.getWriter().equals(session.getAttribute("userId"))) {
+			mav.addObject("post", post);
+			mav.setViewName("/posts/modify");
+			return mav;
+
+		} else {
+
+			res.setContentType("text/html; charset=UTF-8");
+			PrintWriter out = res.getWriter();
+			out.println("<script>alert('글을 쓴 유저만 수정이 가능합니다.'); history.go(-1);</script>");
+			out.flush();
+			mav.setViewName("/post/" + post.getId());
+			return mav;
+		}
+	}
 	@PostMapping("/posts/modify")
-	public String modify(Post post) {
+	public ModelAndView modify(Post post) {
 		System.out.println(post.getId());
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("redirect:/post/" + post.getId());
 		postService.modify(post);
 
-		return "redirect:/post/" + post.getId();
+		return mav;
 	}
+	
 	@PostMapping("/itnews/modify")
 	public String ItModify(Post post) {
 		System.out.println(post.getId());

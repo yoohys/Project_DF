@@ -34,7 +34,7 @@
 
 	<!-- DELETE -->
 	<delete id="deleteComment">
-		DELETE from member where id= ${id}
+		DELETE from comment where id= ${id}
 	</delete>
 	
 	

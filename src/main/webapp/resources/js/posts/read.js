@@ -37,7 +37,7 @@ $.ajax({
 							+ response[i].writer + '</td>' + '<td width="10%">'
 							+ response[i].writeDate + '</td>' + '<td width="50%">'
 							+ response[i].content + '</td>' 
-							+ '<td width="15%">' + '<a href="/comment/delete/'+response.id 
+							+ '<td width="15%">' + '<a href="/comment/delete/'+response[i].id 
 							+'"class="btn btn-red">'+'삭제'+'</a>' +'</td>'
 							+ '</tr>');
 		}
