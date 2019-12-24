@@ -16,6 +16,12 @@ public class PostServiceImpl implements PostService {
 	public void write(Post post) {
 		postMapper.writePost(post);
 	}
+	
+	@Override
+	public void itWrite(Post post) {
+		postMapper.writeitNews(post);
+		
+	}
 
 	@Override
 	public void modify(Post post) {
