@@ -98,7 +98,10 @@ public class PostController {
 
 			res.setContentType("text/html; charset=UTF-8");
 			PrintWriter out = res.getWriter();
-			out.println("<script>alert('글을 쓴 유저만 수정이 가능합니다.'); history.go(-1);</script>");
+			out.println("<script>");
+			out.println("window.alert('글을 쓴 작성자만 수정 할 수 있습니다.')");
+			out.println("history.go(-1);");
+			out.println("</script>");
 			out.flush();
 			mav.setViewName("/post/" + post.getId());
 			return mav;

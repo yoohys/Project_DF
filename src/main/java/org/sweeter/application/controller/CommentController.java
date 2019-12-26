@@ -40,9 +40,15 @@ public class CommentController {
 
 	// 게시물 작성
 	@PostMapping("/comment/write")
-	public String write(Comment comment, HttpServletRequest req) {
+	public void write(Comment comment, HttpServletRequest req, HttpServletResponse res) throws IOException {
 		commentService.write(comment);
-		return "redirect:/comment/list";
+		HttpSession session = req.getSession();
+		PrintWriter out = res.getWriter();
+		res.setContentType("text/html; charset=utf-8");
+		out.println("<script>");
+		out.println("history.go(-1);");
+		out.println("</script>");
+		out.flush();
 
 	}
 
@@ -56,27 +62,33 @@ public class CommentController {
 
 	// 게시물 삭제
 	@GetMapping("/comment/delete/{id}")
-	public ModelAndView cmdelete(@PathVariable int id, HttpServletRequest req, HttpServletResponse res)
+	public ModelAndView cmdelete(@PathVariable int id, HttpServletRequest request, HttpServletResponse response)
 			throws IOException {
 		// DB에 게시물 정보 삭제
-		HttpSession session = req.getSession();
+
+		HttpSession session = request.getSession();
 		ModelAndView mav = new ModelAndView();
-		PrintWriter out = res.getWriter();
-		
-		res.setContentType("text/html;charset=UTF-8");
-		
+		PrintWriter out = response.getWriter();
+		response.setContentType("text/html; charset=utf-8");
+
 		if (commentService.getComment(id).getWriter().equals(session.getAttribute("userId"))) {
 			commentService.delete(id);
-			out.println("<script>alert('댓글이 삭제 되었습니다.'); history.go(-1);</script>");
+			out.println("<script>");
+			out.println("alert('comment deleted!')");
+			out.println("history.go(-1);");
+			out.println("</script>");
 			out.flush();
 			mav.setViewName("/post/read");
 			return mav;
 		}
 
 		else {
-			out.println("<script>alert('댓글을 쓴 유저만 수정이 가능합니다.'); history.go(-1);</script>");
+			out.println("<script>");
+			out.println("alert('you are not writer')");
+			out.println("history.go(-1);");
+			out.println("</script>");
 			out.flush();
-			mav.setViewName("/index");
+			mav.setViewName("/post/" + comment(id).getPost());
 			return mav;
 		}
 

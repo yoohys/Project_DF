@@ -6,7 +6,7 @@
 	namespace="org.sweeter.application.model.mapper.CommentMapper">
 	<!-- CREATE -->
 	<insert id="writeComment">
-		Insert INTO Comment(post,WRITER,CONTENT) values(#{post}, #{writer}, #{content})
+		Insert INTO Comment(POST,WRITER,CONTENT) values(#{post}, #{writer}, #{content})
 	</insert>
 	
 	<!-- READ -->

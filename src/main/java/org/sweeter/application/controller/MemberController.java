@@ -1,8 +1,11 @@
-	package org.sweeter.application.controller;
+package org.sweeter.application.controller;
 
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.HashMap;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -61,9 +64,10 @@ public class MemberController {
 	 * 
 	 * @return 로그인 성공 시 세션에 유저 정보를 담은 후 메인 페이지로 리다이렉트 하는 ModelAndView 객체 <br>
 	 *         로그인 실패 시 로그인 페이지를 유지하는 ModelAndView 객체
+	 * @throws IOException 
 	 */
 	@PostMapping("/signin")
-	public ModelAndView login(Member member, HttpServletRequest req) {
+	public ModelAndView login(Member member, HttpServletRequest req, HttpServletResponse res) throws IOException {
 		ModelAndView mav = new ModelAndView();
 		// 아이디와 암호를 통해 유저 정보를 가져옴
 		Member loginMember = memberService.login(member);
@@ -77,7 +81,14 @@ public class MemberController {
 			HttpSession session = req.getSession();
 			session.setAttribute("user", loginMember);
 			session.setAttribute("userId", loginMember.getId());
+			PrintWriter out = res.getWriter();
+			res.setContentType("text/html; charset=utf-8");
+			out.println("<script>");
+			out.println("history.go(-2);");
+			out.println("</script>");
+			out.flush();
 			mav.setViewName("redirect:/");
+			
 		}
 
 		return mav;
@@ -128,7 +139,7 @@ public class MemberController {
 	 *         result : true 또는 false <br>
 	 *         }
 	 */
-	
+
 	@RequestMapping("/register/check/{id}")
 	@ResponseBody
 	public HashMap<String, Boolean> registerCheck(@PathVariable String id) {
