@@ -40,7 +40,7 @@ public class CommentController {
 
 	// 게시물 작성
 	@PostMapping("/comment/write")
-	public void write(Comment comment,HttpServletRequest req,HttpServletResponse res) throws IOException {
+	public void write(Comment comment, HttpServletRequest req, HttpServletResponse res) throws IOException {
 		commentService.write(comment);
 		HttpSession session = req.getSession();
 		PrintWriter out = res.getWriter();
@@ -49,7 +49,6 @@ public class CommentController {
 		out.println("history.go(-1);");
 		out.println("</script>");
 		out.flush();
-
 
 	}
 
@@ -66,7 +65,7 @@ public class CommentController {
 	public ModelAndView cmdelete(@PathVariable int id, HttpServletRequest request, HttpServletResponse response)
 			throws IOException {
 		// DB에 게시물 정보 삭제
-		
+
 		HttpSession session = request.getSession();
 		ModelAndView mav = new ModelAndView();
 		PrintWriter out = response.getWriter();
