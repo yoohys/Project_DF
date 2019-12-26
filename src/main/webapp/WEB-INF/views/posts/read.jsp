@@ -1,12 +1,14 @@
 <%@page import="org.springframework.web.servlet.ModelAndView"%>
 <%@page import="org.sweeter.application.model.dto.Member"%>
-<%@page import="org.sweeter.application.model.dto.Post"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%
+	Member member = (Member) session.getAttribute("user");
+%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type"/>
+<meta http-equiv="Content-Type" />
 <link href="/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 <link href="/resources/css/posts/read.css" rel="stylesheet">
 <title>Insert title here</title>
@@ -20,7 +22,8 @@
 				<tbody>
 					<div id="list">
 						<b>글읽기</b>
-						<button type="submit" class="btn btn-primary" style="float: right; margin-right: 20px;">Modify</button>
+						<button type="submit" class="btn btn-primary"
+							style="float: right; margin-right: 20px;">Modify</button>
 					</div>
 
 					<input id="id" type="hidden" name="id">
@@ -53,20 +56,31 @@
 			<b>댓글</b>
 		</div>
 		<table id="comment" class="table">
-		<tr><th>댓글 번호</th><th>작성 ID</th><th>작성 시간</th><th>내용</th><th>삭제</th>
+			<tr>
+				<th>댓글 번호</th>
+				<th>작성 ID</th>
+				<th>작성 시간</th>
+				<th colspan=3>내용</th>
+				<th>삭제</th>
 		</table>
-		<table class="table table-bordered">
-			<tr><th>댓글 작성 칸</th>
-				<td ><textarea name="comment_content" rows="4"
-						cols="70"></textarea>
-				<th width="200"><a href="#" class="btn btn-primary" >댓글등록</a></th>
-			</tr>
-		</table>
+		<form action="#" method="post" class="was-validated">
+			<table class="table table-bordered">
+				<tr>
+					<th>댓글 작성 칸</th>
+					<td><textarea name="content" rows="4" cols="70"></textarea>
+					<th width="200"><button type="submit" class="btn btn-primary">댓글등록</button></th>
+				</tr>
+
+			</table>
+
+			<input type="hidden" value="<%=member.getId()%>" name="writer" /> <input
+				type="text" id="id2" name="post" />
+		</form>
 	</div>
+
 
 	<div id="list2">
 		<a id="list3" class="btn btn-danger" href="#">List</a>
-		
 
 	</div>
 	<script

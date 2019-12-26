@@ -42,8 +42,7 @@ CREATE TABLE comment(
     modifydate DATETIME DEFAULT sysdate,
     content VARCHAR2(1000),
     post INTEGER,
-    FOREIGN KEY (writer) REFERENCES member(id) ON DELETE SET NULL,
-    FOREIGN KEY (post) REFERENCES post(id) ON DELETE SET NULL
+    FOREIGN KEY (writer) REFERENCES member(id) ON DELETE SET NULL
 );
 
 CREATE TABLE jobs(

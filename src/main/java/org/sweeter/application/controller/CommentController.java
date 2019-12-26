@@ -40,9 +40,16 @@ public class CommentController {
 
 	// 게시물 작성
 	@PostMapping("/comment/write")
-	public String write(Comment comment, HttpServletRequest req) {
+	public void write(Comment comment,HttpServletRequest req,HttpServletResponse res) throws IOException {
 		commentService.write(comment);
-		return "redirect:/comment/list";
+		HttpSession session = req.getSession();
+		PrintWriter out = res.getWriter();
+		res.setContentType("text/html; charset=utf-8");
+		out.println("<script>");
+		out.println("history.go(-1);");
+		out.println("</script>");
+		out.flush();
+
 
 	}
 
