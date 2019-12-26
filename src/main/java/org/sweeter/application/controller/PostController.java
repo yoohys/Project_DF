@@ -87,8 +87,7 @@ public class PostController {
 	public ModelAndView postModify(Post post, HttpServletRequest req, HttpServletResponse res) throws IOException {
 		HttpSession session = req.getSession();
 		ModelAndView mav = new ModelAndView();
-//		System.out.println(post.getWriter());
-//		System.out.println(session.getAttribute("userId"));
+
 
 		if (post.getWriter().equals(session.getAttribute("userId"))) {
 			mav.addObject("post", post);

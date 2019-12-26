@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.sweeter.application.model.mapper.QAMapper">
+
+	<!-- CREATE -->
+	<insert id="writeQuestion">
+		Insert INTO Question(TITLE,WRITER,CONTENT)
+		values(#{title}, #{writer}, #{content})
+	</insert>
+
+
+	<!-- UPDATE -->
+	<update id="updateQuestion">
+		UPDATE Question
+		set title=#{title}, writer = #{writer},
+		modifyDate=sysdate,
+		content=#{content} where id=#{id}
+	</update>
+
+	<!-- DELETE -->
+	<delete id="deleteQuestion">
+		DELETE from Question where id= ${id}
+	</delete>
+
+	<select id="getQuestionList"
+		resultType="org.sweeter.application.model.dto.Question">
+		SELECT id,title,writer,FORMATDATETIME(writedate,'yyyy-MM-dd
+		HH:mm') as writeDate,FORMATDATETIME(modifydate,'yyyy-MM-dd HH:MM') as
+		modifyDate,content,category,count FROM post WHERE
+		#{count} OFFSET (#{page}-1) * #{count}
+	</select>
+
+	<select id="getQuestionById"
+		resultType="org.sweeter.application.model.dto.Question">
+		SELECT id,title,writer,FORMATDATETIME(writedate,'yyyy-MM-dd
+		HH:mm') as writeDate,FORMATDATETIME(modifydate,'yyyy-MM-dd HH:MM') as
+		modifyDate,content,count FROM post WHERE id = #{id}
+	</select>
+
+
+
+
+
+
+</mapper>
