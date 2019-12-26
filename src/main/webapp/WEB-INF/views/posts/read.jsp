@@ -6,7 +6,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
+<meta http-equiv="Content-Type"/>
 <link href="/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 <link href="/resources/css/posts/read.css" rel="stylesheet">
 <title>Insert title here</title>
@@ -65,7 +65,8 @@
 	</div>
 
 	<div id="list2">
-		<a class="btn btn-danger" href="/post/list/2/1/10">List</a>
+		<a id="list3" class="btn btn-danger" href="#">List</a>
+		
 
 	</div>
 	<script
