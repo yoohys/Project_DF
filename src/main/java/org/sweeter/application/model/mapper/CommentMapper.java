@@ -3,7 +3,6 @@ package org.sweeter.application.model.mapper;
 import java.util.List;
 
 import org.sweeter.application.model.dto.Comment;
-import org.sweeter.application.model.dto.Post;
 
 public interface CommentMapper {
 	

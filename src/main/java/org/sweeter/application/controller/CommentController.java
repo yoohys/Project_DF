@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.sweeter.application.model.dto.Comment;
-import org.sweeter.application.model.dto.Post;
 import org.sweeter.application.model.service.CommentService;
 
 @Controller
@@ -40,9 +39,8 @@ public class CommentController {
 
 	// 게시물 작성
 	@PostMapping("/comment/write")
-	public void write(Comment comment, HttpServletRequest req, HttpServletResponse res) throws IOException {
+	public void write(Comment comment, HttpServletResponse res) throws IOException {
 		commentService.write(comment);
-		HttpSession session = req.getSession();
 		PrintWriter out = res.getWriter();
 		res.setContentType("text/html; charset=utf-8");
 		out.println("<script>");
@@ -65,7 +63,6 @@ public class CommentController {
 	public ModelAndView cmdelete(@PathVariable int id, HttpServletRequest request, HttpServletResponse response)
 			throws IOException {
 		// DB에 게시물 정보 삭제
-
 		HttpSession session = request.getSession();
 		ModelAndView mav = new ModelAndView();
 		PrintWriter out = response.getWriter();

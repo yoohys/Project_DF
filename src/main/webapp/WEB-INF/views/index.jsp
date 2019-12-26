@@ -55,24 +55,11 @@
 
 					</tbody>
 				</table>
-				<h2>Q&A</h2>
-				<table class="table table-hover">
+				<a href="/questions/1/5"><h2>Q&A</h2></a>
+
+				<table id="qaBoard" class="table table-hover">
 					<tbody>
-						<tr>
-							<td>Bootstrap 질문</td>
-						</tr>
-						<tr>
-							<td>자바에서의 예외처리</td>
-						</tr>
-						<tr>
-							<td>서버용 PC 견적 질문</td>
-						</tr>
-						<tr>
-							<td>테스트 코드 작성</td>
-						</tr>
-						<tr>
-							<td>질문 게시판 입니다.</td>
-						</tr>
+
 					</tbody>
 				</table>
 			</div>

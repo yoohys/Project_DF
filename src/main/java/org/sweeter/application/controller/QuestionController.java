@@ -18,7 +18,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
-import org.sweeter.application.model.dto.Post;
 import org.sweeter.application.model.dto.Question;
 import org.sweeter.application.model.service.QAService;
 
@@ -84,7 +83,7 @@ public class QuestionController {
 	public ModelAndView modify(Question question) {
 		System.out.println(question.getId());
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName("redirect:/question/" + question.getId());
+		mav.setViewName("redirect:/questions/" + question.getId());
 		qaservice.modify(question);
 
 		return mav;
@@ -95,7 +94,7 @@ public class QuestionController {
 		// DB에 게시물 정보 삭제
 		qaservice.delete(id);
 		// 게시물 목록 이동
-		return "redirect:/questions/list/1/10";
+		return "redirect:/questions/list/3/1/10";
 	}
 
 	@GetMapping("/question/{id}")

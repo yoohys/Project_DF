@@ -64,6 +64,7 @@ CREATE TABLE question(
     writedate DATETIME DEFAULT sysdate,
     modifydate DATETIME DEFAULT sysdate,
     content VARCHAR2(1000),
+    count NUMBER(5,0),
     FOREIGN KEY (writer) REFERENCES member(id) ON DELETE SET NULL
 );
 
@@ -74,6 +75,7 @@ CREATE TABLE answer(
     modifydate DATETIME DEFAULT sysdate,
     content VARCHAR2(1000),
     questionid INTEGER,
+    count NUMBER(5,0),
     FOREIGN KEY (writer) REFERENCES member(id) ON DELETE SET NULL,
     FOREIGN KEY (questionid) REFERENCES question(id)
 );
@@ -174,6 +176,7 @@ INSERT INTO post(title, writer, content , category) VALUES('음료수 추천','u
 INSERT INTO post(title, writer, content , category) VALUES('오늘 먹은 아이스크림','user11','민트초코', 2);
 INSERT INTO post(title, writer, content , category) VALUES('펩시 VS 코카콜라','user20','전 코카콜라', 2);
 INSERT INTO post(title, writer, content , category) VALUES('파이썬','user17','텐서플로우가 재미있네요', 2);
+
 
 INSERT INTO comment(writer, content, post) VALUES('user1','테스트 댓글', 1);
 INSERT INTO comment(writer, content, post) VALUES('user2','테스트 댓글', 12);
