@@ -62,7 +62,8 @@ public class CommentController {
 		HttpSession session = req.getSession();
 		ModelAndView mav = new ModelAndView();
 		PrintWriter out = res.getWriter();
-		res.setContentType("text/html; charset=UTF-8");
+		
+		res.setContentType("text/html;charset=UTF-8");
 		
 		if (commentService.getComment(id).getWriter().equals(session.getAttribute("userId"))) {
 			commentService.delete(id);

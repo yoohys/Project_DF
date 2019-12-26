@@ -55,10 +55,7 @@ public class PageController {
 	public String itnewsWrite() {
 		return "itnews/write";
 	}
-	
 
-
-	
 	@GetMapping("/post/read")
 	public String postRead() {
 		return "posts/read";
@@ -67,5 +64,20 @@ public class PageController {
 	@GetMapping("/itnews/read")
 	public String itnewsRead() {
 		return "itnews/read";
+	}
+	
+	@GetMapping("/questions/{page}/{count}")
+	public String  questionList() {
+		return "questions/list";
+	}
+	
+	@GetMapping("/question/write")
+	public String questionWrite() {
+		return "questions/write";
+	}
+	
+	@GetMapping("/question/read")
+	public String questionRead() {
+		return "questions/read";
 	}
 }
