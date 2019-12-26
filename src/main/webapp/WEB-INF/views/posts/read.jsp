@@ -67,21 +67,22 @@
 
 		<%
 			} else {
+				Member member = (Member) session.getAttribute("user");
 		%>
+	
 		<form action="#" method="post" class="was-validated">
 			<table class="table table-bordered">
 				<tr>
 					<th>댓글 작성 칸</th>
-					<td><textarea name="content" rows="4" cols="70"></textarea>
+					<td> <textarea name="content" rows="4"
+							cols="70"></textarea>
 					<th width="200"><button type="submit" class="btn btn-primary">댓글등록</button></th>
 				</tr>
 
 			</table>
-			<%
-				Member member = (Member) session.getAttribute("user");
-			%>
+
 			<input type="hidden" value="<%=member.getId()%>" name="writer" /> <input
-				type="text" id="id2" name="post" />
+				type="hidden" id="id2" name="post" />
 		</form>
 		<%
 			}

@@ -1,6 +1,5 @@
 var url = window.location.pathname;
 url = url.split('/');
-console.log(url);
 var id = url[url.length - 1];
 var link = "";
 
@@ -10,7 +9,6 @@ $.ajax({
 	type : 'get',
 	dataType : "json",
 	success : function(response) {
-		console.log(response);
 		$("#title").val(response.title);
 		$("#id").val(response.id);
 		$("#id2").val(response.id);
@@ -21,7 +19,7 @@ $.ajax({
 		if (response.category == 1) {
 			$("#list3").attr("href", "/itnews/list/1/1/10")
 		} else if (response.category == 2) {
-			$("#list3").attr("href", "list/1/1/10")
+			$("#list3").attr("href", "list/2/1/10")
 		} else {
 		}
 
@@ -39,7 +37,6 @@ $.ajax({
 	type : 'get',
 	dataType : "json",
 	success : function(response) {
-		console.log(response);
 
 		for (var i = 0; i < response.length; i++) {
 			$("#comment").append(
