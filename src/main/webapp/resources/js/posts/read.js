@@ -76,6 +76,7 @@ $('button[type="submit"]').on("click", function(e) {
 	}
 });
 function comment_write() {
+	
 	$('form').attr('action', '/comment/write').attr('method', 'post').submit();
 	alert("댓글이 등록되었습니다.");
 

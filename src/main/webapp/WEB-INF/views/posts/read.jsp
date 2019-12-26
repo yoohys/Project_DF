@@ -2,9 +2,7 @@
 <%@page import="org.sweeter.application.model.dto.Member"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%
-	Member member = (Member) session.getAttribute("user");
-%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -63,6 +61,13 @@
 				<th colspan=3>내용</th>
 				<th>삭제</th>
 		</table>
+		<%
+			if (session.getAttribute("user") == null) {
+		%>
+
+		<%
+			} else {
+		%>
 		<form action="#" method="post" class="was-validated">
 			<table class="table table-bordered">
 				<tr>
@@ -72,10 +77,15 @@
 				</tr>
 
 			</table>
-
+			<%
+				Member member = (Member) session.getAttribute("user");
+			%>
 			<input type="hidden" value="<%=member.getId()%>" name="writer" /> <input
 				type="text" id="id2" name="post" />
 		</form>
+		<%
+			}
+		%>
 	</div>
 
 
