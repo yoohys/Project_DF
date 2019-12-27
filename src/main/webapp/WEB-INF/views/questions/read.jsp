@@ -8,7 +8,7 @@
 <head>
 <meta http-equiv="Content-Type" />
 <link href="/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-<link href="/resources/css/posts/read.css" rel="stylesheet">
+<link href="/resources/css/qa/read.css" rel="stylesheet">
 <title>Insert title here</title>
 </head>
 <body>
@@ -91,7 +91,7 @@
 
 
 	<div id="list2">
-		<a id="list3" class="btn btn-danger" href="#">List</a>
+		<a id="list3" class="btn btn-danger" href="/questions/1/5">List</a>
 
 	</div>
 	<script

@@ -53,7 +53,7 @@ public class QuestionController {
 	@PostMapping("/question/write")
 	public String write(Question question) {
 		qaservice.write(question);
-		return "redirect:/questions/list/1/10";
+		return "redirect:/questions/1/5";
 	}
 
 	// 게시물 수정
@@ -66,6 +66,7 @@ public class QuestionController {
 		if (question.getWriter().equals(session.getAttribute("userId"))) {
 			mav.addObject("question", question);
 			mav.setViewName("/questions/modify");
+			qaservice.modify(question);
 			return mav;
 
 		} else {
@@ -94,7 +95,7 @@ public class QuestionController {
 		// DB에 게시물 정보 삭제
 		qaservice.delete(id);
 		// 게시물 목록 이동
-		return "redirect:/questions/list/3/1/10";
+		return "redirect:/questions/1/5";
 	}
 
 	@GetMapping("/question/{id}")

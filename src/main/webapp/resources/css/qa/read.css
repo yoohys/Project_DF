@@ -1,0 +1,37 @@
+#container {
+	width: 70%;
+	margin: 0 auto; /* 가로로 중앙에 배치 */
+	padding-top: 10%; /* 테두리와 내용 사이의 패딩 여백 */
+}
+
+#list {
+	text-align: center;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+.table>tbody>tr>th {
+	text-align: center;
+	background-color: #b3c6ff;
+	vertical-align: middle;
+	width: 130px;
+}
+
+.table>tbody>tr>td {
+	text-align: center;
+}
+
+.table>tbody>tr>td>input:read-only, .table>tbody>tr>td>textarea:read-only
+	{
+	background-color: white;
+}
+#list2 {
+	text-align: center;
+}
+#comment {
+	background-color: aliceblue;
+}
+#cb{
+	vertical-align: center;
+}
+

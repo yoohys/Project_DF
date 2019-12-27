@@ -12,7 +12,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link href="/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-<link href="/resources/css/itnews/write.css" rel="stylesheet">
+<link href="/resources/css/qa/write.css" rel="stylesheet">
 <body>
 	<%@include file="../includes/navigation.jspf"%>
 	<div class="container">
@@ -43,7 +43,7 @@
 
 						<td colspan="2">
 							<button type="submit" class="btn btn-success">Post</button> <a
-							class="btn btn-danger" href="questions/list/1/10">List</a>
+							class="btn btn-danger" href="questions/1/5">List</a>
 						</td>
 					</tr>
 					<input type="hidden" value="<%=member.getId()%>" name="writer" />
@@ -53,7 +53,7 @@
 	</div>
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-	<script src="/resources/js/itnews/write.js"></script>
+	<script src="/resources/js/qa/write.js"></script>
 </body>
 
 </html>
