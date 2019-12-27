@@ -12,14 +12,15 @@
 	</insert>
 
 	<!-- UPDATE -->
-	<update id="updateComment">
-		UPDATE Comment set writer = #{writer},
-		modifyDate=#{modifyDate}, content=#{content} where id=#{id}
+	<update id="updateMember">
+		UPDATE member set pw = #{pw},
+		name=#{name},
+		email=#{email},tel=#{tel} where id=#{id}
 	</update>
 
 	<!-- DELETE -->
-	<delete id="deleteComment">
-		DELETE from comment where id= ${id}
+	<delete id="deleteMember">
+		DELETE from member where id= ${id}
 	</delete>
 	<!-- READ -->
 	<select id="getAllMembers"

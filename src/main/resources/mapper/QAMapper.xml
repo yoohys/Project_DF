@@ -72,7 +72,7 @@
 	<select id="getAnswerList"
 		resultType="org.sweeter.application.model.dto.Answer">
 		SELECT id,writer,FORMATDATETIME(writedate,'yyyy-MM-dd
-		HH:mm') as writeDate,FORMATDATETIME(modifydate,'yyyy-MM-dd HH:MM') as
+		HH:mm') as writeDate,FORMATDATETIME(modifydate,'yyyy-MM-dd HH:mm') as
 		modifyDate,content,questionid FROM Answer WHERE questionid = #{question}
 		LIMIT
 		#{count} OFFSET (#{page}-1) * #{count}
@@ -81,7 +81,7 @@
 	<select id="getAllAnswerByQuestion"
 		resultType="org.sweeter.application.model.dto.Answer">
 		SELECT id,writer,FORMATDATETIME(writedate,'yyyy-MM-dd
-		HH:mm') as writeDate,FORMATDATETIME(modifydate,'yyyy-MM-dd HH:MM') as
+		HH:mm') as writeDate,FORMATDATETIME(modifydate,'yyyy-MM-dd HH:mm') as
 		modifyDate,content,questionid FROM Answer WHERE questionid = #{question}
 	</select>
 

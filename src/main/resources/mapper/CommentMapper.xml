@@ -25,7 +25,7 @@
 	<select id="getCommentList"
 		resultType="org.sweeter.application.model.dto.Comment">
 		SELECT id,writer,FORMATDATETIME(writedate,'yyyy-MM-dd
-		HH:mm') as writeDate,FORMATDATETIME(modifydate,'yyyy-MM-dd HH:MM') as
+		HH:mm') as writeDate,FORMATDATETIME(modifydate,'yyyy-MM-dd HH:mm') as
 		modifyDate,content,postid FROM Comment WHERE postid = #{post}
 		LIMIT
 		#{count} OFFSET (#{page}-1) * #{count}
@@ -34,7 +34,7 @@
 	<select id="getAllCommentByPost"
 		resultType="org.sweeter.application.model.dto.Comment">
 		SELECT id,writer,FORMATDATETIME(writedate,'yyyy-MM-dd
-		HH:mm') as writeDate,FORMATDATETIME(modifydate,'yyyy-MM-dd HH:MM') as
+		HH:mm') as writeDate,FORMATDATETIME(modifydate,'yyyy-MM-dd HH:mm') as
 		modifyDate,content,postid FROM Comment WHERE postid = #{post}
 	</select>
 
