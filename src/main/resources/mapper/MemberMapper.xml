@@ -4,35 +4,39 @@
 
 <mapper
 	namespace="org.sweeter.application.model.mapper.MemberMapper">
+
 	<!-- CREATE -->
 	<insert id="insertMember">
-		INSERT INTO member values(#{id}, #{pw}, #{name}, #{email}, #{tel})
+		INSERT INTO member values(#{id}, #{pw}, #{name},
+		#{email}, #{tel})
 	</insert>
-	
+
+	<!-- UPDATE -->
+	<update id="updateComment">
+		UPDATE Comment set writer = #{writer},
+		modifyDate=#{modifyDate}, content=#{content} where id=#{id}
+	</update>
+
+	<!-- DELETE -->
+	<delete id="deleteComment">
+		DELETE from comment where id= ${id}
+	</delete>
 	<!-- READ -->
-	<select id="getAllMembers" resultType="org.sweeter.application.model.dto.Member">
+	<select id="getAllMembers"
+		resultType="org.sweeter.application.model.dto.Member">
 		SELECT * FROM member
 	</select>
-	
-	
-	<select id="getMemberById" resultType="org.sweeter.application.model.dto.Member">
+
+
+	<select id="getMemberById"
+		resultType="org.sweeter.application.model.dto.Member">
 		SELECT * FROM member WHERE id = #{id}
 	</select>
-	
-	<select id="getMemberByIdAndPw" resultType="org.sweeter.application.model.dto.Member">
+
+	<select id="getMemberByIdAndPw"
+		resultType="org.sweeter.application.model.dto.Member">
 		SELECT * FROM member WHERE id = #{id} AND pw = #{pw}
 	</select>
-	
-	<!-- UPDATE -->
-	<update id="updateMember">
-		UPDATE member
-		SET pw = #{pw}, name = #{name} , email = #{email} , tel = #{tel}
-		WHERE id = #{id}
-	</update>
-	
-	<!-- DELETE -->
-	<delete id="deleteMember">
-		DELETE FROM member WHERE id= #{id}
-	</delete>
-	
+
+
 </mapper>

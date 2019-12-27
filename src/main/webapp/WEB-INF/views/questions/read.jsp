@@ -12,14 +12,13 @@
 <title>Insert title here</title>
 </head>
 <body>
-
 	<%@include file="../includes/navigation.jspf"%>
 	<div class="container">
 		<table class="table table-bordered">
 			<form action="/question/modify" method="post" class="was-validated">
 				<tbody>
 					<div id="list">
-						<b>글읽기</b>
+						<b>Question</b>
 						<button type="submit" class="btn btn-primary"
 							style="float: right; margin-right: 20px;">Modify</button>
 					</div>
@@ -51,11 +50,11 @@
 			</tbody>
 		</table>
 		<div id="list">
-			<b>댓글</b>
+			<b>Answer</b>
 		</div>
-		<table id="comment" class="table">
+		<table id="answer" class="table">
 			<tr>
-				<th>댓글 번호</th>
+				<th>답글 번호</th>
 				<th>작성 ID</th>
 				<th>작성 시간</th>
 				<th colspan=3>내용</th>
@@ -69,20 +68,19 @@
 			} else {
 				Member member = (Member) session.getAttribute("user");
 		%>
-	
+
 		<form action="#" method="post" class="was-validated">
 			<table class="table table-bordered">
 				<tr>
-					<th>댓글 작성 칸</th>
-					<td> <textarea name="content" rows="4"
-							cols="70"></textarea>
-					<th width="200"><button type="submit" class="btn btn-primary">댓글등록</button></th>
+					<th>답글 작성 칸</th>
+					<td><textarea name="content" id="answer" rows="4" cols="70"></textarea>
+					<th width="200"><button type="button" class="btn btn-primary">답글등록</button></th>
 				</tr>
 
 			</table>
 
 			<input type="hidden" value="<%=member.getId()%>" name="writer" /> <input
-				type="hidden" id="id2" name="post" />
+				type="hidden" id="id2" name="question" />
 		</form>
 		<%
 			}

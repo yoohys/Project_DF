@@ -9,6 +9,6 @@ public class Answer {
 	private String writeDate;
 	private String modifyDate;
 	private String content;
-	private int questionId;
+	private int question;
 
 }

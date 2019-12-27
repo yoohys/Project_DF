@@ -6,36 +6,45 @@
 	namespace="org.sweeter.application.model.mapper.CommentMapper">
 	<!-- CREATE -->
 	<insert id="writeComment">
-		Insert INTO Comment(POST,WRITER,CONTENT) values(#{post}, #{writer}, #{content})
+		Insert INTO Comment(POSTID,WRITER,CONTENT)
+		values(#{post}, #{writer}, #{content})
 	</insert>
-	
-	<!-- READ -->
-	<select id="getCommentList"
-		resultType="org.sweeter.application.model.dto.Comment">
-		SELECT id,writer,FORMATDATETIME(writedate,'yyyy-MM-dd HH:mm') as writeDate,FORMATDATETIME(modifydate,'yyyy-MM-dd HH:MM') as modifyDate,content,post FROM Comment WHERE post = #{post}
-		LIMIT #{count} OFFSET (#{page}-1) * #{count} 
-	</select>
-
-	<select id="getAllCommentByPost"
-		resultType="org.sweeter.application.model.dto.Comment">
-		SELECT id,writer,FORMATDATETIME(writedate,'yyyy-MM-dd HH:mm') as writeDate,FORMATDATETIME(modifydate,'yyyy-MM-dd HH:MM') as modifyDate,content,post FROM Comment WHERE post = #{post}
-	</select>
-
-	<!-- READ -->
-	<select id="getCommentById"
-	resultType="org.sweeter.application.model.dto.Comment">
-		SELECT * FROM Comment WHERE id = #{id}
-	</select>
 
 	<!-- UPDATE -->
 	<update id="updateComment">
-		UPDATE Comment set writer = #{writer}, modifyDate=#{modifyDate}, content=#{content} where id=#{id}
+		UPDATE Comment set writer = #{writer},
+		modifyDate=#{modifyDate}, content=#{content} where id=#{id}
 	</update>
 
 	<!-- DELETE -->
 	<delete id="deleteComment">
 		DELETE from comment where id= ${id}
 	</delete>
-	
-	
+
+	<!-- READ -->
+	<select id="getCommentList"
+		resultType="org.sweeter.application.model.dto.Comment">
+		SELECT id,writer,FORMATDATETIME(writedate,'yyyy-MM-dd
+		HH:mm') as writeDate,FORMATDATETIME(modifydate,'yyyy-MM-dd HH:MM') as
+		modifyDate,content,postid FROM Comment WHERE postid = #{post}
+		LIMIT
+		#{count} OFFSET (#{page}-1) * #{count}
+	</select>
+
+	<select id="getAllCommentByPost"
+		resultType="org.sweeter.application.model.dto.Comment">
+		SELECT id,writer,FORMATDATETIME(writedate,'yyyy-MM-dd
+		HH:mm') as writeDate,FORMATDATETIME(modifydate,'yyyy-MM-dd HH:MM') as
+		modifyDate,content,postid FROM Comment WHERE postid = #{post}
+	</select>
+
+	<!-- READ -->
+	<select id="getCommentById"
+		resultType="org.sweeter.application.model.dto.Comment">
+		SELECT * FROM Comment WHERE id = #{id}
+	</select>
+
+
+
+
 </mapper>

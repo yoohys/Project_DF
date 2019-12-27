@@ -18,45 +18,49 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+import org.sweeter.application.model.dto.Answer;
 import org.sweeter.application.model.dto.Question;
 import org.sweeter.application.model.service.QAService;
 
 @Controller
-public class QuestionController {
+public class QAController {
 	@Autowired
-	QAService qaservice;
+	QAService qaService;
+
+	// Question 부분
 
 	@RequestMapping("/question/all")
 	@ResponseBody
 	public Map<String, List<Question>> QuestionList() {
 		Map<String, List<Question>> map = new HashMap<String, List<Question>>();
-		List<Question> ls = qaservice.getAllQuestions();
+		List<Question> ls = qaService.getAllQuestions();
 		map.put("data", ls);
 
 		return map;
 	}
 
+	// Question List 보기
 	@RequestMapping("/question/{page}/{count}")
 	@ResponseBody
 	public List<Question> QuestionList(@PathVariable int page, @PathVariable int count) {
-		return qaservice.getQuestionList(page, count);
+		return qaService.getQuestionList(page, count);
 	}
 
-	// 게시물 상세 보기
+	// Question 상세 보기
 	@RequestMapping("/question/read/{id}")
 	@ResponseBody
 	public Question question(@PathVariable int id) {
-		return qaservice.getQuestion(id);
+		return qaService.getQuestion(id);
 	}
 
-	// 게시물 작성
+	// Question 작성
 	@PostMapping("/question/write")
 	public String write(Question question) {
-		qaservice.write(question);
+		qaService.write(question);
 		return "redirect:/questions/1/5";
 	}
 
-	// 게시물 수정
+	// Question 수정
 	@PostMapping("/question/modify")
 	public ModelAndView questionModify(Question question, HttpServletRequest req, HttpServletResponse res)
 			throws IOException {
@@ -66,7 +70,7 @@ public class QuestionController {
 		if (question.getWriter().equals(session.getAttribute("userId"))) {
 			mav.addObject("question", question);
 			mav.setViewName("/questions/modify");
-			qaservice.modify(question);
+			qaService.modify(question);
 			return mav;
 
 		} else {
@@ -85,7 +89,7 @@ public class QuestionController {
 		System.out.println(question.getId());
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("redirect:/questions/" + question.getId());
-		qaservice.modify(question);
+		qaService.modify(question);
 
 		return mav;
 	}
@@ -93,7 +97,7 @@ public class QuestionController {
 	@GetMapping("/question/delete/{id}")
 	public String delete(@PathVariable int id) {
 		// DB에 게시물 정보 삭제
-		qaservice.delete(id);
+		qaService.deleteQ(id);
 		// 게시물 목록 이동
 		return "redirect:/questions/1/5";
 	}
@@ -101,6 +105,88 @@ public class QuestionController {
 	@GetMapping("/question/{id}")
 	public String read(@PathVariable int id) {
 		return "questions/read";
+	}
+
+	// Answer 부분
+
+	@RequestMapping("/answer/{question}")
+	@ResponseBody
+	public List<Answer> answerList(@PathVariable int question) {
+		return qaService.getAnswerList(question);
+	}
+
+	// Answer id 별로 보기
+
+	@RequestMapping("/answer/id/{id}")
+	@ResponseBody
+	public Answer answer(@PathVariable int id) {
+		return qaService.getAnswer(id);
+
+	}
+
+	// Answer 작성
+	@PostMapping("/answer/write")
+	public void write(Answer answer, HttpServletResponse res) throws IOException {
+		qaService.write(answer);
+		PrintWriter out = res.getWriter();
+		res.setContentType("text/html; charset=utf-8");
+		out.println("<script>");
+		out.println("history.go(-1);");
+		out.println("</script>");
+		out.flush();
+
+	}
+
+	// Answer 수정
+	@PostMapping("/answer/modify")
+	public String modify(Answer answer) {
+		qaService.modify(answer);
+
+		return "/question/list";
+	}
+
+	// Answer 삭제
+	@GetMapping("/answer/delete/{id}")
+	public ModelAndView andelete(@PathVariable int id, HttpServletRequest request, HttpServletResponse response)
+			throws IOException {
+		// DB에 게시물 정보 삭제
+		HttpSession session = request.getSession();
+		ModelAndView mav = new ModelAndView();
+		PrintWriter out = response.getWriter();
+		response.setContentType("text/html; charset=utf-8");
+
+		if (qaService.getAnswer(id).getWriter().equals(session.getAttribute("userId"))) {
+			qaService.deleteA(id);
+			out.println("<script>");
+			out.println("alert('Answer deleted!')");
+			out.println("history.go(-1);");
+			out.println("</script>");
+			out.flush();
+			mav.setViewName("/post/read");
+			return mav;
+		}
+
+		else {
+			out.println("<script>");
+			out.println("alert('you are not writer')");
+			out.println("history.go(-1);");
+			out.println("</script>");
+			out.flush();
+			mav.setViewName("/post/" + answer(id).getQuestion());
+			return mav;
+		}
+
+	}
+
+	// Answer 조회
+	@GetMapping("/answer/getAnswer")
+	public ModelAndView readA(int id) {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("/answer/read");
+		mav.addObject("id", id);
+		qaService.getAnswer(id);
+		return mav;
+
 	}
 
 }

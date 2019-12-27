@@ -10,7 +10,7 @@
 		Insert INTO Post(TITLE,WRITER,CONTENT,CATEGORY)
 		values(#{title}, #{writer}, #{content}, 2)
 	</insert>
-	
+
 	<insert id="writeitNews">
 		Insert INTO Post(TITLE,WRITER,CONTENT,CATEGORY)
 		values(#{title}, #{writer}, #{content}, 1)
@@ -18,7 +18,8 @@
 	<!-- UPDATE -->
 	<update id="updatePost">
 		UPDATE Post
-		set title=#{title}, writer = #{writer}, modifyDate=sysdate,
+		set title=#{title}, writer = #{writer},
+		modifyDate=sysdate,
 		content=#{content} where id=#{id}
 	</update>
 
@@ -59,7 +60,7 @@
 		HH:mm') as writeDate,FORMATDATETIME(modifydate,'yyyy-MM-dd HH:MM') as
 		modifyDate,content,category,count FROM post WHERE id = #{id}
 	</select>
-	
+
 	<select id="getItNewsList"
 		resultType="org.sweeter.application.model.dto.Post">
 		SELECT id,title,writer,FORMATDATETIME(writedate,'yyyy-MM-dd

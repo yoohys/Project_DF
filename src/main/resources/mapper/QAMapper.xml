@@ -4,17 +4,19 @@
 
 <mapper namespace="org.sweeter.application.model.mapper.QAMapper">
 
+	<!-- Question 부분 -->
+
 	<!-- CREATE -->
 	<insert id="writeQuestion">
 		Insert INTO Question(TITLE,WRITER,CONTENT)
 		values(#{title}, #{writer}, #{content})
 	</insert>
 
-
 	<!-- UPDATE -->
 	<update id="updateQuestion">
 		UPDATE Question
-		set title=#{title}, writer = #{writer},
+		set title=#{title}, writer =
+		#{writer},
 		modifyDate=sysdate,
 		content=#{content} where id=#{id}
 	</update>
@@ -28,8 +30,9 @@
 		resultType="org.sweeter.application.model.dto.Question">
 		SELECT id,title,writer,FORMATDATETIME(writedate,'yyyy-MM-dd
 		HH:mm') as writeDate,FORMATDATETIME(modifydate,'yyyy-MM-dd HH:MM') as
-		modifyDate,content,count FROM question 
-		LIMIT #{count} OFFSET (#{page}-1) * #{count}
+		modifyDate,content,count FROM question
+		LIMIT #{count} OFFSET
+		(#{page}-1) * #{count}
 	</select>
 
 	<select id="getQuestionById"
@@ -38,7 +41,7 @@
 		HH:mm') as writeDate,FORMATDATETIME(modifydate,'yyyy-MM-dd HH:MM') as
 		modifyDate,content,count FROM question WHERE id = #{id}
 	</select>
-	
+
 	<select id="getAllQuestion"
 		resultType="org.sweeter.application.model.dto.Question">
 		SELECT id,title,writer,FORMATDATETIME(writedate,'yyyy-MM-dd
@@ -46,6 +49,47 @@
 		modifyDate,content,count FROM question
 	</select>
 
+	<!-- Answer 부분 -->
+
+	<!-- CREATE -->
+	<insert id="writeAnswer">
+		Insert INTO Answer(questionid,WRITER,CONTENT)
+		values(#{question}, #{writer}, #{content})
+	</insert>
+
+	<!-- UPDATE -->
+	<update id="updateAnswer">
+		UPDATE Answer set writer = #{writer},
+		modifyDate=#{modifyDate}, content=#{content} where id=#{id}
+	</update>
+
+	<!-- DELETE -->
+	<delete id="deleteAnswer">
+		DELETE from Answer where id= ${id}
+	</delete>
+
+	<!-- READ -->
+	<select id="getAnswerList"
+		resultType="org.sweeter.application.model.dto.Answer">
+		SELECT id,writer,FORMATDATETIME(writedate,'yyyy-MM-dd
+		HH:mm') as writeDate,FORMATDATETIME(modifydate,'yyyy-MM-dd HH:MM') as
+		modifyDate,content,questionid FROM Answer WHERE questionid = #{question}
+		LIMIT
+		#{count} OFFSET (#{page}-1) * #{count}
+	</select>
+
+	<select id="getAllAnswerByQuestion"
+		resultType="org.sweeter.application.model.dto.Answer">
+		SELECT id,writer,FORMATDATETIME(writedate,'yyyy-MM-dd
+		HH:mm') as writeDate,FORMATDATETIME(modifydate,'yyyy-MM-dd HH:MM') as
+		modifyDate,content,questionid FROM Answer WHERE questionid = #{question}
+	</select>
+
+	<!-- READ -->
+	<select id="getAnswerById"
+		resultType="org.sweeter.application.model.dto.Answer">
+		SELECT * FROM Answer WHERE id = #{id}
+	</select>
 
 
 
