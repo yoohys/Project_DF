@@ -25,7 +25,7 @@ function modify() {
 		email : email
 	};
 	var keys = Object.keys(info);
-	console.log(keys);
+
 	for (var i = 0; i < keys.length; i++) {
 		if (info[keys[i]] == '') {
 			alert(keys[i] + "가 비어있습니다.");

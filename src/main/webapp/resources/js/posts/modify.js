@@ -7,8 +7,7 @@ $('button[type="submit"]').on("click", function(e) {
 function modify() {
 
 	var tit = $('input[name="title"]').val();
-	var con = $('input[name="content"]').val();
-
+	var con = $('textarea[name="content"]').val();
 	// 공백 확인 검사
 	var info = {
 		제목 : tit,

@@ -69,14 +69,14 @@
 			} else {
 				Member member = (Member) session.getAttribute("user");
 		%>
-	
-		<form action="#" method="post" class="was-validated">
+
+		<form action="#" method="post" class="was-validated" name="comment">
 			<table class="table table-bordered">
 				<tr>
 					<th>댓글 작성 칸</th>
-					<td> <textarea name="content" rows="4"
-							cols="70"></textarea>
-					<th width="200"><button type="submit" class="btn btn-primary">댓글등록</button></th>
+					<td><textarea name="content" id="comcon" rows="4" cols="70" ></textarea>
+					<th width="200"><button type="button" class="btn btn-primary"
+							>댓글등록</button></th>
 				</tr>
 
 			</table>

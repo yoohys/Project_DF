@@ -31,15 +31,16 @@
 //		console.log("call always()");
 //	}
 //});
+
 $(document).ready(function() {
-	$('#example').DataTable({
-		"ajax" : "/questions/all",
+	$('#example1').DataTable({
+		"ajax" : "/question/all",
 		"columns" : [ {
 			"data" : "id"
 		}, {
 			"data" : "title",
 			"render" : function(data, type, row, meta) {
-				return '<a href="/post/' + row.id + '">' + data + "</a>";
+				return '<a href="/question/' + row.id + '">' + data + "</a>";
 			}
 		}, {
 			"data" : "writer"

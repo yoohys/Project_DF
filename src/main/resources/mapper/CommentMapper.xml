@@ -13,7 +13,7 @@
 	<select id="getCommentList"
 		resultType="org.sweeter.application.model.dto.Comment">
 		SELECT id,writer,FORMATDATETIME(writedate,'yyyy-MM-dd HH:mm') as writeDate,FORMATDATETIME(modifydate,'yyyy-MM-dd HH:MM') as modifyDate,content,post FROM Comment WHERE post = #{post}
-<!-- 		LIMIT #{count} OFFSET (#{page}-1) * #{count}  -->
+		LIMIT #{count} OFFSET (#{page}-1) * #{count} 
 	</select>
 
 	<select id="getAllCommentByPost"

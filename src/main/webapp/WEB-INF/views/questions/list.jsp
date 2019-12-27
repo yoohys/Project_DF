@@ -8,13 +8,10 @@
 <link href="/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 <link href="/resources/css/qa/list.css" rel="stylesheet">
 <title>Insert title here</title>
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js" />
 <script src="/resources/js/qa/list.js"></script>
-<link rel="stylesheet" type="text/css"
-	href="https://cdn.datatables.net/v/dt/dt-1.10.20/datatables.min.css" />
-<script type="text/javascript"
-	src="https://cdn.datatables.net/v/dt/dt-1.10.20/datatables.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.20/datatables.min.css" />
+<script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.20/datatables.min.js"></script>
 
 
 </head>
@@ -26,7 +23,7 @@
 		</div>
 
 
-		<table id="example" class="display">
+		<table id="example1" class="display">
 			<thead>
 				<tr>
 					<th>id</th>
@@ -44,7 +41,7 @@
 			<%
 				} else {
 			%>
-			<a href="/questions/write" class="btn btn-success"
+			<a href="/question/write" class="btn btn-success"
 				style="float: right; margin-right: 20px;">글쓰기</a>
 			<%
 				}

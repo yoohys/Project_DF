@@ -28,8 +28,8 @@
 		resultType="org.sweeter.application.model.dto.Question">
 		SELECT id,title,writer,FORMATDATETIME(writedate,'yyyy-MM-dd
 		HH:mm') as writeDate,FORMATDATETIME(modifydate,'yyyy-MM-dd HH:MM') as
-		modifyDate,content,count FROM question WHERE
-		#{count} OFFSET (#{page}-1) * #{count}
+		modifyDate,content,count FROM question 
+		LIMIT #{count} OFFSET (#{page}-1) * #{count}
 	</select>
 
 	<select id="getQuestionById"

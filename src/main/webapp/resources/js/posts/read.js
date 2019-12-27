@@ -42,38 +42,37 @@ $.ajax({
 			$("#comment").append(
 					'<tr>' + '<td>' + response[i].id + '</td>' + '<td>'
 							+ response[i].writer + '</td>' + '<td>'
-							+ response[i].writeDate + '</td>' + '<td colspan=3>'
-							+ response[i].content + '</td>' + '<td>'
-							+ '<a href="/comment/delete/' + response[i].id
-							+ '" class="btn btn-danger">' + '삭제' + '</a>'
-							+ '</td>' + '</tr>');
+							+ response[i].writeDate + '</td>'
+							+ '<td colspan=3>' + response[i].content + '</td>'
+							+ '<td>' + '<a href="/comment/delete/'
+							+ response[i].id + '" class="btn btn-danger">'
+							+ '삭제' + '</a>' + '</td>' + '</tr>');
 
 		}
 	}
 
 });
 
-// 댓글 작성 js
+// 댓글 작성 java script
 
-function check() {
-	var con = $('input[name="comment_content"]').val();
-
-	if (con == '') {
-		alert("댓글 내용이 비어있습니다.");
-		return true;
-	}
-
-	return false;
-}
-$('button[type="submit"]').on("click", function(e) {
+$('button[type="button"]').on("click", function(e) {
 	e.preventDefault();
 
 	if (!check()) {
 		comment_write();
 	}
 });
+function check() {
+	var con = $('textarea[id="comcon"]').val();
+	if (con=="") {
+		alert("댓글 내용이 비어있습니다.");
+		return true;
+	}
+
+	return false;
+}
 function comment_write() {
-	
+
 	$('form').attr('action', '/comment/write').attr('method', 'post').submit();
 	alert("댓글이 등록되었습니다.");
 
