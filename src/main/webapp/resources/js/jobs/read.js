@@ -5,7 +5,7 @@ var link = "";
 
 // 질문 불러오기
 $.ajax({
-	url : '/jobs/read/' + id,
+	url : '/job/read/' + id,
 	type : 'get',
 	dataType : "json",
 	success : function(response) {

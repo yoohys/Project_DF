@@ -55,7 +55,7 @@ public class JobController {
 	@PostMapping("/job/write")
 	public String write(Jobs jobs) {
 		jobService.write(jobs);
-		return "redirect:/jobs/1/5";
+		return "redirect:/job/1/5";
 	}
 
 	// Jobs 수정
@@ -67,7 +67,7 @@ public class JobController {
 
 		if (jobs.getWriter().equals(session.getAttribute("userId"))) {
 			mav.addObject("jobs", jobs);
-			mav.setViewName("/jobs/modify");
+			mav.setViewName("/job/modify");
 			jobService.modify(jobs);
 			return mav;
 
@@ -86,7 +86,7 @@ public class JobController {
 	public ModelAndView modify(Jobs jobs) {
 		System.out.println(jobs.getId());
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName("redirect:/jobs/" + jobs.getId());
+		mav.setViewName("redirect:/job/" + jobs.getId());
 		jobService.modify(jobs);
 
 		return mav;
