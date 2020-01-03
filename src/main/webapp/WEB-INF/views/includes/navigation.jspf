@@ -1,10 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <link href="/resources/css/navigator.css" rel="stylesheet">
-<div class="jumbotron text-center" style="margin-bottom: 0">
+<div class="jumbotron text-center" style="margin-bottom: 0" id="top">
 	<h1>
-		DogFoot <img alt="No DogFoot" src="/resources/img/dogfoot.jpg"
-			width="50">
+		<a class="toptext" href="/">DogFoot&nbsp&nbsp</a><img alt="No DogFoot" src="/resources/img/dogfoot.jpg"
+			width="80">
 	</h1>
 
 </div>
@@ -15,8 +15,8 @@
 		<ul class="navbar-nav mr-auto">
 			<li class="nav-item"><a class="nav-link" href="/itnews/list/1/1/10">IT 뉴스</a></li>
 			<li class="nav-item"><a class="nav-link" href="/post/list/2/1/10">자유게시판</a></li>
-			<li class="nav-item"><a class="nav-link" href="/questions/1/5">Q&A</a></li>
-			<li class="nav-item"><a class="nav-link" href="#">구인구직</a></li>
+			<li class="nav-item"><a class="nav-link" href="/questions/1/10">Q&A</a></li>
+			<li class="nav-item"><a class="nav-link" href="/job/1/10">구인구직</a></li>
 		</ul>
 
 		<div class="float-right">

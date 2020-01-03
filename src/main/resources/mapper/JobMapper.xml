@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper
+	namespace="org.sweeter.application.model.mapper.JobMapper">
+
+	<!-- CREATE -->
+	<insert id="writeJob">
+		Insert INTO Jobs(title, writer, salary, career,
+		content)
+		values(#{title}, #{writer}, #{salary}, #{career}, #{content})
+	</insert>
+
+	<!-- UPDATE -->
+	<update id="updateJob">
+		UPDATE Jobs
+		set title=#{title},
+		writer =#{writer},
+		modifyDate=sysdate,
+		salary=#{salary},
+		career=#{career},
+		content=#{content}
+		where
+		id=#{id}
+	</update>
+
+	<!-- DELETE -->
+	<delete id="deleteJob">
+		DELETE from JObs where id= ${id}
+	</delete>
+
+	<select id="getJobList"
+		resultType="org.sweeter.application.model.dto.Jobs">
+		SELECT id,title,writer,FORMATDATETIME(writedate,'yyyy-MM-dd
+		HH:mm') as writeDate,FORMATDATETIME(modifydate,'yyyy-MM-dd HH:MM') as
+		modifyDate,salary,career,content FROM jobs
+		LIMIT #{count} OFFSET
+		(#{page}-1) * #{count}
+	</select>
+
+	<select id="getJobById"
+		resultType="org.sweeter.application.model.dto.Jobs">
+		SELECT id,title,writer,FORMATDATETIME(writedate,'yyyy-MM-dd
+		HH:mm') as writeDate,FORMATDATETIME(modifydate,'yyyy-MM-dd HH:MM') as
+		modifyDate,salary,career,content FROM jobs WHERE id = #{id}
+	</select>
+
+	<select id="getAllJob"
+		resultType="org.sweeter.application.model.dto.Jobs">
+		SELECT id,title,writer,FORMATDATETIME(writedate,'yyyy-MM-dd
+		HH:mm') as writeDate,FORMATDATETIME(modifydate,'yyyy-MM-dd HH:MM') as
+		modifyDate,salary,career,content FROM jobs
+	</select>
+
+</mapper>

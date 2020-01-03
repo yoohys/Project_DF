@@ -4,35 +4,40 @@
 
 <mapper
 	namespace="org.sweeter.application.model.mapper.MemberMapper">
+
 	<!-- CREATE -->
 	<insert id="insertMember">
-		INSERT INTO member values(#{id}, #{pw}, #{name}, #{email}, #{tel})
+		INSERT INTO member values(#{id}, #{pw}, #{name},
+		#{email}, #{tel})
 	</insert>
-	
-	<!-- READ -->
-	<select id="getAllMembers" resultType="org.sweeter.application.model.dto.Member">
-		SELECT * FROM member
-	</select>
-	
-	
-	<select id="getMemberById" resultType="org.sweeter.application.model.dto.Member">
-		SELECT * FROM member WHERE id = #{id}
-	</select>
-	
-	<select id="getMemberByIdAndPw" resultType="org.sweeter.application.model.dto.Member">
-		SELECT * FROM member WHERE id = #{id} AND pw = #{pw}
-	</select>
-	
+
 	<!-- UPDATE -->
 	<update id="updateMember">
-		UPDATE member
-		SET pw = #{pw}, name = #{name} , email = #{email} , tel = #{tel}
-		WHERE id = #{id}
+		UPDATE member set pw = #{pw},
+		name=#{name},
+		email=#{email},tel=#{tel} where id=#{id}
 	</update>
-	
+
 	<!-- DELETE -->
 	<delete id="deleteMember">
-		DELETE FROM member WHERE id= #{id}
+		DELETE from member where id= ${id}
 	</delete>
-	
+	<!-- READ -->
+	<select id="getAllMembers"
+		resultType="org.sweeter.application.model.dto.Member">
+		SELECT * FROM member
+	</select>
+
+
+	<select id="getMemberById"
+		resultType="org.sweeter.application.model.dto.Member">
+		SELECT * FROM member WHERE id = #{id}
+	</select>
+
+	<select id="getMemberByIdAndPw"
+		resultType="org.sweeter.application.model.dto.Member">
+		SELECT * FROM member WHERE id = #{id} AND pw = #{pw}
+	</select>
+
+
 </mapper>

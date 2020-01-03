@@ -26,17 +26,18 @@
 				</div>
 
 				<div class="form-group">
-					<label for="pwd"><font color="red">*</font>Password:  (영어와 숫자 혼용하여 4글자 이상 12글자 이하)</label> <input
-						type="password" class="form-control" placeholder="Enter password"
-						name="pw" required>
+					<label for="pwd"><font color="red">*</font>Password: (영어와
+						숫자 혼용하여 4글자 이상 12글자 이하)</label> <input type="password"
+						class="form-control" placeholder="Enter password" name="pw"
+						required>
 					<div class="valid-feedback">Valid.</div>
 					<div class="invalid-feedback">Please fill out this field.</div>
 				</div>
-				
+
 				<div class="form-group">
-					<label for="pwd"><font color="red">*</font>Password Confirm</label> <input
-						type="password" class="form-control" placeholder="Enter password"
-						name="pw2" required>
+					<label for="pwd"><font color="red">*</font>Password Confirm</label>
+					<input type="password" class="form-control"
+						placeholder="Enter password" name="pw2" required>
 					<div class="valid-feedback">Valid.</div>
 					<div class="invalid-feedback">Please fill out this field.</div>
 				</div>
@@ -48,7 +49,7 @@
 					<div class="valid-feedback">Valid.</div>
 					<div class="invalid-feedback">Please fill out this field.</div>
 				</div>
-				
+
 
 				<div class="form-group">
 					<label for="pwd"><font color="red">*</font>E-mail:</label> <input
@@ -63,14 +64,14 @@
 						class="form-control" placeholder="Enter password" name="tel">
 				</div>
 
-				<button type="submit" class="btn btn-primary">Create
+				<button type="submit" class="btn btn-success">Create
 					Account</button>
 			</form>
 		</div>
 	</div>
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-	<script src="/resources/js/register.js"></script>
+	<script src="/resources/js/members/register.js"></script>
 	<script>
 		$('button[type="submit"]').on("click", function(e) {
 			e.preventDefault();

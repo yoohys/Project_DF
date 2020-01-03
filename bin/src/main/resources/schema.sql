@@ -25,23 +25,24 @@ CREATE TABLE post(
 	id INTEGER AUTO_INCREMENT PRIMARY KEY,
 	title VARCHAR2(100) NOT NULL,
 	writer VARCHAR2(40),
-	writedate DATE default sysdate,
-	modifydate DATE default sysdate,
+	writedate DATETIME default sysdate,
+	modifydate DATETIME default sysdate,
 	content VARCHAR2(1000) NOT NULL,
     category INT,
+    count NUMBER(5,0),
 	FOREIGN KEY (writer) REFERENCES member(id) ON DELETE SET NULL,
     FOREIGN KEY (category) REFERENCES category(id)
+    
 );
 
 CREATE TABLE comment(
     id INTEGER AUTO_INCREMENT PRIMARY KEY,
     writer VARCHAR2(40),
-    writedate DATE DEFAULT sysdate,
-    modifydate DATE DEFAULT sysdate,
+    writedate DATETIME DEFAULT sysdate,
+    modifydate DATETIME DEFAULT sysdate,
     content VARCHAR2(1000),
-    post INTEGER,
-    FOREIGN KEY (writer) REFERENCES member(id) ON DELETE SET NULL,
-    FOREIGN KEY (post) REFERENCES post(id)
+    postid INTEGER,
+    FOREIGN KEY (writer) REFERENCES member(id) ON DELETE SET NULL
 );
 
 CREATE TABLE jobs(
@@ -60,19 +61,21 @@ CREATE TABLE question(
     id INTEGER AUTO_INCREMENT PRIMARY KEY,
     title VARCHAR2(40),
     writer VARCHAR2(40) DEFAULT sysdate,
-    writedate DATE DEFAULT sysdate,
-    modifydate DATE DEFAULT sysdate,
+    writedate DATETIME DEFAULT sysdate,
+    modifydate DATETIME DEFAULT sysdate,
     content VARCHAR2(1000),
+    count NUMBER(5,0),
     FOREIGN KEY (writer) REFERENCES member(id) ON DELETE SET NULL
 );
 
 CREATE TABLE answer(
     id INTEGER AUTO_INCREMENT PRIMARY KEY,
     writer VARCHAR2(40),
-    writedate DATE DEFAULT sysdate,
-    modifydate DATE DEFAULT sysdate,
+    writedate DATETIME DEFAULT sysdate,
+    modifydate DATETIME DEFAULT sysdate,
     content VARCHAR2(1000),
     questionid INTEGER,
+    count NUMBER(5,0),
     FOREIGN KEY (writer) REFERENCES member(id) ON DELETE SET NULL,
     FOREIGN KEY (questionid) REFERENCES question(id)
 );
@@ -174,96 +177,97 @@ INSERT INTO post(title, writer, content , category) VALUES('오늘 먹은 아이
 INSERT INTO post(title, writer, content , category) VALUES('펩시 VS 코카콜라','user20','전 코카콜라', 2);
 INSERT INTO post(title, writer, content , category) VALUES('파이썬','user17','텐서플로우가 재미있네요', 2);
 
-INSERT INTO comment(writer, content, post) VALUES('user1','테스트 댓글', 1);
-INSERT INTO comment(writer, content, post) VALUES('user2','테스트 댓글', 12);
-INSERT INTO comment(writer, content, post) VALUES('user17','테스트 댓글', 27);
-INSERT INTO comment(writer, content, post) VALUES('user9','테스트 댓글', 39);
-INSERT INTO comment(writer, content, post) VALUES('user23','테스트 댓글', 41);
-INSERT INTO comment(writer, content, post) VALUES('user2','테스트 댓글', 28);
-INSERT INTO comment(writer, content, post) VALUES('user1','테스트 댓글', 30);
-INSERT INTO comment(writer, content, post) VALUES('user18','테스트 댓글', 2);
-INSERT INTO comment(writer, content, post) VALUES('user24','테스트 댓글', 25);
-INSERT INTO comment(writer, content, post) VALUES('user23','테스트 댓글', 11);
-INSERT INTO comment(writer, content, post) VALUES('user1','테스트 댓글', 26);
-INSERT INTO comment(writer, content, post) VALUES('user17','테스트 댓글', 13);
-INSERT INTO comment(writer, content, post) VALUES('user9','테스트 댓글', 38);
-INSERT INTO comment(writer, content, post) VALUES('user26','테스트 댓글', 45);
-INSERT INTO comment(writer, content, post) VALUES('user24','테스트 댓글', 40);
-INSERT INTO comment(writer, content, post) VALUES('user17','테스트 댓글', 7);
-INSERT INTO comment(writer, content, post) VALUES('user5','테스트 댓글', 40);
-INSERT INTO comment(writer, content, post) VALUES('user16','테스트 댓글', 8);
-INSERT INTO comment(writer, content, post) VALUES('user11','테스트 댓글', 1);
-INSERT INTO comment(writer, content, post) VALUES('user27','테스트 댓글', 9);
-INSERT INTO comment(writer, content, post) VALUES('user28','테스트 댓글', 25);
-INSERT INTO comment(writer, content, post) VALUES('user10','테스트 댓글', 37);
-INSERT INTO comment(writer, content, post) VALUES('user27','테스트 댓글', 28);
-INSERT INTO comment(writer, content, post) VALUES('user6','테스트 댓글', 6);
-INSERT INTO comment(writer, content, post) VALUES('user21','테스트 댓글', 3);
-INSERT INTO comment(writer, content, post) VALUES('user27','테스트 댓글', 5);
-INSERT INTO comment(writer, content, post) VALUES('user6','테스트 댓글', 37);
-INSERT INTO comment(writer, content, post) VALUES('user9','테스트 댓글', 7);
-INSERT INTO comment(writer, content, post) VALUES('user4','테스트 댓글', 39);
-INSERT INTO comment(writer, content, post) VALUES('user22','테스트 댓글', 1);
-INSERT INTO comment(writer, content, post) VALUES('user5','테스트 댓글', 14);
-INSERT INTO comment(writer, content, post) VALUES('user8','테스트 댓글', 24);
-INSERT INTO comment(writer, content, post) VALUES('user16','테스트 댓글', 50);
-INSERT INTO comment(writer, content, post) VALUES('user19','테스트 댓글', 10);
-INSERT INTO comment(writer, content, post) VALUES('user16','테스트 댓글', 36);
-INSERT INTO comment(writer, content, post) VALUES('user20','테스트 댓글', 41);
-INSERT INTO comment(writer, content, post) VALUES('user22','테스트 댓글', 5);
-INSERT INTO comment(writer, content, post) VALUES('user18','테스트 댓글', 29);
-INSERT INTO comment(writer, content, post) VALUES('user23','테스트 댓글', 1);
-INSERT INTO comment(writer, content, post) VALUES('user22','테스트 댓글', 50);
-INSERT INTO comment(writer, content, post) VALUES('user19','테스트 댓글', 15);
-INSERT INTO comment(writer, content, post) VALUES('user5','테스트 댓글', 49);
-INSERT INTO comment(writer, content, post) VALUES('user8','테스트 댓글', 3);
-INSERT INTO comment(writer, content, post) VALUES('user7','테스트 댓글', 18);
-INSERT INTO comment(writer, content, post) VALUES('user25','테스트 댓글', 6);
-INSERT INTO comment(writer, content, post) VALUES('user19','테스트 댓글', 23);
-INSERT INTO comment(writer, content, post) VALUES('user15','테스트 댓글', 35);
-INSERT INTO comment(writer, content, post) VALUES('user25','테스트 댓글', 42);
-INSERT INTO comment(writer, content, post) VALUES('user7','테스트 댓글', 47);
-INSERT INTO comment(writer, content, post) VALUES('user24','테스트 댓글', 17);
-INSERT INTO comment(writer, content, post) VALUES('user14','테스트 댓글', 30);
-INSERT INTO comment(writer, content, post) VALUES('user15','테스트 댓글', 19);
-INSERT INTO comment(writer, content, post) VALUES('user14','테스트 댓글', 16);
-INSERT INTO comment(writer, content, post) VALUES('user7','테스트 댓글', 23);
-INSERT INTO comment(writer, content, post) VALUES('user6','테스트 댓글', 47);
-INSERT INTO comment(writer, content, post) VALUES('user18','테스트 댓글', 48);
-INSERT INTO comment(writer, content, post) VALUES('user25','테스트 댓글', 22);
-INSERT INTO comment(writer, content, post) VALUES('user29','테스트 댓글', 1);
-INSERT INTO comment(writer, content, post) VALUES('user29','테스트 댓글', 34);
-INSERT INTO comment(writer, content, post) VALUES('user15','테스트 댓글', 43);
-INSERT INTO comment(writer, content, post) VALUES('user28','테스트 댓글', 4);
-INSERT INTO comment(writer, content, post) VALUES('user29','테스트 댓글', 17);
-INSERT INTO comment(writer, content, post) VALUES('user14','테스트 댓글', 26);
-INSERT INTO comment(writer, content, post) VALUES('user3','테스트 댓글', 31);
-INSERT INTO comment(writer, content, post) VALUES('user4','테스트 댓글', 43);
-INSERT INTO comment(writer, content, post) VALUES('user20','테스트 댓글', 5);
-INSERT INTO comment(writer, content, post) VALUES('user10','테스트 댓글', 25);
-INSERT INTO comment(writer, content, post) VALUES('user10','테스트 댓글', 2);
-INSERT INTO comment(writer, content, post) VALUES('user3','테스트 댓글', 4);
-INSERT INTO comment(writer, content, post) VALUES('user8','테스트 댓글', 21);
-INSERT INTO comment(writer, content, post) VALUES('user13','테스트 댓글', 44);
-INSERT INTO comment(writer, content, post) VALUES('user26','테스트 댓글', 27);
-INSERT INTO comment(writer, content, post) VALUES('user30','테스트 댓글', 18);
-INSERT INTO comment(writer, content, post) VALUES('user4','테스트 댓글', 47);
-INSERT INTO comment(writer, content, post) VALUES('user12','테스트 댓글', 26);
-INSERT INTO comment(writer, content, post) VALUES('user13','테스트 댓글', 3);
-INSERT INTO comment(writer, content, post) VALUES('user13','테스트 댓글', 32);
-INSERT INTO comment(writer, content, post) VALUES('user20','테스트 댓글', 36);
-INSERT INTO comment(writer, content, post) VALUES('user21','테스트 댓글', 49);
-INSERT INTO comment(writer, content, post) VALUES('user30','테스트 댓글', 45);
-INSERT INTO comment(writer, content, post) VALUES('user12','테스트 댓글', 19);
-INSERT INTO comment(writer, content, post) VALUES('user30','테스트 댓글', 13);
-INSERT INTO comment(writer, content, post) VALUES('user12','테스트 댓글', 17);
-INSERT INTO comment(writer, content, post) VALUES('user28','테스트 댓글', 19);
-INSERT INTO comment(writer, content, post) VALUES('user26','테스트 댓글', 48);
-INSERT INTO comment(writer, content, post) VALUES('user21','테스트 댓글', 3);
-INSERT INTO comment(writer, content, post) VALUES('user11','테스트 댓글', 33);
-INSERT INTO comment(writer, content, post) VALUES('user2','테스트 댓글', 46);
-INSERT INTO comment(writer, content, post) VALUES('user3','테스트 댓글', 20);
-INSERT INTO comment(writer, content, post) VALUES('user11','테스트 댓글', 2);
+
+INSERT INTO comment(writer, content, postid) VALUES('user1','테스트 댓글', 1);
+INSERT INTO comment(writer, content, postid) VALUES('user2','테스트 댓글', 12);
+INSERT INTO comment(writer, content, postid) VALUES('user17','테스트 댓글', 27);
+INSERT INTO comment(writer, content, postid) VALUES('user9','테스트 댓글', 39);
+INSERT INTO comment(writer, content, postid) VALUES('user23','테스트 댓글', 41);
+INSERT INTO comment(writer, content, postid) VALUES('user2','테스트 댓글', 28);
+INSERT INTO comment(writer, content, postid) VALUES('user1','테스트 댓글', 30);
+INSERT INTO comment(writer, content, postid) VALUES('user18','테스트 댓글', 2);
+INSERT INTO comment(writer, content, postid) VALUES('user24','테스트 댓글', 25);
+INSERT INTO comment(writer, content, postid) VALUES('user23','테스트 댓글', 11);
+INSERT INTO comment(writer, content, postid) VALUES('user1','테스트 댓글', 26);
+INSERT INTO comment(writer, content, postid) VALUES('user17','테스트 댓글', 13);
+INSERT INTO comment(writer, content, postid) VALUES('user9','테스트 댓글', 38);
+INSERT INTO comment(writer, content, postid) VALUES('user26','테스트 댓글', 45);
+INSERT INTO comment(writer, content, postid) VALUES('user24','테스트 댓글', 40);
+INSERT INTO comment(writer, content, postid) VALUES('user17','테스트 댓글', 7);
+INSERT INTO comment(writer, content, postid) VALUES('user5','테스트 댓글', 40);
+INSERT INTO comment(writer, content, postid) VALUES('user16','테스트 댓글', 8);
+INSERT INTO comment(writer, content, postid) VALUES('user11','테스트 댓글', 1);
+INSERT INTO comment(writer, content, postid) VALUES('user27','테스트 댓글', 9);
+INSERT INTO comment(writer, content, postid) VALUES('user28','테스트 댓글', 25);
+INSERT INTO comment(writer, content, postid) VALUES('user10','테스트 댓글', 37);
+INSERT INTO comment(writer, content, postid) VALUES('user27','테스트 댓글', 28);
+INSERT INTO comment(writer, content, postid) VALUES('user6','테스트 댓글', 6);
+INSERT INTO comment(writer, content, postid) VALUES('user21','테스트 댓글', 3);
+INSERT INTO comment(writer, content, postid) VALUES('user27','테스트 댓글', 5);
+INSERT INTO comment(writer, content, postid) VALUES('user6','테스트 댓글', 37);
+INSERT INTO comment(writer, content, postid) VALUES('user9','테스트 댓글', 7);
+INSERT INTO comment(writer, content, postid) VALUES('user4','테스트 댓글', 39);
+INSERT INTO comment(writer, content, postid) VALUES('user22','테스트 댓글', 1);
+INSERT INTO comment(writer, content, postid) VALUES('user5','테스트 댓글', 14);
+INSERT INTO comment(writer, content, postid) VALUES('user8','테스트 댓글', 24);
+INSERT INTO comment(writer, content, postid) VALUES('user16','테스트 댓글', 50);
+INSERT INTO comment(writer, content, postid) VALUES('user19','테스트 댓글', 10);
+INSERT INTO comment(writer, content, postid) VALUES('user16','테스트 댓글', 36);
+INSERT INTO comment(writer, content, postid) VALUES('user20','테스트 댓글', 41);
+INSERT INTO comment(writer, content, postid) VALUES('user22','테스트 댓글', 5);
+INSERT INTO comment(writer, content, postid) VALUES('user18','테스트 댓글', 29);
+INSERT INTO comment(writer, content, postid) VALUES('user23','테스트 댓글', 1);
+INSERT INTO comment(writer, content, postid) VALUES('user22','테스트 댓글', 50);
+INSERT INTO comment(writer, content, postid) VALUES('user19','테스트 댓글', 15);
+INSERT INTO comment(writer, content, postid) VALUES('user5','테스트 댓글', 49);
+INSERT INTO comment(writer, content, postid) VALUES('user8','테스트 댓글', 3);
+INSERT INTO comment(writer, content, postid) VALUES('user7','테스트 댓글', 18);
+INSERT INTO comment(writer, content, postid) VALUES('user25','테스트 댓글', 6);
+INSERT INTO comment(writer, content, postid) VALUES('user19','테스트 댓글', 23);
+INSERT INTO comment(writer, content, postid) VALUES('user15','테스트 댓글', 35);
+INSERT INTO comment(writer, content, postid) VALUES('user25','테스트 댓글', 42);
+INSERT INTO comment(writer, content, postid) VALUES('user7','테스트 댓글', 47);
+INSERT INTO comment(writer, content, postid) VALUES('user24','테스트 댓글', 17);
+INSERT INTO comment(writer, content, postid) VALUES('user14','테스트 댓글', 30);
+INSERT INTO comment(writer, content, postid) VALUES('user15','테스트 댓글', 19);
+INSERT INTO comment(writer, content, postid) VALUES('user14','테스트 댓글', 16);
+INSERT INTO comment(writer, content, postid) VALUES('user7','테스트 댓글', 23);
+INSERT INTO comment(writer, content, postid) VALUES('user6','테스트 댓글', 47);
+INSERT INTO comment(writer, content, postid) VALUES('user18','테스트 댓글', 48);
+INSERT INTO comment(writer, content, postid) VALUES('user25','테스트 댓글', 22);
+INSERT INTO comment(writer, content, postid) VALUES('user29','테스트 댓글', 1);
+INSERT INTO comment(writer, content, postid) VALUES('user29','테스트 댓글', 34);
+INSERT INTO comment(writer, content, postid) VALUES('user15','테스트 댓글', 43);
+INSERT INTO comment(writer, content, postid) VALUES('user28','테스트 댓글', 4);
+INSERT INTO comment(writer, content, postid) VALUES('user29','테스트 댓글', 17);
+INSERT INTO comment(writer, content, postid) VALUES('user14','테스트 댓글', 26);
+INSERT INTO comment(writer, content, postid) VALUES('user3','테스트 댓글', 31);
+INSERT INTO comment(writer, content, postid) VALUES('user4','테스트 댓글', 43);
+INSERT INTO comment(writer, content, postid) VALUES('user20','테스트 댓글', 5);
+INSERT INTO comment(writer, content, postid) VALUES('user10','테스트 댓글', 25);
+INSERT INTO comment(writer, content, postid) VALUES('user10','테스트 댓글', 2);
+INSERT INTO comment(writer, content, postid) VALUES('user3','테스트 댓글', 4);
+INSERT INTO comment(writer, content, postid) VALUES('user8','테스트 댓글', 21);
+INSERT INTO comment(writer, content, postid) VALUES('user13','테스트 댓글', 44);
+INSERT INTO comment(writer, content, postid) VALUES('user26','테스트 댓글', 27);
+INSERT INTO comment(writer, content, postid) VALUES('user30','테스트 댓글', 18);
+INSERT INTO comment(writer, content, postid) VALUES('user4','테스트 댓글', 47);
+INSERT INTO comment(writer, content, postid) VALUES('user12','테스트 댓글', 26);
+INSERT INTO comment(writer, content, postid) VALUES('user13','테스트 댓글', 3);
+INSERT INTO comment(writer, content, postid) VALUES('user13','테스트 댓글', 32);
+INSERT INTO comment(writer, content, postid) VALUES('user20','테스트 댓글', 36);
+INSERT INTO comment(writer, content, postid) VALUES('user21','테스트 댓글', 49);
+INSERT INTO comment(writer, content, postid) VALUES('user30','테스트 댓글', 45);
+INSERT INTO comment(writer, content, postid) VALUES('user12','테스트 댓글', 19);
+INSERT INTO comment(writer, content, postid) VALUES('user30','테스트 댓글', 13);
+INSERT INTO comment(writer, content, postid) VALUES('user12','테스트 댓글', 17);
+INSERT INTO comment(writer, content, postid) VALUES('user28','테스트 댓글', 19);
+INSERT INTO comment(writer, content, postid) VALUES('user26','테스트 댓글', 48);
+INSERT INTO comment(writer, content, postid) VALUES('user21','테스트 댓글', 3);
+INSERT INTO comment(writer, content, postid) VALUES('user11','테스트 댓글', 33);
+INSERT INTO comment(writer, content, postid) VALUES('user2','테스트 댓글', 46);
+INSERT INTO comment(writer, content, postid) VALUES('user3','테스트 댓글', 20);
+INSERT INTO comment(writer, content, postid) VALUES('user11','테스트 댓글', 2);
 
 INSERT INTO jobs(title, writer, salary, career, content) VALUES('바른기업 신입 공개채용','user26','2400','신입','정보처리(산업)기사 우대');
 INSERT INTO jobs(title, writer, salary, career, content) VALUES('다담아이티 공개채용','user27','2400~3000','신입/경력','비전공자도 지원 가능');

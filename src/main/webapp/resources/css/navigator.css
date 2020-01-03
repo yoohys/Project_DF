@@ -1,3 +1,30 @@
+.toptext{
+	font-size:60px;
+	color:black;
+}
+
+
 .float-right{
 	color:white;
+	
+}
+
+.navbar {
+	width: 20%;
+	margin: 0 auto;
+	width:1500px;
+	font-size:22px;
+}
+
+
+img {
+	transition: transform 1s;
+}
+
+img:hover {
+	transform: rotate(180deg);
+}
+
+#top{
+	background-color: white;
 }

@@ -4,41 +4,69 @@
 
 <mapper
 	namespace="org.sweeter.application.model.mapper.PostMapper">
+
 	<!-- CREATE -->
-	<select id="createPost" resultType="org.sweeter.application.model.dto.Post">
-		Insert INTO Post(title,writer,content,category)  values(#{title}, #{writer}, #{content}, #{category})
-	</select>
-	
+	<insert id="writePost">
+		Insert INTO Post(TITLE,WRITER,CONTENT,CATEGORY)
+		values(#{title}, #{writer}, #{content}, 2)
+	</insert>
+
+	<insert id="writeitNews">
+		Insert INTO Post(TITLE,WRITER,CONTENT,CATEGORY)
+		values(#{title}, #{writer}, #{content}, 1)
+	</insert>
+	<!-- UPDATE -->
+	<update id="updatePost">
+		UPDATE Post
+		set title=#{title}, writer = #{writer},
+		modifyDate=sysdate,
+		content=#{content} where id=#{id}
+	</update>
+
+	<!-- DELETE -->
+	<delete id="deletePost">
+		DELETE from Post where id= ${id}
+	</delete>
+
+
 	<!-- READ -->
 	<select id="getPostList"
 		resultType="org.sweeter.application.model.dto.Post">
-		SELECT * FROM post WHERE category = #{category} LIMIT
-		#{count} OFFSET (#{page}-1) * #{count}
+		SELECT id,title,writer,FORMATDATETIME(writedate,'yyyy-MM-dd
+		HH:mm') as writeDate,FORMATDATETIME(modifydate,'yyyy-MM-dd HH:mm') as
+		modifyDate,content,category,count FROM post WHERE category =
+		#{category} LIMIT
+		#{count} OFFSET (#{page}-1) * #{count} 
 	</select>
 
 	<select id="getAllPost"
 		resultType="org.sweeter.application.model.dto.Post">
-		SELECT * FROM post
+		SELECT id,title,writer,FORMATDATETIME(writedate,'yyyy-MM-dd
+		HH:mm') as writeDate,FORMATDATETIME(modifydate,'yyyy-MM-dd HH:mm') as
+		modifyDate,content,category,count FROM post where category = 2
 	</select>
 
+	<select id="getAllItNews"
+		resultType="org.sweeter.application.model.dto.Post">
+		SELECT id,title,writer,FORMATDATETIME(writedate,'yyyy-MM-dd
+		HH:mm') as writeDate,FORMATDATETIME(modifydate,'yyyy-MM-dd HH:mm') as
+		modifyDate,content,category,count FROM post where category = 1
+	</select>
+
+	<!-- READ -->
 	<select id="getPostById"
 		resultType="org.sweeter.application.model.dto.Post">
-		SELECT * FROM post WHERE id = #{id}
+		SELECT id,title,writer,FORMATDATETIME(writedate,'yyyy-MM-dd
+		HH:mm') as writeDate,FORMATDATETIME(modifydate,'yyyy-MM-dd HH:mm') as
+		modifyDate,content,category,count FROM post WHERE id = #{id}
 	</select>
 
-	<!-- UPDATE -->
-	<update id="updatePost" parameterType="org.sweeter.application.model.dto.Post">
-		UPDATE Post set title=#{title} ,writer = #{writer}, modifyDate=#{modifyDate}, content=#{content}, category = #{category} where id=#{id}
-	</update>
-
-	<!-- DELETE -->
-	<delete id="deletePost" parameterType="org.sweeter.application.model.dto.Post">
-		DELETE from member where id= ${id}
-	</delete>
-	
-<!-- 	조회수 -->
-	<update id="countPost" parameterType="org.sweeter.application.model.dto.Post">
-		UPDATE Post set count=count+1 where count=#{count}
-	</update>
-	
+	<select id="getItNewsList"
+		resultType="org.sweeter.application.model.dto.Post">
+		SELECT id,title,writer,FORMATDATETIME(writedate,'yyyy-MM-dd
+		HH:mm') as writeDate,FORMATDATETIME(modifydate,'yyyy-MM-dd HH:mm') as
+		modifyDate,content,category,count FROM post WHERE category =
+		#{category} LIMIT
+		#{count} OFFSET (#{page}-1) * #{count}
+	</select>
 </mapper>

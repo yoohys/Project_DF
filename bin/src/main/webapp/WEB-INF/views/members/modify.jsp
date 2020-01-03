@@ -14,7 +14,6 @@
 
 		<%
 			Member member = (Member) session.getAttribute("user");
-			
 		%>
 		<div class="container-fluid" style="margin-top: 80px;">
 			<form action="#" method="post" class="was-validated">
@@ -55,17 +54,16 @@
 
 				<button type="submit" class="btn btn-primary">Modify
 					Account</button>
-				<a class="btn btn-danger" href="/members/secession?id=<%=member.getId()%>">Delete Account</a>
+				<a class="btn btn-danger"
+					href="/members/secession?id=<%=member.getId()%>">Delete Account</a>
 			</form>
 		</div>
 	</div>
-	<script src="/resources/js/modify.js"></script>
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="/resources/js/members/modify.js"></script>
 	<script>
-		$('button[type="submit"]').on("click", function(e) {
-			e.preventDefault();
-			modify();
-
-		});
+		
 	</script>
 </body>
 </html>

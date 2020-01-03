@@ -61,3 +61,24 @@
 			}
 		});
 	});
+	$(document).ready(function() {
+		$.ajax({
+			url : '/job/all',
+			type : 'get',
+			dataType : "json",
+			success : function(response) {
+				console.log(response);
+				for(var i = 0; i < 5; i++){
+					$('#jobBoard tbody').append
+					('<tr><td><a href="/job/' + response[i].id 
+							+ '">' + response[i].title +'</a></td></tr>');
+				}
+			},
+			fail : function(error) {
+				alert('???');
+			},
+			always : function(response) {
+				console.log("call always()");
+			}
+		});
+	});

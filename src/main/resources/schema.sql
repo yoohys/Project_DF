@@ -49,18 +49,19 @@ CREATE TABLE jobs(
     id INTEGER AUTO_INCREMENT PRIMARY KEY,
     title VARCHAR2(40),
     writer VARCHAR2(40),
-    writedate DATE DEFAULT sysdate,
-    modifydate DATE DEFAULT sysdate,
+    writedate DATETIME DEFAULT sysdate,
+    modifydate DATETIME DEFAULT sysdate,
     salary VARCHAR2(40),
     career VARCHAR2(40),
     content VARCHAR2(1000),
+    count NUMBER(5,0),
     FOREIGN KEY (writer) REFERENCES member(id) ON DELETE SET NULL
 );
 
 CREATE TABLE question(
     id INTEGER AUTO_INCREMENT PRIMARY KEY,
     title VARCHAR2(40),
-    writer VARCHAR2(40) DEFAULT sysdate,
+    writer VARCHAR2(40),
     writedate DATETIME DEFAULT sysdate,
     modifydate DATETIME DEFAULT sysdate,
     content VARCHAR2(1000),

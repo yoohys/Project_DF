@@ -13,4 +13,25 @@
 	}
 }
 
-a {text-decoration: none}
+div>div>div>a{
+	color:mediumblue;
+	background-color: lightgray;
+}
+
+div>div>div>table>tbody>tr>td>a {
+	color:black;
+}
+
+
+img {
+	transition: transform 1s;
+}
+
+img:hover {
+	transform: rotate(180deg);
+}
+
+#else{
+		color:mediumblue;
+	
+}
