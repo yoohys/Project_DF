@@ -6,9 +6,13 @@
 ### 프로젝트 환경
 
 빌드 도구 - Maven
+
 DB - H2DB
+
 Backend - Spring Boot
+
 Frontend - thymeleaf, javascript
+
 협업 도구 - github
 
 그외 - myBatis, Ajax, Jquery, Datatables
