@@ -11,7 +11,7 @@ DB - H2DB
 
 Backend - Spring Boot
 
-Frontend - thymeleaf, javascript
+Frontend - JSP, javascript
 
 협업 도구 - github
 
